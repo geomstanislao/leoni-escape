@@ -212,6 +212,7 @@ button:focus-visible,button.kfocus{outline:.22rem solid var(--gold);outline-offs
 .epcard.lva{border-color:#3f6f73;background:linear-gradient(160deg,#1f2a2b,var(--panel) 70%)}
 .epcard.lva .ept{color:#9fd3d6}
 .epcard.lvk{border-color:#8a6d2a;background:linear-gradient(160deg,#33281a,var(--panel) 70%)}.epcard.lvk .ept{color:#ffd98a}
+.epcard.sp .ept{color:#ff9f6e!important}.epcard.sp .epn::after{content:" · SPECIALE";color:#ff9f6e}
 </style>
 
 </head>
@@ -259,7 +260,7 @@ button:focus-visible,button.kfocus{outline:.22rem solid var(--gold);outline-offs
     <div class="row">
       <button class="bigbtn alt" id="btnDiary2" type="button">Il Diario di Leo</button>
       <button class="bigbtn alt" id="btnRules2" type="button">Come si gioca</button>
-      <button class="bigbtn alt fsbtn" id="btnFs2" type="button">Schermo intero</button>
+      <button class="bigbtn alt" id="btnTv" type="button">Schermo intero e TV</button>
     </div>
   </div>
 </div>
@@ -331,6 +332,30 @@ button:focus-visible,button.kfocus{outline:.22rem solid var(--gold);outline-offs
     <h3>Il Diario di Leo</h3>
     <p>Durante il gioco scoprite le «tessere della storia»: fatti veri su Veneti, Romani e Venezia. Restano nel diario per sempre.</p>
     <div class="row"><button class="bigbtn" id="btnRulesClose" type="button">Ho capito</button></div>
+  </div>
+</div>
+
+<div class="ov" id="ovTv" hidden>
+  <div class="sheet">
+    <h2>Schermo intero e TV</h2>
+    <p>Il gioco è fatto per essere guardato tutti insieme su un grande schermo. Scegliete il modo che fa per voi.</p>
+    <h3>1. Schermo intero</h3>
+    <p>Premete il pulsante qui sotto: spariscono le barre del browser. Se avete installato l'app sul telefono, è già a schermo intero.</p>
+    <div class="row"><button class="bigbtn fsbtn" id="btnFs2" type="button">Schermo intero</button></div>
+    <h3>2. Smart TV con browser</h3>
+    <ul>
+      <li>Aprite il browser della TV (Internet, Chrome, Silk…) e scrivete l'indirizzo: <b>geomstanislao.github.io/leoni-escape</b></li>
+      <li>Si gioca con il telecomando: frecce per muoversi, OK per scegliere, Indietro per chiudere. I numeri si possono scrivere con i tasti numerici.</li>
+    </ul>
+    <h3>3. Dal telefono alla TV (trasmissione dello schermo)</h3>
+    <ul>
+      <li><b>Android + Chromecast o Google TV:</b> aprite il gioco in Chrome, menu ⋮ → <i>Trasmetti…</i> → scegliete la TV. Oppure, dalle impostazioni rapide (tendina dall'alto): <i>Trasmetti schermo</i> / <i>Smart View</i> (Samsung).</li>
+      <li><b>iPhone o iPad:</b> Centro di Controllo → <i>Duplica schermo</i> → Apple TV o TV compatibile AirPlay.</li>
+      <li>Girate il telefono in orizzontale e premete «Schermo intero»: si gioca toccando il telefono e tutti guardano la TV.</li>
+    </ul>
+    <h3>4. Con un cavo</h3>
+    <p>Collegate un computer alla TV con un cavo HDMI, aprite il gioco e premete «Schermo intero» (o il tasto F11).</p>
+    <div class="row"><button class="bigbtn alt" id="btnTvClose" type="button">Chiudi</button></div>
   </div>
 </div>
 
@@ -527,7 +552,7 @@ button:focus-visible,button.kfocus{outline:.22rem solid var(--gold);outline-offs
       var st=G.eps[e.id],best=G.best[e.id];
       var tag=best!=null?'<span class="tag '+medalCls(best)+'">'+medalOf(best)+'</span>':(st&&st.started&&!st.won?'<span class="tag go">In corso</span>':'<span class="tag new">Da giocare</span>');
       var nt=Object.keys(e.tessere).length,got=Object.keys(e.tessere).filter(function(k){return G.tess[e.id+':'+k];}).length;
-      h+='<button type="button" class="epcard lv'+e.level+'" data-ep="'+e.id+'"><span class="epn">'+lab(e)+'</span><span class="ept">'+e.title+'</span><span class="epp">'+e.place+'</span><span class="epf">'+tag+'<span class="tcount">Tessere '+got+'/'+nt+'</span></span></button>';
+      h+='<button type="button" class="epcard lv'+e.level+(/^a\d/.test(e.id)?' sp':'')+'" data-ep="'+e.id+'"><span class="epn">'+lab(e)+'</span><span class="ept">'+e.title+'</span><span class="epp">'+e.place+'</span><span class="epf">'+tag+'<span class="tcount">Tessere '+got+'/'+nt+'</span></span></button>';
     });
     $('eplist').innerHTML=h;
   }
@@ -579,7 +604,7 @@ button:focus-visible,button.kfocus{outline:.22rem solid var(--gold);outline-offs
   }
 
   /* ---------- overlays ---------- */
-  var OVS=['ovStart','ovEp','ovZoom','ovHint','ovDiary','ovRules','ovWin'];
+  var OVS=['ovStart','ovEp','ovZoom','ovHint','ovDiary','ovRules','ovTv','ovWin'];
   function topOv(){for(var i=OVS.length-1;i>=0;i--){if(!$(OVS[i]).hidden)return $(OVS[i]);}return null;}
   function show(id){
     if(!topOv())lastFocus=document.activeElement;
@@ -656,6 +681,8 @@ button:focus-visible,button.kfocus{outline:.22rem solid var(--gold);outline-offs
       case 'btnNext':var nx=nextOf(E);if(nx){goMenu();openEp(nx.id);}break;
       case 'tab_k':case 'tab_f':case 'tab_a':menuLevel=b.id.slice(4);drawMenu();break;
       case 'btnFs':case 'btnFs2':toggleFs();break;
+      case 'btnTv':show('ovTv');break;
+      case 'btnTvClose':hide('ovTv');break;
     }
   });
 
