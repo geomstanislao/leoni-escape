@@ -1,0 +1,147 @@
+{
+ "base": "ep4",
+ "level": "a",
+ "title": "Il primo Doge",
+ "place": "Eraclea e Malamocco, anni 697–811",
+ "intro": "Dalle prime cronache veneziane alla fuga a Rialto: come la laguna bizantina scelse un capo, resistette ai Franchi e fondò la sua capitale. Versione con più storia vera e indizi meno espliciti.",
+ "text": {
+  "1": "Eraclea, anno 697. La laguna fa parte dei domini bizantini e dodici tribuni, capi delle comunità lagunari, si contendono il potere. Secondo le cronache oggi si sceglie un capo unico, un dux: il doge. Prendete le carte **2**, **3** e **4**.",
+  "2": "L'assemblea di Eraclea, la «Civitas Nova» intitolata all'imperatore bizantino Eraclio. Ogni elettore depone un sassolino nel cesto del suo candidato, riconoscibile dal nastro. Ma qualcuno ha portato via dei sassolini… Guardate bene il disegno.",
+  "3": "«Siamo in dodici. Per eleggere un capo unico serve la maggioranza assoluta: più della metà dei voti. Becco ha portato via dei sassolini: finché non tornano nei cesti giusti l'elezione non è valida.»",
+  "11": "Appunti di Sofia: «Doge viene dal latino dux, «comandante»: nell'impero bizantino il dux governava un territorio di confine. Il doge veneziano fu poi eletto a vita. Tra 697 e 1797 le liste ne contano 120.»",
+  "6": "Dodici tribuni, dodici sassolini: ciascuno ne ha deposto uno nel cesto del candidato, ma Becco ne ha rubati alcuni e li ha portati nel nido. Restituite ogni sassolino al cesto del suo colore: vince chi ottiene la maggioranza assoluta. Il numero del suo cesto è la carta.",
+  "24": "4 sassolini blu + i 3 rubati da Becco = 7 su 12: maggioranza assoluta! Per le cronache (Giovanni Diacono, Andrea Dandolo) il primo doge fu Paoluccio Anafesto. Molti storici dubitano che il titolo sia nato così. Leo: «Salto nel tempo: anno 810!» Prendete la carta **30**.",
+  "30": "Malamocco, sul Lido, è la capitale del ducato. All'orizzonte la flotta di Pipino, re d'Italia e figlio di Carlo Magno: i Franchi vogliono sottomettere la laguna, ancora bizantina. Guardate bene il disegno.",
+  "33": "«La leggenda dice che indicherò ai Franchi la via più breve verso Rialto, tra i bassi fondali. Ma devo scegliere il momento giusto: studiate la marea (carta **35**).»",
+  "35": "In laguna le maree sono semidiurne: due alte e due basse ogni giorno, e fra un'alta e la bassa successiva passano poco più di sei ore. L'alta marea è alle 6 del mattino. A che ora, arrotondando all'ora, sarà la bassa? L'ora è la carta da prendere.",
+  "12": "A mezzogiorno l'acqua è bassissima e le grandi navi franche si incagliano sui fondali. Lo racconta l'imperatore bizantino Costantino VII Porfirogenito, nel X secolo: i Veneziani si ritirarono a Rialto e i Franchi non poterono raggiungerli. Servono mezzi leggeri.",
+  "36": "Una barca lunga e piatta, tipica della laguna: pesca poco acqua e passa dove le navi grandi si incagliano. Ma senza remo non va da nessuna parte.",
+  "43": "Con il remo magico la barca piatta scivola sull'acqua bassa fino alle isole di Rialto (da «Rivus Altus», la riva alta). I Franchi restano bloccati. Ma Becco ha mescolato i cartelli delle capitali! Prendete la carta **40**.",
+  "40": "Becco ha mescolato i cartelli: Eraclea, Malamocco, Rialto. Dopo la fallita impresa franca del 810 il nuovo doge, Agnello Participazio, porta il governo a Rialto. In che anno? L'anno è la carta da prendere.",
+  "811": "Giusto: 811! Agnello Participazio, eletto dopo la caduta del filofranco Obelerio, sceglie Rialto: più sicura, protetta dai fondali. Nel 812 la pace di Aquisgrana riconosce la laguna all'impero bizantino. La sua casa diventa il primo Palazzo Ducale: da qui crescerà Venezia."
+ },
+ "tess": {
+  "2": "eraclea",
+  "11": "doge",
+  "24": "anafesto",
+  "30": "pipino",
+  "35": "marea",
+  "40": "capitali",
+  "811": "rialto"
+ },
+ "tessere": {
+  "eraclea": [
+   "Eraclea",
+   "Civitas Nova Heracliana prese il nome dall'imperatore bizantino Eraclio (610-641). La laguna dipendeva allora da Bisanzio, tramite l'esarca di Ravenna. Le cronache situano qui l'elezione del primo doge nel 697; la città decadde poi nei secoli seguenti."
+  ],
+  "doge": [
+   "Il doge",
+   "Dux, «comandante» in latino: era un titolo militare bizantino. Il doge veneziano divenne un capo eletto a vita, scelto dall'assemblea del popolo e poi, dal 1172, da un collegio di elettori legato al Maggior Consiglio. L'ultimo, il 120°, fu Ludovico Manin: abdicò nel 1797."
+  ],
+  "anafesto": [
+   "Il primo doge",
+   "Secondo le cronache di Giovanni Diacono (intorno al Mille) e di Andrea Dandolo (XIV secolo) il primo doge fu Paoluccio Anafesto, nel 697. Il primo doge sicuramente documentato è Orso Ipato, eletto intorno al 726: «ipato» è un titolo di corte bizantino."
+  ],
+  "pipino": [
+   "L'assedio dell'810",
+   "Pipino, re d'Italia e figlio di Carlo Magno, attaccò la laguna nell'810. L'imperatore Costantino VII Porfirogenito (X secolo) ricorda che i Veneziani si ritirarono a Rialto e che le navi franche non riuscirono a passare i bassi fondali. Pipino morì quello stesso anno; la leggenda della vecchietta è una tradizione tarda."
+  ],
+  "marea": [
+   "Le maree",
+   "Nell'alto Adriatico la marea è semidiurna: tra alta e bassa passano circa 6 ore e 12 minuti, con escursioni fino a un metro circa. Il 4 novembre 1966 l'acqua alta raggiunse 194 cm sul livello medio del mare: il record di Venezia."
+  ],
+  "capitali": [
+   "Le capitali",
+   "Il governo del ducato si spostò da Eraclea a Malamocco, intorno al 742 (sotto il doge Deusdedit, figlio di Orso), e infine a Rialto nell'811. Le sedi più interne erano più protette dalle incursioni dal mare."
+  ],
+  "rialto": [
+   "Rialto e il Palazzo",
+   "Nell'811 Agnello Participazio trasferì la sede a Rialto («Rivus Altus»). Nell'812 la pace di Aquisgrana tra Carlo Magno e Bisanzio lasciò Venezia nell'orbita bizantina. Il Palazzo Ducale attuale, gotico, è però del XIV-XV secolo."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    6
+   ],
+   "t": "L'assemblea",
+   "h": [
+    "Nel disegno c'è un solo cerchietto dorato.",
+    "Si trova sui cesti dei sassolini.",
+    "Carta 6."
+   ]
+  },
+  {
+   "done": [
+    24
+   ],
+   "t": "I sassolini",
+   "h": [
+    "Dodici tribuni, dodici sassolini: contate tutti i colori.",
+    "I sassolini del nido sono tutti dello stesso colore: tornano al cesto di quel colore.",
+    "4 + 3 = 7, maggioranza assoluta: cesto 24."
+   ]
+  },
+  {
+   "done": [
+    33
+   ],
+   "t": "Malamocco",
+   "h": [
+    "Nel disegno ci sono due numeri nascosti.",
+    "Uno è su una persona, l'altro su una barca.",
+    "Carte 33 e 36."
+   ]
+  },
+  {
+   "done": [
+    12
+   ],
+   "t": "La marea",
+   "h": [
+    "Il ciclo della marea dura circa 12 ore e mezza: tra alta e bassa ne passa circa la metà.",
+    "Aggiungete circa 6 ore alle 6 del mattino.",
+    "6 + 6 = 12: carta 12."
+   ]
+  },
+  {
+   "done": [
+    43
+   ],
+   "t": "Verso Rialto",
+   "h": [
+    "La barca piatta non è completa.",
+    "Combinate un oggetto rosso con un oggetto blu.",
+    "Remo (7) + barca piatta (36) = carta 43."
+   ]
+  },
+  {
+   "done": [
+    811
+   ],
+   "t": "Le tre capitali",
+   "h": [
+    "L'assedio è del 810; la capitale cambia subito dopo.",
+    "Cercate il cartello di Rialto.",
+    "L'anno è 811: carta 811."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  7,
+  11,
+  6,
+  24,
+  30,
+  33,
+  36,
+  35,
+  12,
+  "C7+36",
+  40,
+  811
+ ]
+}

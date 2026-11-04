@@ -1,0 +1,120 @@
+{
+ "base": "ep5",
+ "level": "k",
+ "title": "Il furto di San Marco",
+ "place": "Alessandria d'Egitto e Venezia, tanto tempo fa",
+ "intro": "Due mercanti di Venezia vogliono portare a casa San Marco. Come passare i controlli del porto? Versione facile, per i più piccoli.",
+ "text": {
+  "1": "Alessandria d'Egitto, tanto tempo fa. Due mercanti di Venezia vogliono portare a casa San Marco, un santo molto amato. Prendete le carte **2**, **3** e **4**.",
+  "2": "Il grande porto di Alessandria, pieno di navi. Cercate i due cerchietti dorati: uno è su una cesta, l'altro su una bancarella.",
+  "3": "«Le guardie del porto guardano dentro ogni cesta. Se trovano il santo, non ci fanno partire. Ci serve un'idea!»",
+  "11": "«Le guardie non toccavano la carne di maiale: per la loro religione era vietata. Stavano lontane!»",
+  "13": "Mettete San Marco nella cesta e copritelo con la carne di maiale. Le guardie non la toccheranno! Ora cercate la nave giusta: carta **23**.",
+  "23": "Buono: «La nostra nave ha DUE alberi e le vele a STRISCE bianche e rosse, senza lanterna verde.» Trovate la nave uguale. Il numero sotto la nave è la carta da prendere.",
+  "34": "Le guardie vedono la carne, si tappano il naso e lasciano passare! Si parte per Venezia. Ma chi c'è sull'albero? Prendete la carta **40**.",
+  "40": "«Che buon profumo di prosciutto! Questa cesta me la mangio io!» Becco vuole aprirla. Dategli qualcosa di buono: usate «Combina» con il panino di Toni.",
+  "52": "«Formaggio! Il mio preferito!» Becco si dimentica della cesta. La nave arriva a Venezia: prendete la carta **60**.",
+  "60": "Grande festa a Venezia! Il doge accoglie San Marco. Leo vi guarda con un sorriso misterioso… Prendete la carta **61**.",
+  "61": "Ogni evangelista ha un simbolo: Matteo l'angelo, Luca il bue, Giovanni l'aquila. Marco ha un animale con le ali e la criniera, come Leo! Il numero è la carta da prendere.",
+  "74": "È il leone alato! È il simbolo di San Marco e di Venezia. Leo: «Ecco chi sono: un cucciolo del Leone di San Marco!»"
+ },
+ "tess": {
+  "2": "alessandria",
+  "34": "maiale",
+  "60": "reliquie",
+  "74": "leone"
+ },
+ "tessere": {
+  "alessandria": [
+   "Alessandria d'Egitto",
+   "Alessandria era un grande porto, dove i mercanti compravano spezie e stoffe."
+  ],
+  "maiale": [
+   "Il trucco",
+   "Per passare i controlli, i mercanti nascosero San Marco sotto la carne di maiale."
+  ],
+  "reliquie": [
+   "San Marco a Venezia",
+   "A Venezia fu costruita una chiesa per San Marco: è l'inizio della Basilica."
+  ],
+  "leone": [
+   "Il leone alato",
+   "Il leone con le ali è il simbolo di San Marco e di Venezia."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    5,
+    8
+   ],
+   "t": "Il porto",
+   "h": [
+    "Nel disegno del porto ci sono due numeri nascosti.",
+    "Uno è sulla cesta, l'altro sulla bancarella della carne.",
+    "Carte 5 e 8."
+   ]
+  },
+  {
+   "done": [
+    13
+   ],
+   "t": "Il nascondiglio",
+   "h": [
+    "Le guardie non toccano il maiale (carta 11).",
+    "Combinate la cesta con la carne di maiale.",
+    "Cesta (5) + carne (8) = carta 13."
+   ]
+  },
+  {
+   "done": [
+    34
+   ],
+   "t": "La nave giusta",
+   "h": [
+    "Cercate una nave con DUE alberi.",
+    "Le vele sono a strisce e non c'è la lanterna verde.",
+    "È la nave 34."
+   ]
+  },
+  {
+   "done": [
+    52
+   ],
+   "t": "Becco sulla nave",
+   "h": [
+    "Becco adora il formaggio.",
+    "Combinate il panino di Toni con Becco.",
+    "Panino (12) + Becco (40) = carta 52."
+   ]
+  },
+  {
+   "done": [
+    74
+   ],
+   "t": "Il simbolo di Marco",
+   "h": [
+    "Pensate a Leo: è un cucciolo di leone con le ali.",
+    "Il simbolo è un leone con le ali.",
+    "Il leone alato: carta 74."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  11,
+  12,
+  5,
+  8,
+  "C5+8",
+  23,
+  34,
+  40,
+  "C12+40",
+  60,
+  61,
+  74
+ ]
+}

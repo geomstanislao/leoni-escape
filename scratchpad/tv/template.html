@@ -1,0 +1,549 @@
+<title>Leoni di Laguna Escape TV</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap">
+<style>
+/* Layout: a night-time sanctuary table — the cards you found lie on the left, Leo's number keypad sits on the right, read from the sofa at TV distance. */
+:root{
+  --night:#1c130e;      /* sanctuary at night */
+  --panel:#2a1c14;      /* wooden panel */
+  --panel-2:#3a271b;
+  --gold:#f4c64e;       /* Leo's gold */
+  --ember:#e2573a;      /* torch flame */
+  --parch:#fdf8ee;      /* card paper */
+  --ink:#2a1a10;
+  --muted:#d9c6a5;
+  --lagoon:#7fc4b6;     /* blue objects */
+  --wrong:#b9bcc2;
+  --display:'Bangers','Impact','Arial Narrow',sans-serif;
+  --body:'Comic Neue','Comic Sans MS','Trebuchet MS',sans-serif;
+  --s:.62;              /* card thumbnail scale */
+  color-scheme:dark;
+  font-size:clamp(15px,1.05vw,30px);
+}
+[hidden]{display:none!important}
+html,body{height:100%;overflow:hidden}
+body{margin:0}
+body{background:var(--night);color:var(--parch);font-family:var(--body);font-weight:700}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus{outline:none}
+button:focus-visible,button.kfocus{outline:.22rem solid var(--gold);outline-offset:.18rem;box-shadow:0 0 0 .5rem rgba(244,198,78,.25)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.app{height:100%;display:flex;flex-direction:column;padding-block:.8rem;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));box-sizing:border-box;gap:.8rem}
+.top{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+.brand{font-family:var(--display);font-size:2.1rem;letter-spacing:.06em;color:var(--gold);line-height:1;-webkit-text-stroke:1px #000}
+.brand small{display:block;font-family:var(--body);font-size:.8rem;letter-spacing:.04em;color:var(--muted);-webkit-text-stroke:0}
+.feathers{display:flex;gap:.25rem;align-items:center;margin-left:auto}
+.feathers svg{width:1.55rem;height:1.55rem;transition:transform .3s,opacity .3s}
+.feathers svg.lost{opacity:.22;transform:rotate(25deg) scale(.85);filter:grayscale(1)}
+.feathers.flash{animation:shake .5s}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.clock{font-variant-numeric:tabular-nums;color:var(--muted);font-size:1rem;min-width:3.6rem;text-align:right}
+.tbtn{background:var(--panel-2);border:.12rem solid #5b4130;border-radius:.6rem;padding:.45rem .9rem;font-size:1rem}
+.tbtn.leo{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+
+.main{flex:1;display:flex;gap:1rem;min-height:0}
+.table{flex:1 1 auto;min-width:0;min-height:0;display:flex;flex-direction:column;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,#3d2a1d 0%,var(--panel) 60%);border:.15rem solid #4a3424;border-radius:1rem;padding:1rem;box-sizing:border-box}
+.table h2{margin:0 0 .6rem;font-family:var(--display);font-weight:400;letter-spacing:.05em;font-size:1.5rem;color:var(--muted)}
+.cards{flex:1;min-height:0;display:flex;flex-wrap:wrap;align-content:flex-start;gap:.9rem;padding:.4rem;overflow:hidden}
+.thumb{position:relative;width:calc(238px * var(--s));height:calc(333px * var(--s));padding:0;border:0;background:none;border-radius:10px;flex:none}
+.thumb .scale{position:absolute;left:0;top:0;width:238px;height:333px;transform:scale(var(--s));transform-origin:0 0;pointer-events:none;color:initial;font-weight:initial;text-align:left}
+.thumb.sel{outline:.3rem solid var(--lagoon);outline-offset:.2rem}
+.thumb.pickable::after{content:"";position:absolute;inset:-.35rem;border:.2rem dashed var(--gold);border-radius:14px;pointer-events:none}
+.thumb.newc{animation:drop .5s ease-out}
+@keyframes drop{from{transform:translateY(-1.2rem) rotate(-4deg);opacity:0}}
+.empty{color:var(--muted);font-size:1.1rem;padding:2rem 0}
+
+.side{flex:0 0 clamp(17rem,30vw,32rem);display:flex;flex-direction:column;gap:.8rem;min-width:0;min-height:0}
+.leobox{background:var(--parch);color:var(--ink);border-radius:1rem;padding:.9rem 1.1rem;position:relative;font-size:1.15rem;line-height:1.3;border:.15rem solid #000}
+.leobox b.who{display:block;font-family:var(--display);font-weight:400;letter-spacing:.05em;color:#a8322a;font-size:1.25rem}
+.leobox.bad{background:#f6d9d2}
+.entry{background:var(--panel);border:.15rem solid #4a3424;border-radius:1rem;padding:.9rem;display:flex;flex-direction:column;gap:.7rem}
+.display{display:flex;align-items:center;justify-content:space-between;background:#120c08;border-radius:.7rem;padding:.4rem 1rem}
+.display span{color:var(--muted);font-size:1.1rem}
+.display output{font-family:var(--display);font-size:3.2rem;letter-spacing:.08em;color:var(--gold);font-variant-numeric:tabular-nums;min-width:4ch;text-align:right;line-height:1.1}
+.pad{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.key{background:var(--panel-2);border:.12rem solid #5b4130;border-radius:.7rem;font-size:1.8rem;padding:.35rem 0;font-family:var(--display);letter-spacing:.05em}
+.key.ok{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.key[data-k="0"]{order:2}.key[data-k="del"]{order:1}.key.ok{order:3}
+.combine{background:transparent;border:.15rem dashed var(--lagoon);color:var(--lagoon);border-radius:.7rem;padding:.6rem;font-size:1.1rem}
+.combine.on{background:var(--lagoon);color:var(--ink);border-style:solid}
+.howto{color:var(--muted);font-size:.85rem;line-height:1.35;margin:0}
+
+/* portrait phones: table on top, keypad below */
+@media (max-aspect-ratio:1/1){
+  .main{flex-direction:column;gap:.5rem}.side{flex:none;gap:.4rem}.howto{display:none}
+  .brand small{display:none}.top{gap:.4rem}.tbtn{padding:.3rem .5rem;font-size:.85rem}.feathers svg{width:1.1rem;height:1.1rem}
+  .leobox{padding:.35rem .6rem;font-size:.95rem}.entry{padding:.45rem;gap:.4rem}
+  .display output{font-size:2rem}.pad{grid-template-columns:repeat(5,1fr);gap:.3rem}
+  .key{font-size:1.4rem;padding:.2rem 0}
+  .key[data-k="0"],.key[data-k="del"],.key.ok{order:0}.key[data-k="del"]{grid-column:span 2}.key.ok{grid-column:span 3}
+  .combine{padding:.35rem;font-size:.9rem}.table h2{font-size:1rem;margin:0}.table{padding:.4rem}
+}
+/* short screens (phone in landscape): everything compact so nothing scrolls */
+@media (max-height:600px){
+  :root{font-size:13px}
+  .app{padding-block:.35rem;gap:.4rem}
+  .top{gap:.5rem;flex-wrap:nowrap}
+  .brand{font-size:1.35rem;white-space:nowrap}.brand small{display:none}
+  .feathers{gap:.1rem}.feathers svg{width:1.1rem;height:1.1rem}
+  .clock{font-size:.85rem;min-width:2.8rem}
+  .tbtn{padding:.3rem .55rem;font-size:.85rem;white-space:nowrap}
+  .main{gap:.5rem}
+  .table{padding:.4rem .5rem;border-radius:.7rem}
+  .table h2{font-size:1rem;margin:0}
+  .cards{gap:.5rem;padding:.3rem}
+  .side{gap:.4rem;flex-basis:clamp(15rem,34vw,24rem)}
+  .leobox{padding:.35rem .6rem;font-size:.9rem;line-height:1.2;border-radius:.7rem}
+  .leobox b.who{font-size:.95rem}
+  .entry{padding:.45rem;gap:.4rem;border-radius:.7rem}
+  .display{padding:.15rem .6rem}.display span{font-size:.85rem}.display output{font-size:1.9rem}
+  .pad{grid-template-columns:repeat(5,1fr);gap:.3rem}
+  .key{font-size:1.3rem;padding:.15rem 0;border-radius:.5rem}
+  .entry{flex:1;min-height:0}.pad{flex:1;grid-auto-rows:1fr}
+  .key[data-k="0"],.key[data-k="del"],.key.ok{order:0}
+  .key[data-k="del"]{grid-column:span 2}.key.ok{grid-column:span 3}
+  .combine{padding:.3rem;font-size:.85rem}
+  .howto{display:none}
+  .zoom{gap:1rem;flex-wrap:nowrap}
+  .zside{gap:.45rem}
+  .banner{font-size:1.7rem}.zside p{font-size:.9rem}
+  .bigbtn{padding:.45rem .8rem;font-size:1rem}
+}
+
+/* overlays */
+.ov{position:fixed;inset:0;z-index:20;background:rgba(14,9,6,.96);display:flex;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));box-sizing:border-box;overflow:auto}
+.ov>*{margin:auto}
+#ovStart,#ovWin{background:var(--night)}
+.zoom{display:flex;gap:2rem;align-items:center;flex-wrap:wrap;justify-content:center}
+.zcard{position:relative;flex:none}
+.zcard .scale{position:absolute;left:0;top:0;width:238px;height:333px;transform-origin:0 0;color:initial;font-weight:initial;text-align:left}
+.zside{display:flex;flex-direction:column;gap:.8rem;max-width:22rem;min-width:0}
+.banner{font-family:var(--display);font-weight:400;font-size:2.4rem;letter-spacing:.05em;line-height:1}
+.banner.bad{color:var(--ember)}
+.banner.good{color:var(--gold)}
+.zside p{margin:0;color:var(--muted);font-size:1.1rem;line-height:1.35}
+.bigbtn{background:var(--gold);color:var(--ink);border:0;border-radius:.8rem;padding:.8rem 1.2rem;font-size:1.3rem;text-align:left}
+.bigbtn.alt{background:var(--panel-2);color:var(--parch);border:.12rem solid #5b4130}
+.bigbtn:disabled{opacity:.4;cursor:default}
+
+.sheet{background:var(--parch);color:var(--ink);border-radius:1.2rem;padding:1.6rem 2rem;max-width:52rem;width:100%;box-sizing:border-box;border:.2rem solid #000;max-height:100%;overflow:auto}
+.sheet h2{font-family:var(--display);font-weight:400;font-size:2.6rem;letter-spacing:.04em;margin:0 0 .3rem;color:#a8322a;text-wrap:balance}
+.sheet h3{font-family:var(--display);font-weight:400;font-size:1.5rem;letter-spacing:.04em;margin:1rem 0 .3rem;color:#7a3e1d}
+.sheet p,.sheet li{font-size:1.1rem;line-height:1.4;max-width:65ch}
+.sheet ul{padding-left:1.3rem;margin:.3rem 0}
+.sheet .row{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.2rem}
+.sheet .bigbtn.alt{background:#efe2c8;color:var(--ink);border-color:#c9a06a}
+.hintlist{display:flex;flex-direction:column;gap:.6rem;margin:.8rem 0}
+.hint{background:#fbe7a6;border:.12rem solid #3b2416;border-radius:.7rem;padding:.6rem .9rem;font-size:1.15rem}
+.hint b{color:#a8322a}
+
+.start{text-align:center;display:flex;flex-direction:column;align-items:center;gap:clamp(.4rem,2vh,1rem);max-width:60rem}
+.start h1{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,min(7vw,13vh),7rem);letter-spacing:.06em;line-height:.9;margin:0;color:var(--gold);-webkit-text-stroke:2px #000;text-shadow:0 .3rem 0 #7a3e1d;text-wrap:balance}
+.start .sub{font-family:var(--display);font-size:clamp(1.2rem,5vh,2rem);letter-spacing:.06em;color:var(--parch)}
+.start p{font-size:clamp(.95rem,3.6vh,1.25rem);line-height:1.45;color:var(--muted);max-width:46rem;margin:0}
+.start .row{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+.medal{font-family:var(--display);font-size:clamp(2.6rem,6vw,5.5rem);letter-spacing:.05em;line-height:1;color:var(--gold);-webkit-text-stroke:2px #000}
+</style>
+
+<div class="app" id="app">
+  <header class="top">
+    <div class="brand">LEONI DI LAGUNA <small>Escape · Il cavallino d'oro</small></div>
+    <div class="feathers" id="feathers" aria-label="Piume rimaste"></div>
+    <div class="clock" id="clock" aria-label="Tempo di gioco">00:00</div>
+    <button class="tbtn leo" id="btnHint" type="button">Aiuto di Leo</button>
+    <button class="tbtn" id="btnRules" type="button">Regole</button>
+    <button class="tbtn fsbtn" id="btnFs" type="button">Schermo intero</button>
+  </header>
+  <main class="main">
+    <section class="table" aria-label="Il tavolo">
+      <h2>Le carte sul tavolo</h2>
+      <div class="cards" id="cards"></div>
+    </section>
+    <aside class="side">
+      <div class="leobox" id="leobox" aria-live="polite"><b class="who">Leo dice</b><span id="leotext">Pax tibi! Premete «Nuova partita» per cominciare.</span></div>
+      <div class="entry">
+        <div class="display"><span>Prendi la carta n.</span><output id="num" aria-live="polite">_ _</output></div>
+        <div class="pad" id="pad">
+          <button class="key" type="button" data-k="1">1</button><button class="key" type="button" data-k="2">2</button><button class="key" type="button" data-k="3">3</button><button class="key" type="button" data-k="4">4</button><button class="key" type="button" data-k="5">5</button><button class="key" type="button" data-k="6">6</button><button class="key" type="button" data-k="7">7</button><button class="key" type="button" data-k="8">8</button><button class="key" type="button" data-k="9">9</button><button class="key" type="button" data-k="0">0</button><button class="key" type="button" data-k="del" aria-label="Cancella">⌫</button><button class="key ok" type="button" data-k="ok">OK</button>
+        </div>
+        <button class="combine" id="btnCombine" type="button">Combina un oggetto rosso + uno blu</button>
+        <p class="howto">Con il telecomando: frecce per muovervi, OK per scegliere, Indietro per chiudere. Potete anche digitare i numeri con i tasti del telecomando.</p>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<div class="ov" id="ovStart">
+  <div class="start">
+    <h1>LEONI DI LAGUNA</h1>
+    <div class="sub">ESCAPE · IL CAVALLINO D'ORO</div>
+    <p>Este, quasi 3.000 anni fa. Il gabbiano Becco ha rubato il cavallino d'oro della dea Reitia! Nico, Sofia e Toni, con il leoncino Leo, devono riportarlo sull'altare.</p>
+    <p>Gioco cooperativo per tutta la famiglia · 45–60 minuti · si gioca tutti insieme davanti alla TV.</p>
+    <div class="row">
+      <button class="bigbtn" id="btnNew" type="button">Nuova partita</button>
+      <button class="bigbtn alt" id="btnResume" type="button" hidden>Continua la partita</button>
+      <button class="bigbtn alt" id="btnRules2" type="button">Come si gioca</button>
+      <button class="bigbtn alt fsbtn" id="btnFs2" type="button">Schermo intero</button>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="ovZoom" hidden>
+  <div class="zoom">
+    <div class="zcard" id="zcard"><div class="scale" id="zscale"></div></div>
+    <div class="zside">
+      <div class="banner" id="zbanner"></div>
+      <p id="znote"></p>
+      <div id="zbtns" style="display:flex;flex-direction:column;gap:.6rem"></div>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="ovHint" hidden>
+  <div class="sheet">
+    <h2>Gli aiuti di Leo</h2>
+    <p id="hstep"></p>
+    <div class="hintlist" id="hlist"></div>
+    <div class="row">
+      <button class="bigbtn" id="btnAsk" type="button">Chiedi un aiuto (costa 1 piuma)</button>
+      <button class="bigbtn alt" id="btnHintClose" type="button">Chiudi</button>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="ovRules" hidden>
+  <div class="sheet">
+    <h2>Come si gioca</h2>
+    <p>Si gioca tutti insieme: una persona tiene il telecomando, tutti guardano la TV e ragionano.</p>
+    <h3>Numeri nascosti</h3>
+    <p>Nei disegni delle carte cercate i numeri nei cerchietti dorati. Scrivete quel numero e premete OK per prendere la carta.</p>
+    <h3>Combinare</h3>
+    <p>Gli oggetti rossi e blu si possono usare insieme. Premete «Combina» e scegliete un oggetto rosso e uno blu sul tavolo: il gioco somma i numeri per voi. Potete anche scrivere voi la somma.</p>
+    <h3>Enigmi</h3>
+    <p>La soluzione di un enigma è sempre un numero: scrivetelo e premete OK.</p>
+    <h3>Le piume</h3>
+    <ul>
+      <li>Partite con 10 piume.</li>
+      <li>Carta che non esiste, risposta sbagliata o carta che non serve ancora: perdete 1 piuma.</li>
+      <li>Ogni aiuto di Leo costa 1 piuma.</li>
+      <li>Alla fine: 9–10 piume Leoni d'oro, 6–8 Leoni d'argento, 1–5 Leoni di bronzo.</li>
+    </ul>
+    <div class="row">
+      <button class="bigbtn" id="btnRulesClose" type="button">Ho capito</button>
+      <button class="bigbtn alt" id="btnRestart" type="button">Ricomincia da capo</button>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="ovWin" hidden>
+  <div class="start">
+    <div class="sub">IL CAVALLINO D'ORO È TORNATO SULL'ALTARE!</div>
+    <div class="medal" id="medal"></div>
+    <p id="winstats"></p>
+    <div class="row"><button class="bigbtn" id="btnAgain" type="button">Gioca ancora</button></div>
+  </div>
+</div>
+
+<script type="application/json" id="cards-data">__CARDS__</script>
+<script>
+(function(){
+  var CARDS = JSON.parse(document.getElementById('cards-data').textContent);
+  var OBJ = {7:['r','il remo'],12:['r','il panino'],15:['r','la corda'],14:['r','Baio'],20:['r','la chiave'],
+             18:['b','Becco'],22:['b','la barca'],35:['b','le bolle'],58:['b','il fossato'],26:['b','il lucchetto']};
+  var WRONG = [24,31,61,64,71,84,86];
+  var REQ = {2:[1],3:[1],4:[1],5:[2],8:[2],7:[4],11:[4],12:[4],16:[5],9:[16],10:[16],15:[16],19:[10],22:[10],
+    29:[7,22],24:[9],27:[9],31:[9],18:[27],30:[12,18],35:[30],50:[15,35],52:[50],53:[52],58:[52],56:[53],
+    61:[56],64:[56],68:[56],71:[56],14:[68],72:[14,58],74:[72],26:[74],76:[74],81:[76],84:[76],86:[76],
+    20:[81],46:[20,26],39:[46],43:[39]};
+  var DISC = {16:[5,8,11],27:[9,19,22],68:[53,56],72:[14,52,58],81:[76]};
+  var KEEP = {50:[2,50],46:[2,46]};
+  var NEXT = {1:[2,3,4],4:[7,12,11],16:[9,15,10],50:[52],53:[56],68:[14],72:[74],81:[20],46:[39]};
+  var HINTS = [
+    {done:[5,8],t:"All'inizio",h:["Cercate nei disegni i cerchietti dorati con un numero.","Nella carta 2, il santuario, ci sono due numeri nascosti.","Prendete le carte 5 e 8."]},
+    {done:[16],t:"La cassa (carta 5)",h:["Trovate i due segni del lucchetto sulla tavoletta (carta 8).","Leggete il taccuino di Sofia (carta 11): in che verso scrivevano i Veneti?","Da destra a sinistra: il primo segno vale 1, il secondo 6. Carta 16."]},
+    {done:[29],t:"Come si parte?",h:["Nel disegno del fiume (carta 10) ci sono due numeri nascosti.","Premete «Combina»: un oggetto rosso e un oggetto blu.","Il remo (7) + la barca (22) = carta 29."]},
+    {done:[27],t:"I tre rami (carta 9)",h:["Leggete la piuma grigia (carta 19).","Contate solo le piume grigie, non quelle bianche.","Il ramo di mezzo ha 3 piume grigie: carta 27."]},
+    {done:[30],t:"Becco non molla",h:["Nel disegno del canneto c'è un numero nascosto su Becco.","Becco ha fame… Combinate il panino con Becco.","Il panino (12) + Becco (18) = carta 30."]},
+    {done:[50],t:"Il cavallino in acqua",h:["Cercate il numero vicino alle bolle (carta 30).","Serve un oggetto rosso trovato nella cassa.","La corda (15) + le bolle (35) = carta 50."]},
+    {done:[56],t:"Il fossato (carta 52)",h:["Nel disegno del villaggio ci sono due numeri nascosti.","L'uomo vicino al recinto vi dirà cosa cercare.","Prendete le carte 53 e 58, poi la 56."]},
+    {done:[68],t:"Il recinto (carta 56)",h:["Controllate tre cose: la fronte, la criniera, la coda.","Baio ha la macchia bianca, la criniera intrecciata e la coda lunga.","È il cavallo numero 68."]},
+    {done:[72],t:"Come passare il fossato",h:["Baio è un oggetto rosso, il fossato è blu.","Premete «Combina» e scegliete Baio e il fossato.","Baio (14) + il fossato (58) = carta 72."]},
+    {done:[81],t:"Il cancello e Becco (carta 74)",h:["Nel disegno del cancello ci sono due numeri nascosti: prendeteli tutti e due.","Per l'indovinello di Becco (carta 76) ripensate alla carta 8.","Prendete 26 e 76. La risposta è la tavoletta: carta 81."]},
+    {done:[46],t:"Il cancello chiuso",h:["Becco vi ha dato qualcosa…","La chiave è rossa, il lucchetto è blu.","La chiave (20) + il lucchetto (26) = carta 46."]},
+    {done:[43],t:"L'altare (carta 39)",h:["Guardate di nuovo la carta 2, il santuario.","Prima cifra: i cavallini di bronzo. Seconda cifra: le torce accese.","4 cavallini e 3 torce: carta 43."]}
+  ];
+
+  var KEY='leoni-escape-tv-v1';
+  var S=null, typed='', combineSel=null, restartArmed=false, lastFocus=null;
+
+  function fresh(){return {table:[],used:[],feathers:10,hints:{},start:Date.now(),elapsed:0,won:false,started:false};}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+  function load(){try{var v=localStorage.getItem(KEY);return v?JSON.parse(v):null;}catch(e){return null;}}
+  function $(id){return document.getElementById(id);}
+  function seen(n){return S.table.indexOf(n)>=0||S.used.indexOf(n)>=0;}
+
+  /* ---------- feathers & clock ---------- */
+  var FEATHER='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3C12 4 6 9 5 18l-1 3 2-1c9-1 14-7 14-17z" fill="#f4c64e" stroke="#3b2416" stroke-width="1.4" stroke-linejoin="round"></path><path d="M6 19C9 14 13 9 18 5" fill="none" stroke="#c9952e" stroke-width="1.2"></path></svg>';
+  function drawFeathers(){
+    var h='';for(var i=0;i<10;i++){h+=FEATHER.replace('<svg','<svg class="'+(i<S.feathers?'':'lost')+'"');}
+    $('feathers').innerHTML=h;$('feathers').setAttribute('aria-label','Piume rimaste: '+S.feathers);
+  }
+  function elapsed(){return S.won?S.elapsed:(S.started?Date.now()-S.start:0);}
+  function fmt(ms){var s=Math.floor(ms/1000),m=Math.floor(s/60);s=s%60;return (m<10?'0':'')+m+':'+(s<10?'0':'')+s;}
+  setInterval(function(){if(S)$('clock').textContent=fmt(elapsed());},1000);
+
+  function say(t,bad){$('leotext').textContent=t;$('leobox').className='leobox'+(bad?' bad':'');}
+  function lose(t){
+    S.feathers=Math.max(0,S.feathers-1);save();drawFeathers();
+    var f=$('feathers');f.classList.remove('flash');void f.offsetWidth;f.classList.add('flash');
+    say(t+' Perdete 1 piuma (ne restano '+S.feathers+').',true);
+  }
+
+  /* ---------- table ---------- */
+  function cardHtml(n){return CARDS[String(n)]||'';}
+  function drawTable(newN){
+    var box=$('cards');
+    if(!S.table.length){box.innerHTML='<p class="empty">Nessuna carta sul tavolo.</p>';return;}
+    var h='';
+    S.table.forEach(function(n){
+      var o=OBJ[n];var lab='Carta '+n+(o?' – '+(o[0]==='r'?'oggetto rosso ':'oggetto blu ')+o[1]:'');
+      var cls='thumb'+(n===newN?' newc':'')+(combineSel&&o?' pickable':'')+(combineSel&&combineSel.indexOf(n)>=0?' sel':'');
+      h+='<button type="button" class="'+cls+'" data-n="'+n+'" aria-label="'+lab+'"><div class="scale">'+cardHtml(n)+'</div></button>';
+    });
+    box.innerHTML=h;fitThumbs();
+  }
+
+
+  function fitThumbs(){
+    var box=$('cards');if(!box)return;
+    var n=Math.max(S?S.table.length:1,1),cs=getComputedStyle(box);
+    var g=parseFloat(cs.rowGap||cs.gridRowGap||'12')||12;
+    var W=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight)-2,H=box.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom)-2;
+    var best=0.1;
+    for(var cols=1;cols<=n;cols++){var rows=Math.ceil(n/cols);var s=Math.min((W-g*(cols-1))/(cols*238),(H-g*(rows-1))/(rows*333));if(s>best)best=s;}
+    box.style.setProperty('--s',Math.min(best,1.5).toFixed(3));
+  }
+
+  /* ---------- taking cards ---------- */
+  function take(n){
+    n=parseInt(n,10);
+    if(isNaN(n))return;
+    typed='';drawTyped();
+    if(S.table.indexOf(n)>=0){say('La carta '+n+' è già sul tavolo.');openZoom(n,{});return;}
+    if(S.used.indexOf(n)>=0){say('La carta '+n+' l\'avete già usata: non serve più.');return;}
+    if(!CARDS[String(n)]||n<1){lose('La carta '+n+' non esiste!');return;}
+    var req=REQ[n];
+    if(req&&!req.every(seen)){lose('La carta '+n+' non serve ancora: torna nel mazzo.');return;}
+    if(WRONG.indexOf(n)>=0){lose('Risposta sbagliata.');openZoom(n,{wrong:true});return;}
+    S.table.push(n);
+    if(DISC[n])DISC[n].forEach(discard);
+    if(KEEP[n]){S.table.slice().forEach(function(c){if(KEEP[n].indexOf(c)<0)discard(c);});}
+    var o=OBJ[n];
+    say(o?'Avete trovato '+o[1]+' ('+(o[0]==='r'?'oggetto rosso':'oggetto blu')+', '+n+').':'Nuova carta: la '+n+'. Leggetela ad alta voce!');
+    if(n===43){S.won=true;S.elapsed=Date.now()-S.start;}
+    save();drawTable(n);openZoom(n,{fresh:true});
+  }
+  function discard(c){var i=S.table.indexOf(c);if(i>=0){S.table.splice(i,1);if(S.used.indexOf(c)<0)S.used.push(c);}}
+
+  /* ---------- zoom ---------- */
+  function fitZoom(){
+    var wide=window.innerWidth>900||window.innerWidth>window.innerHeight*1.4;
+    var h=window.innerHeight*(window.innerHeight<600?0.92:0.86),w=wide?window.innerWidth*0.5:window.innerWidth*0.9;
+    var s=Math.min(h/333,w/238);
+    $('zcard').style.width=(238*s)+'px';$('zcard').style.height=(333*s)+'px';
+    $('zscale').style.transform='scale('+s+')';
+  }
+  function openZoom(n,opt){
+    $('zscale').innerHTML=cardHtml(n);fitZoom();
+    var b=$('zbanner'),note=$('znote'),btns=$('zbtns');
+    var h='';
+    if(opt.wrong){b.className='banner bad';b.textContent='SBAGLIATO!';note.textContent='La carta torna nel mazzo. Ragionate ancora e riprovate.';}
+    else if(n===43&&S.won){b.className='banner good';b.textContent='VITTORIA!';note.textContent='Ce l\'avete fatta!';h+='<button type="button" class="bigbtn" data-act="win">Vedi il risultato</button>';}
+    else if(opt.fresh){b.className='banner good';b.textContent='CARTA '+n;note.textContent=OBJ[n]?'Gli oggetti rossi e blu si possono combinare.':'Leggete la carta ad alta voce.';}
+    else{b.className='banner';b.textContent='CARTA '+n;note.textContent='';}
+    if(!opt.wrong&&NEXT[n]){NEXT[n].forEach(function(c){if(!seen(c))h+='<button type="button" class="bigbtn" data-act="take" data-n="'+c+'">Prendi la carta '+c+'</button>';});}
+    h+='<button type="button" class="bigbtn alt" data-act="close">Torna al tavolo</button>';
+    btns.innerHTML=h;
+    show('ovZoom');
+  }
+
+  /* ---------- combine ---------- */
+  function setCombine(on){
+    combineSel=on?[]:null;
+    $('btnCombine').classList.toggle('on',!!on);
+    $('btnCombine').textContent=on?'Annulla combinazione':'Combina un oggetto rosso + uno blu';
+    if(on)say('Scegliete sul tavolo un oggetto rosso e un oggetto blu.');
+    drawTable();
+  }
+  function pickCombine(n){
+    var o=OBJ[n];
+    if(!o){say('Si possono combinare solo gli oggetti rossi e blu.');return;}
+    if(combineSel.indexOf(n)>=0){combineSel.splice(combineSel.indexOf(n),1);drawTable();focusCard(n);return;}
+    combineSel.push(n);
+    if(combineSel.length<2){say('Avete scelto '+o[1]+'. Ora scegliete l\'altro oggetto.');drawTable();focusCard(n);return;}
+    var a=combineSel[0],c=combineSel[1];
+    if(OBJ[a][0]===OBJ[c][0]){say('Servono un oggetto rosso e uno blu, non due dello stesso colore.');combineSel=[];drawTable();focusCard(n);return;}
+    setCombine(false);
+    var r=OBJ[a][0]==='r'?a:c,bl=r===a?c:a;
+    var pre='Rosso '+r+' + blu '+bl+' = '+(r+bl)+'. ';
+    take(r+bl);
+    $('leotext').textContent=pre+$('leotext').textContent;
+  }
+  function focusCard(n){var el=document.querySelector('.thumb[data-n="'+n+'"]');if(el)el.focus();}
+
+  /* ---------- hints ---------- */
+  function step(){for(var i=0;i<HINTS.length;i++){if(!HINTS[i].done.every(seen))return i;}return -1;}
+  function drawHints(){
+    var i=step();
+    if(i<0){$('hstep').textContent='Avete già finito!';$('hlist').innerHTML='';$('btnAsk').disabled=true;return;}
+    var lv=S.hints[i]||0;
+    $('hstep').textContent='Dove siete: '+HINTS[i].t+'. Aiuti già usati qui: '+lv+' di 3.';
+    var labels=['Aiuto 1','Aiuto 2','Soluzione'],h='';
+    for(var k=0;k<lv;k++)h+='<div class="hint"><b>'+labels[k]+':</b> '+HINTS[i].h[k]+'</div>';
+    $('hlist').innerHTML=h||'<div class="hint">Nessun aiuto ancora. Provate prima a ragionare insieme!</div>';
+    $('btnAsk').disabled=lv>=3||S.won;
+    $('btnAsk').textContent=lv>=3?'Avete già la soluzione':'Chiedi '+(lv===2?'la soluzione':'un aiuto')+' (costa 1 piuma)';
+  }
+  function ask(){
+    var i=step();if(i<0)return;var lv=S.hints[i]||0;if(lv>=3)return;
+    S.hints[i]=lv+1;S.feathers=Math.max(0,S.feathers-1);save();drawFeathers();drawHints();
+    say('Leo vi ha dato un aiuto. Ne restano '+S.feathers+' di piume.');
+  }
+
+  /* ---------- overlays ---------- */
+  var OVS=['ovStart','ovZoom','ovHint','ovRules','ovWin'];
+  function topOv(){for(var i=OVS.length-1;i>=0;i--){if(!$(OVS[i]).hidden)return $(OVS[i]);}return null;}
+  function show(id){
+    if(!topOv())lastFocus=document.activeElement;
+    $(id).hidden=false;
+    var f=$(id).querySelector('button:not([disabled]):not([hidden])');if(f)f.focus();
+  }
+  function hide(id){
+    $(id).hidden=true;
+    if(!topOv()){var f=(lastFocus&&document.body.contains(lastFocus))?lastFocus:document.querySelector('.key[data-k="1"]');if(f)f.focus();}
+  }
+  function back(){
+    var o=topOv();
+    if(o){if(o.id==='ovStart'||o.id==='ovWin')return;hide(o.id);return;}
+    if(combineSel){setCombine(false);say('Combinazione annullata.');}
+  }
+  function showWin(){
+    hide('ovZoom');
+    var f=S.feathers,m=f>=9?"LEONI D'ORO":f>=6?"LEONI D'ARGENTO":"LEONI DI BRONZO";
+    $('medal').textContent=m;
+    $('winstats').textContent='Piume rimaste: '+f+' su 10 · Tempo: '+fmt(S.elapsed)+(f<6?' · Riprovate per diventare Leoni d\'oro!':'');
+    show('ovWin');
+  }
+
+  /* ---------- typing ---------- */
+  function drawTyped(){$('num').textContent=typed?typed:'_ _';}
+  function key(k){
+    if(k==='del'){typed=typed.slice(0,-1);}
+    else if(k==='ok'){if(typed)take(typed);else say('Scrivete prima il numero di una carta.');return;}
+    else if(typed.length<2){typed=(typed+k).replace(/^0+/,'');}
+    drawTyped();
+  }
+
+  /* ---------- game start ---------- */
+  function newGame(){
+    S=fresh();S.started=true;S.start=Date.now();typed='';combineSel=null;restartArmed=false;
+    save();drawFeathers();drawTable();drawTyped();
+    hide('ovStart');hide('ovWin');hide('ovRules');
+    say('Pax tibi! Ecco la prima carta.');take(1);
+  }
+  function resume(){hide('ovStart');say('Bentornati! Continuate da dove eravate rimasti.');}
+
+  /* ---------- events ---------- */
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    if(b.classList.contains('key')){key(b.getAttribute('data-k'));return;}
+    if(b.classList.contains('thumb')){var n=+b.getAttribute('data-n');if(combineSel)pickCombine(n);else openZoom(n,{});return;}
+    var act=b.getAttribute('data-act');
+    if(act==='close'){hide('ovZoom');return;}
+    if(act==='take'){hide('ovZoom');take(b.getAttribute('data-n'));return;}
+    if(act==='win'){showWin();return;}
+    switch(b.id){
+      case 'btnCombine':setCombine(!combineSel);if(combineSel){var t=document.querySelector('.thumb.pickable');if(t)t.focus();}break;
+      case 'btnHint':drawHints();show('ovHint');break;
+      case 'btnAsk':ask();break;
+      case 'btnHintClose':hide('ovHint');break;
+      case 'btnRules':case 'btnRules2':restartArmed=false;$('btnRestart').textContent='Ricomincia da capo';show('ovRules');break;
+      case 'btnRulesClose':hide('ovRules');break;
+      case 'btnRestart':
+        if(!restartArmed){restartArmed=true;b.textContent='Sicuri? Premete di nuovo per ricominciare';}
+        else{newGame();}
+        break;
+      case 'btnFs':case 'btnFs2':toggleFs();break;
+      case 'btnNew':newGame();break;
+      case 'btnResume':resume();break;
+      case 'btnAgain':newGame();break;
+    }
+  });
+
+  /* spatial navigation for TV remotes */
+  function focusables(){
+    var root=topOv()||$('app');
+    return Array.prototype.filter.call(root.querySelectorAll('button'),function(b){
+      if(b.disabled||b.hidden)return false;var r=b.getBoundingClientRect();return r.width>0&&r.height>0;});
+  }
+  function move(dir){
+    var list=focusables();if(!list.length)return;
+    var cur=document.activeElement;
+    if(list.indexOf(cur)<0){list[0].focus();return;}
+    var a=cur.getBoundingClientRect(),ax=a.left+a.width/2,ay=a.top+a.height/2,best=null,bs=1e9;
+    list.forEach(function(b){
+      if(b===cur)return;var r=b.getBoundingClientRect(),bx=r.left+r.width/2,by=r.top+r.height/2,dx=bx-ax,dy=by-ay;
+      var main=dir==='l'?-dx:dir==='r'?dx:dir==='u'?-dy:dy;
+      var cross=dir==='l'||dir==='r'?Math.abs(dy):Math.abs(dx);
+      if(main<=2)return;var sc=main+cross*2.2;if(sc<bs){bs=sc;best=b;}
+    });
+    if(best){best.focus();best.scrollIntoView({block:'nearest',inline:'nearest'});}
+  }
+  document.addEventListener('keydown',function(e){
+    var k=e.key,c=e.keyCode;
+    if(k==='ArrowLeft'||c===37){e.preventDefault();move('l');return;}
+    if(k==='ArrowRight'||c===39){e.preventDefault();move('r');return;}
+    if(k==='ArrowUp'||c===38){e.preventDefault();move('u');return;}
+    if(k==='ArrowDown'||c===40){e.preventDefault();move('d');return;}
+    if(k==='Escape'||k==='GoBack'||k==='BrowserBack'||c===10009||c===461){e.preventDefault();back();return;}
+    var d=null;
+    if(/^[0-9]$/.test(k))d=k;else if(c>=48&&c<=57)d=String(c-48);else if(c>=96&&c<=105)d=String(c-96);
+    var o=topOv();
+    if(d!==null){
+      if(o&&(o.id==='ovStart'||o.id==='ovWin'))return;
+      if(o)hide(o.id);
+      e.preventDefault();key(d);return;
+    }
+    if(k==='Backspace'||c===8){e.preventDefault();if(o)back();else key('del');return;}
+  });
+  window.addEventListener('resize',function(){fitThumbs();if(!$('ovZoom').hidden)fitZoom();});
+
+
+  /* ---------- fullscreen ---------- */
+  var de=document.documentElement;
+  var reqFs=de.requestFullscreen||de.webkitRequestFullscreen;
+  function isFs(){return !!(document.fullscreenElement||document.webkitFullscreenElement);}
+  function toggleFs(){
+    if(isFs()){(document.exitFullscreen||document.webkitExitFullscreen).call(document);return;}
+    try{var p=reqFs.call(de);
+      if(p&&p.then)p.then(function(){try{if(screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(function(){});}catch(e){}}).catch(function(){say('Questo browser non permette lo schermo intero.');});
+    }catch(e){say('Questo browser non permette lo schermo intero.');}
+  }
+  function fsLabel(){Array.prototype.forEach.call(document.querySelectorAll('.fsbtn'),function(b){b.hidden=!reqFs;b.textContent=isFs()?'Esci da schermo intero':'Schermo intero';});}
+  document.addEventListener('fullscreenchange',fsLabel);document.addEventListener('webkitfullscreenchange',fsLabel);
+  fsLabel();
+
+  /* ---------- boot ---------- */
+  function boot(data){
+    S=(data&&data.state)||load()||fresh();
+    drawFeathers();drawTable();drawTyped();$('clock').textContent=fmt(elapsed());
+    if(S.started&&!S.won){$('btnResume').hidden=false;}
+    var f=$('btnResume').hidden?$('btnNew'):$('btnResume');if(f)f.focus();
+  }
+  var hot=window.claude&&window.claude.hot;
+  if(hot&&hot.snapshot)hot.snapshot(function(){return {state:S};});
+  if(hot&&hot.ready)hot.ready(boot);else boot((hot&&hot.data)||{});
+})();
+</script>

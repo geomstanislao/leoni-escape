@@ -1,0 +1,117 @@
+{
+ "base": "a1",
+ "level": "f",
+ "title": "Come si elegge un doge",
+ "place": "Palazzo Ducale, aprile 1423",
+ "intro": "È morto il doge Tommaso Mocenigo. I nobili del Maggior Consiglio devono eleggere il successore con un sistema pieno di sorteggi e votazioni, pensato perché nessuno possa comprarsi il doge.",
+ "text": {
+  "1": "Venezia, aprile 1423. Il doge Tommaso Mocenigo è morto e i nobili del Maggior Consiglio devono eleggere il successore. Ma Becco ha rubato le «balote», le palline per i sorteggi e per i voti! Prendete le carte **2**, **3** e **4**.",
+  "2": "Qui si riuniscono tutti i nobili veneziani maggiori di 25 anni: più di mille. Guardate bene il disegno.",
+  "3": "«Sono il Cancellier Grande, capo dei segretari. Dal 1268 il doge si elegge in dieci passaggi, alcuni a sorte e altri con il voto. Così nessuno può sapere prima chi sarà elettore, e i brogli sono quasi impossibili.»",
+  "11": "Sofia ha segnato i passaggi. Dado = a sorte. Mano = voto. 1) A sorte, 30 nobili. 2) A sorte, 9. 3) I 9 VOTANO e ne eleggono 40. 4) A sorte, 12. 5) I 12 VOTANO e ne eleggono 25. 6) A sorte, 9. 7) I 9 VOTANO e ne eleggono 45. 8) A sorte, 11. 9) Gli 11 VOTANO e ne eleggono 41. 10) I 41 VOTANO il doge: servono almeno 25 voti.",
+  "6": "L'urna dei sorteggi è vuota. Dentro vanno le balote: tante di stoffa o di cera e poche dorate, che indicano chi è estratto.",
+  "9": "«Sono il ballottino: un ragazzino preso fuori dal palazzo, che non conosce i nobili. Pesco io le balote dall'urna, così nessuno può barare. Il gabbiano con il sacchetto è lassù, sulle travi (carta **14**)!»",
+  "40": "«Devo preparare un posto per ogni nobile che VOTA, in ognuno dei passaggi.» Nel taccuino di Sofia (carta 11) cercate i gruppi che VOTANO e sommateli. Il totale è la carta da prendere.",
+  "151": "Avete sommato anche i gruppi che vengono solo ELETTI. Si sommano solo quelli che VOTANO. Perdete 1 piuma e riprovate.",
+  "82": "9 + 12 + 9 + 11 + 41 = 82 votanti. Il 15 aprile 1423 i 41 eleggono Francesco Foscari. Per la prima volta il doge non viene presentato al popolo con «se vi piace», ma solo «Questo è il vostro doge». Prendete la carta **50**.",
+  "50": "Il sistema nato nel 1268 si usò, con piccole modifiche, fino alla caduta della Repubblica, nel 1797. Per quanti anni? Il numero è la carta da prendere.",
+  "529": "1797 − 1268 = 529 anni! Il sistema veneziano è ancora studiato da matematici ed economisti come esempio di elezione difficile da manipolare. Becco brontola: «Io volevo solo le palline d'oro…»"
+ },
+ "tessere": {
+  "maggior": [
+   "Il Maggior Consiglio",
+   "L'assemblea di tutti i nobili veneziani adulti: nel Quattrocento più di mille. Dal 1297, la «Serrata», ne facevano parte solo le famiglie già presenti, scritte nel Libro d'oro. Eleggeva quasi tutte le cariche, doge compreso."
+  ],
+  "procedura": [
+   "Dieci passaggi per un doge",
+   "Dal 1268 il doge era eletto in dieci passaggi, alternando sorteggi e votazioni: 30, 9, 40, 12, 25, 9, 45, 11, 41. La sorte rendeva imprevedibile chi avrebbe votato, e quindi inutile corromperlo."
+  ],
+  "sevipiace": [
+   "«Se vi piace»",
+   "Per secoli il nuovo doge fu presentato al popolo con la formula «Questo è il vostro doge, se vi piace». Con Francesco Foscari, eletto nel 1423, il «se vi piace» sparì. Foscari fu doge per 34 anni, il dogato più lungo."
+  ],
+  "ballottino": [
+   "Il ballottino",
+   "A estrarre le balote dall'urna era un ragazzino, il «ballottino», estraneo alle famiglie nobili. Dalla parola «balota» deriva l'inglese «ballot»."
+  ],
+  "durata": [
+   "Un sistema di cinque secoli",
+   "La procedura del 1268 restò in uso fino al 1797: 529 anni. Oggi è studiata come uno dei primi esempi di regole elettorali pensate contro i brogli."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    6,
+    9
+   ],
+   "t": "La sala del Maggior Consiglio",
+   "h": [
+    "Nel disegno ci sono due numeri nascosti.",
+    "Uno è sull'urna, l'altro sul ragazzino.",
+    "Carte 6 e 9."
+   ]
+  },
+  {
+   "done": [
+    26
+   ],
+   "t": "Becco sulle travi",
+   "h": [
+    "Il ballottino vi dice dov'è Becco: carta 14.",
+    "Becco ha fame: combinate il panino con Becco.",
+    "Panino (12) + Becco (14) = carta 26."
+   ]
+  },
+  {
+   "done": [
+    36
+   ],
+   "t": "Le balote",
+   "h": [
+    "Le balote vanno rimesse da qualche parte.",
+    "Combinate le balote con l'urna.",
+    "Balote (30) + urna (6) = carta 36."
+   ]
+  },
+  {
+   "done": [
+    82
+   ],
+   "t": "Il registro dei votanti",
+   "h": [
+    "Nel taccuino di Sofia (carta 11) cercate i passaggi con la parola VOTANO.",
+    "Votano i 9, i 12, i 9, gli 11 e i 41.",
+    "9 + 12 + 9 + 11 + 41 = 82: carta 82."
+   ]
+  },
+  {
+   "done": [
+    529
+   ],
+   "t": "Quanto durò?",
+   "h": [
+    "Il sistema nasce nel 1268 e finisce con la Repubblica nel 1797.",
+    "Fate 1797 meno 1268.",
+    "529: carta 529."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  11,
+  12,
+  6,
+  9,
+  14,
+  "C12+14",
+  30,
+  "C30+6",
+  40,
+  82,
+  50,
+  529
+ ]
+}

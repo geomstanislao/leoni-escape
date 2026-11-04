@@ -1,0 +1,142 @@
+{
+ "base": "ep4",
+ "level": "k",
+ "title": "Il primo Doge",
+ "place": "Eraclea e Malamocco, tanto tempo fa",
+ "intro": "Le isole della laguna scelgono un capo: il doge! Poi arrivano le navi dei Franchi e nasce Rialto. Versione facile, per i più piccoli.",
+ "text": {
+  "1": "Eraclea, tanto tempo fa. Dodici capi litigano sempre. Oggi scelgono un capo solo: il doge! Prendete le carte **2**, **3** e **4**.",
+  "2": "L'assemblea di Eraclea. Ognuno mette un sassolino nel cesto del suo preferito. Becco ne ha rubati alcuni! Cercate il cerchietto dorato con il numero: è una carta da prendere.",
+  "3": "«Siamo in dodici. Per diventare doge servono almeno 7 sassolini. Becco ne ha rubati alcuni: guardate nel suo nido!»",
+  "11": "«Doge viene da una parola latina, dux, che vuol dire capo. Venezia ha avuto 120 dogi in più di mille anni!»",
+  "6": "Ogni cesto ha un colore. Nel nido di Becco ci sono 3 sassolini BLU: metteteli nel cesto blu. Quanti ne ha adesso il cesto blu? Il cesto che arriva a 7 vince. Il suo numero è la carta da prendere.",
+  "24": "4 + 3 = 7! Il cesto blu vince. Il primo doge fu Paolo Lucio Anafesto, dice la tradizione. Leo: «Ora un salto nel tempo: anno 810!» Prendete la carta **30**.",
+  "30": "Ora la capitale è Malamocco. Arrivano le navi dei Franchi, un popolo nemico! Cercate nel disegno i cerchietti dorati: sono due.",
+  "33": "«Dirò ai Franchi di andare verso Rialto! Ma prima guardate la marea (carta **35**): quando l'acqua sarà bassa?»",
+  "35": "L'acqua del mare sale e scende. Alle 6 del mattino è alta. Dopo 6 ore diventa bassa. Che ora è? 6 + 6 = ? L'ora è la carta da prendere.",
+  "12": "A mezzogiorno l'acqua è bassissima: le grandi navi dei Franchi restano bloccate nel fango! Voi avete il remo di Nico e la barca piatta: unite le due carte con «Combina».",
+  "36": "Una barca lunga e piatta: passa dove le navi grandi si bloccano. Ma non ha il remo!",
+  "43": "Con il remo magico la barca piatta scivola fino alle isole di Rialto. Ma Becco ha mescolato i cartelli! Prendete la carta **40**.",
+  "40": "Becco ha mescolato i cartelli delle capitali. La capitale era Eraclea, poi Malamocco e dopo i Franchi diventa Rialto. Cercate il cartello RIALTO: l'anno scritto è la carta da prendere.",
+  "811": "Giusto: 811! Il doge Agnello Participazio porta il governo a Rialto. La sua casa diventa il primo Palazzo Ducale. Da qui nascerà Venezia!"
+ },
+ "tess": {
+  "11": "doge",
+  "24": "anafesto",
+  "30": "pipino",
+  "35": "marea",
+  "40": "capitali",
+  "811": "rialto"
+ },
+ "tessere": {
+  "doge": [
+   "Il doge",
+   "Il doge era il capo di Venezia: lo sceglievano gli altri, non era un re."
+  ],
+  "anafesto": [
+   "Il primo doge",
+   "Il primo doge fu forse Paolo Lucio Anafesto, tanto tempo fa."
+  ],
+  "pipino": [
+   "I Franchi",
+   "Nell'810 le navi dei Franchi arrivarono in laguna, ma si bloccarono nel fango."
+  ],
+  "marea": [
+   "Le maree",
+   "In laguna l'acqua sale e scende due volte al giorno: è la marea."
+  ],
+  "capitali": [
+   "Le capitali",
+   "La capitale fu prima Eraclea, poi Malamocco e infine Rialto."
+  ],
+  "rialto": [
+   "Il Palazzo Ducale",
+   "A Rialto il doge abitò in una casa che diventò il primo Palazzo Ducale."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    6
+   ],
+   "t": "L'assemblea",
+   "h": [
+    "Cercate il cerchietto dorato nel disegno.",
+    "Il numero è sui cesti dei sassolini.",
+    "Prendete la carta 6."
+   ]
+  },
+  {
+   "done": [
+    24
+   ],
+   "t": "I sassolini",
+   "h": [
+    "Nel nido di Becco ci sono 3 sassolini blu.",
+    "Il cesto blu ne ha 4. Sommate i 3 di Becco.",
+    "4 + 3 = 7: cesto 24."
+   ]
+  },
+  {
+   "done": [
+    33
+   ],
+   "t": "Malamocco",
+   "h": [
+    "Nel disegno ci sono due numeri nascosti.",
+    "Uno è sulla vecchietta, l'altro sulla barca piatta.",
+    "Carte 33 e 36."
+   ]
+  },
+  {
+   "done": [
+    12
+   ],
+   "t": "La marea",
+   "h": [
+    "Dall'alta alla bassa marea passano 6 ore.",
+    "Alle 6 è alta: aggiungete 6 ore.",
+    "6 + 6 = 12: carta 12."
+   ]
+  },
+  {
+   "done": [
+    43
+   ],
+   "t": "Verso Rialto",
+   "h": [
+    "Alla barca piatta manca qualcosa.",
+    "Combinate il remo di Nico con la barca piatta.",
+    "Remo (7) + barca piatta (36) = carta 43."
+   ]
+  },
+  {
+   "done": [
+    811
+   ],
+   "t": "Le tre capitali",
+   "h": [
+    "Cercate il cartello con scritto RIALTO.",
+    "Accanto c'è un anno.",
+    "Rialto 811: carta 811."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  7,
+  11,
+  6,
+  24,
+  30,
+  33,
+  36,
+  35,
+  12,
+  "C7+36",
+  40,
+  811
+ ]
+}

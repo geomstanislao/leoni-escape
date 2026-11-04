@@ -1,0 +1,93 @@
+# Monthly competition episodes ("Gara del mese"), adult level. Same card format as spec3.
+import json
+L, R, B, P, I, E, C, A, S, X = ('LUOGO','OGGETTO ROSSO','OGGETTO BLU','PERSONAGGIO','INDIZIO','ENIGMA',
+                                 'COMBINAZIONE','RISPOSTA','SBAGLIATO','SPECIALE')
+EP = {}
+
+EP['g2611'] = dict(level='g', month='2026-11',
+ title="I segreti di Murano", place="Murano, verso il 1460",
+ intro="Gara di novembre 2026. Angelo Barovier ha inventato il «cristallo», il primo vetro davvero trasparente, ma Becco ha messo sottosopra la sua fornace. Conta solo la prima partita: piume e tempo fanno i punti.",
+ cards=[
+  dict(n=1,typ=X,title="INIZIO",next=[2,3,4],H=95,art="Leo greeting with a paw on the quay of Murano island, a canal with brick glass-furnace houses with smoking chimneys.",
+       text="Murano, verso il 1460. Da quasi due secoli tutte le fornaci dei vetrai veneziani lavorano su quest'isola. Nella bottega di Angelo Barovier si fa il vetro più famoso d'Europa… ma Becco ci è entrato di nascosto. Prendete le carte **2**, **3** e **4**."),
+  dict(n=2,typ=L,title="LA FORNACE DEI BAROVIER",H=160,req=[1],hidden=[7,13],tess='fornaci',
+       art="Inside a Renaissance glass workshop: a big round brick furnace glowing orange with three openings — hidden number 7 on the furnace; a young apprentice boy with a long blowpipe — hidden number 13 on the apprentice; shelves with glass cups, a bench with tools (pincers, shears), wooden buckets of water. Exactly TWO gold circles: 7, 13.",
+       text="La fornace arde giorno e notte. Intorno, maestri e garzoni soffiano il vetro con lunghe canne di ferro. Guardate bene il disegno."),
+  dict(n=3,typ=P,title="ANGELO BAROVIER",req=[1],H=95,
+       art="Angelo Barovier, a Venetian master glassmaker in his fifties: dark red cap, leather apron over a long tunic, holding up a perfectly clear glass goblet against the light, proud but worried.",
+       text="«Ho imparato a fare un vetro limpido come il cristallo di rocca: per questo lo chiamano cristallo. Ma il gabbiano ha mescolato i barattoli della mia ricetta, e senza il terzo ingrediente il vetro esce verdognolo!»"),
+  dict(n=4,typ=X,title="GLI ZAINI",req=[1],next=[11,12],art="Two open backpacks: an open notebook full of notes and a bread-and-cheese sandwich.",
+       text="Aprite gli zaini! Il taccuino di Sofia (carta **11**) e il panino di Toni (carta **12**)."),
+  dict(n=11,typ=I,title="IL TACCUINO DI SOFIA",req=[4],H=70,tess='sapone',
+       art="Notebook page with three small sketches: a heap of pale sand, a bunch of dry desert plants burning to ash, a lump of black stone; and a tiny green glass and a tiny clear glass.",
+       text="«Il vetro nasce da sabbia (silice) e cenere di piante del Levante, che lo fa fondere prima. Ma il ferro nella sabbia lo tinge di verde. I vetrai lo “lavano” con un minerale nero, il manganese: lo chiamano sapone dei vetrai.»"),
+  dict(n=12,typ=R,title="IL PANINO DI TONI",req=[4],art="A fat bread-and-cheese sandwich.",
+       text="Pane e formaggio. Vicino alla fornace fa un caldo tremendo: si mangia in fretta."),
+  dict(n=13,typ=P,title="IL GARZONE",req=[2],next=[20],H=100,
+       art="A young glassmaker apprentice (about 14) with a long iron blowpipe, soot on his cheek, pointing at three jars on a shelf.",
+       text="«Ogni barattolo aveva il suo cartello, ma il gabbiano li ha strappati. Il maestro dice che il segreto del cristallo è nel terzo ingrediente. Quale barattolo è quello giusto? (carta **20**)»"),
+  dict(n=20,typ=E,title="I TRE BARATTOLI",req=[13],H=150,
+       art="Three ceramic jars on a wooden shelf, lids open, contents clearly visible, each with a white label with a number under it (answers, NOT gold): LEFT jar full of pale yellow sand → 31; MIDDLE jar full of grey powdery ash with a twig of dry plant → 35; RIGHT jar full of black stone lumps → 38. Becco's grey feathers scattered on the shelf.",
+       text="Il terzo ingrediente toglie il colore verde al vetro. Usate il taccuino di Sofia (carta 11): quale barattolo lo contiene? Il numero è la carta da prendere."),
+  dict(n=31,typ=S,strip="Risposta a: I TRE BARATTOLI",title="SBAGLIATO!",req=[20],art="Barovier shaking his head over a heap of sand.",
+       text="Questa è la sabbia: c'è già nella fornace, ed è proprio lei a portare il ferro che tinge il vetro. Perdete 1 piuma e riprovate."),
+  dict(n=35,typ=S,strip="Risposta a: I TRE BARATTOLI",title="SBAGLIATO!",req=[20],art="Barovier shaking his head over a jar of grey ash.",
+       text="Questa è la cenere di piante: aiuta il vetro a fondere, ma il verde resta. Perdete 1 piuma e riprovate."),
+  dict(n=38,typ=A,strip="Risposta a: I TRE BARATTOLI",title="IL SAPONE DEI VETRAI",req=[20],disc=[13,20],next=[16],H=110,
+       art="Barovier holding a lump of black manganese, smiling; the apprentice clapping.",
+       text="È il manganese! Barovier: «Poco, solo poco: se ne metti troppo, il vetro diventa viola.» Prendete il barattolo (carta **16**) e mettetelo nella fornace."),
+  dict(n=16,typ=R,title="IL MANGANESE",req=[38],art="A ceramic jar full of black manganese lumps.",
+       text="Il «sapone dei vetrai»: un pizzico basta a rendere il vetro limpido."),
+  dict(n=7,typ=B,title="LA FORNACE",req=[2],art="A round brick glass furnace glowing orange, a crucible of molten greenish glass inside.",
+       text="Nel crogiolo il vetro fuso è pronto, ma ha ancora un riflesso verdognolo."),
+  dict(n=23,typ=C,strip="Combinazione: MANGANESE + FORNACE",title="IL CRISTALLO!",req=[16,7],next=[40],disc=[7,16,38,2],tess='cristallo',
+       art="Barovier lifting a gather of perfectly clear glowing glass on a blowpipe from the furnace; everyone amazed; Becco grabbing a clear goblet from the shelf and flying out of a window.",
+       text="Il vetro esce limpido come l'acqua: è il cristallo di Barovier! Ma in un attimo Becco afferra il calice più bello e vola fuori dalla finestra, verso il canale. Prendete la carta **40**."),
+  dict(n=40,typ=L,title="IL RIO DEI VETRAI",H=150,req=[23],hidden=[14],tess='privilegi',
+       art="The Rio dei Vetrai canal on Murano: brick houses and glass shops on both sides, a small bridge, boats loaded with straw-packed glass crates; Becco sitting on a mooring pole holding a clear glass goblet in his beak — hidden number 14 on Becco. Exactly ONE gold circle: 14.",
+       text="Lungo il rio dei Vetrai le barche caricano casse di vetri, imballati nella paglia, per tutta Europa. Ecco Becco su un palo! Guardate bene il disegno."),
+  dict(n=14,typ=B,title="BECCO COL CALICE",req=[40],art="Becco on a mooring pole with a clear glass goblet, his stomach growling.",
+       text="«Questo calice è trasparente come l'aria: è mio!» Ma tutto quel caldo della fornace gli ha messo una fame…"),
+  dict(n=26,typ=C,strip="Combinazione: PANINO + BECCO",title="IL CALICE E IL LIBRO",req=[12,14],next=[50],disc=[12,14,40],
+       art="Becco gulping the sandwich, the goblet landing safely in Sofia's hands; next to the pole a small old book with a seal fallen from a crate.",
+       text="Becco si getta sul panino e il calice atterra intatto tra le mani di Sofia. Da una cassa è caduto un vecchio registro con il sigillo di San Marco: dentro c'è la copia del decreto sulle fornaci. Prendete la carta **50**."),
+  dict(n=50,typ=E,title="IL DECRETO",req=[26],H=120,
+       art="An old parchment page with a red wax seal of the winged lion; on it, written large in Roman numerals as a date: 'ANNO MCCXCI'. Barovier pointing at it.",
+       text="«Fu il Maggior Consiglio a mandarci tutti qui, per paura degli incendi in città.» Leggete l'anno del decreto scritto in numeri romani: è la carta da prendere."),
+  dict(n=1311,typ=S,strip="Risposta a: IL DECRETO",title="SBAGLIATO!",req=[50],art="Leo shaking his head next to the parchment.",
+       text="Attenti a XC: la X prima della C si toglie. Perdete 1 piuma e riprovate."),
+  dict(n=1291,typ=A,strip="Risposta a: IL DECRETO",title="VITTORIA!",req=[50],final=True,tess='rosetta',H=100,
+       art="The kids, Leo, Barovier and the apprentice toasting with clear glass goblets in front of the furnace, colourful glass beads on the table, Becco sulking on the windowsill.",
+       text="MCCXCI = 1291! Da allora Murano è l'isola del vetro. Barovier vi ringrazia con un calice di cristallo. Becco brontola: «Io volevo solo qualcosa di luccicante…»"),
+ ],
+ hints=[
+  dict(done=[7,13],t="La fornace",h=["Nel disegno ci sono due numeri nascosti.","Uno è sulla fornace, l'altro sul garzone.","Carte 7 e 13."]),
+  dict(done=[38],t="I tre barattoli",h=["Leggete il taccuino di Sofia (carta 11).","Il minerale che «lava» il vetro è nero.","Il manganese: carta 38."]),
+  dict(done=[23],t="Il cristallo",h=["Il manganese va messo nel vetro fuso.","Combinate il manganese con la fornace.","Manganese (16) + fornace (7) = carta 23."]),
+  dict(done=[26],t="Becco col calice",h=["Nel disegno del rio dei Vetrai c'è un numero nascosto.","Becco ha fame: combinate il panino con Becco.","Panino (12) + Becco (14) = carta 26."]),
+  dict(done=[1291],t="Il decreto",h=["M = 1000, C = 100, X = 10, I = 1.","CC = 200, XC = 90.","1000 + 200 + 90 + 1 = 1291: carta 1291."]),
+ ],
+ tessere={
+  'fornaci':("Le fornaci a Murano","Nel 1291 il governo veneziano ordinò di trasferire tutte le fornaci da vetro a Murano: in città, con le case di legno, provocavano spesso incendi. Forse si voleva anche proteggere meglio i segreti dei vetrai."),
+  'sapone':("Il sapone dei vetrai","Il vetro si faceva con silice e cenere di piante del Levante. Il ferro presente nella sabbia lo colorava di verde: per toglierlo si aggiungeva un po' di manganese, detto «sapone dei vetrai»."),
+  'cristallo':("Il cristallo di Barovier","Nel Quattrocento ad Angelo Barovier viene attribuita l'invenzione del «cristallo», un vetro incolore e trasparente come il cristallo di rocca. Una coppa dei Barovier del 1470 circa è al Museo del Vetro di Murano."),
+  'privilegi':("Privilegi e divieti","I maestri vetrai godevano di privilegi rari: per esempio le loro figlie potevano sposare nobili veneziani. In cambio non potevano lasciare il territorio della Repubblica, per non portare all'estero i segreti dell'arte."),
+  'rosetta':("Il vetro di Murano oggi","Ancora oggi a Murano lavorano fornaci e maestri vetrai, e il Museo del Vetro racconta oltre sette secoli di storia. Il vetro di Murano è un marchio protetto."),
+ })
+
+if __name__=='__main__':
+    for k,e in EP.items():
+        ns=[c['n'] for c in e['cards']]; S_=set(ns)
+        assert len(ns)==len(S_)
+        fin=[c['n'] for c in e['cards'] if c.get('final')]; assert len(fin)==1
+        for c in e['cards']:
+            for f in ('req','next','disc','keep'):
+                for m in c.get(f,[]): assert m in S_,(k,c['n'],f,m)
+        red=[c['n'] for c in e['cards'] if c['typ']=='OGGETTO ROSSO']; blue=[c['n'] for c in e['cards'] if c['typ']=='OGGETTO BLU']
+        combos={c['n'] for c in e['cards'] if c['typ']=='COMBINAZIONE'}
+        for r in red:
+            for b in blue:
+                if r+b in S_ and r+b not in combos: print('COLLISION',k,r,b,r+b)
+        tk=set(e['tessere']); used={c['tess'] for c in e['cards'] if c.get('tess')}; assert tk==used,(tk^used)
+        print(k,len(ns),red,blue,sorted(combos),fin)
+    json.dump(EP,open('spec4.json','w'),ensure_ascii=False,indent=1)

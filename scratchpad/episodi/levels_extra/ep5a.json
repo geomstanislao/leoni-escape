@@ -1,0 +1,124 @@
+{
+ "base": "ep5",
+ "level": "a",
+ "title": "Il furto di San Marco",
+ "place": "Alessandria d'Egitto e Venezia, anno 828",
+ "intro": "Nell'828 due mercanti veneziani portano a Venezia le spoglie di san Marco: una vicenda che la città trasformò nel suo mito di fondazione. Versione con più storia vera e indizi meno espliciti.",
+ "text": {
+  "1": "Alessandria d'Egitto, anno 828. La città, fondata da Alessandro Magno, appartiene al califfato abbasside. Due mercanti veneziani, Buono da Malamocco e Rustico da Torcello, vogliono portare a Venezia le spoglie di san Marco evangelista. Prendete le carte **2**, **3** e **4**.",
+  "2": "Il porto di Alessandria, dominato dal Faro, una delle sette meraviglie del mondo antico. Qui approdano navi da tutto il Mediterraneo. Guardate bene il disegno!",
+  "3": "«Secondo la tradizione Marco predicò ad Alessandria e vi morì martire. Ma le guardie ispezionano ogni carico che sale a bordo: se scoprono le spoglie, non partiremo. Serve un'astuzia.»",
+  "11": "Appunti di Sofia: «Le norme alimentari islamiche vietano la carne di maiale, considerata impura. Le guardie della dogana ne stavano alla larga.»",
+  "13": "Avvolgete le spoglie in un telo, mettetele nella cesta e copritele di carne salata. Per i controlli, quel carico è intoccabile. Ora serve la nave giusta: prendete la carta **23**.",
+  "23": "Buono: «Nel porto ci sono tre navi. La nostra ha due alberi e le vele a strisce. Il fanale verde? Non è dei nostri.» Il numero della nave è la carta da prendere.",
+  "34": "Le guardie si tappano il naso, gridano «Khanzir!» («maiale» in arabo) e fanno passare la cesta: così racconta la tradizione. Si salpa per Venezia, ma sull'albero c'è un passeggero inatteso. Prendete la carta **40**.",
+  "40": "«Che profumo di prosciutto!» Becco è convinto che la cesta contenga prelibatezze e vuole aprirla. Serve una distrazione che solletichi il suo palato.",
+  "60": "Venezia, 828. Il doge Giustiniano Participazio accoglie le spoglie e le fa custodire nel suo palazzo. Fino ad allora il patrono era san Teodoro, un santo soldato bizantino: ora Venezia ha un santo tutto suo. Prendete la carta **61**.",
+  "61": "I simboli dei quattro evangelisti vengono dalle visioni di Ezechiele e dell'Apocalisse; san Girolamo li assegnò a Matteo (uomo), Luca (bue) e Giovanni (aquila). Il Vangelo di Marco si apre con una voce che grida nel deserto. Chi è il suo simbolo? Il numero è la carta da prendere.",
+  "74": "È il leone alato! Sul suo libro aperto c'è scritto: «Pax tibi Marce evangelista meus». Leo: «Ecco chi sono: un cucciolo del Leone di San Marco!»"
+ },
+ "tess": {
+  "2": "alessandria",
+  "34": "maiale",
+  "60": "reliquie",
+  "61": "evangelisti",
+  "74": "leone"
+ },
+ "tessere": {
+  "alessandria": [
+   "Alessandria d'Egitto",
+   "Fondata da Alessandro Magno nel 331 a.C., Alessandria era uno dei porti più importanti del Mediterraneo. Nell'828 era sotto il califfato abbasside; i mercanti veneziani vi acquistavano spezie e stoffe."
+  ],
+  "maiale": [
+   "Il trucco del maiale",
+   "Nell'828 Buono da Malamocco e Rustico da Torcello portarono via da Alessandria il corpo di san Marco. Per la tradizione lo coprirono di carne di maiale: i doganieri musulmani non frugarono nella cesta. Il racconto, la «Translatio Sancti Marci», fu messo per iscritto nei secoli successivi."
+  ],
+  "reliquie": [
+   "Il santo e il doge",
+   "Il doge Giustiniano Participazio (827-829) fece custodire le reliquie nel palazzo e per testamento dispose la costruzione di una chiesa; la realizzò il fratello e successore Giovanni I. Marco prese il posto di san Teodoro come patrono. La basilica attuale è dell'XI secolo."
+  ],
+  "evangelisti": [
+   "I simboli degli evangelisti",
+   "I quattro viventi della visione di Ezechiele e dell'Apocalisse furono attribuiti da san Girolamo (IV secolo) agli evangelisti: uomo a Matteo, leone a Marco, bue a Luca, aquila a Giovanni."
+  ],
+  "leone": [
+   "Il leone di Venezia",
+   "Il leone alato di san Marco è dal Medioevo il simbolo di Venezia e compare su bandiere, monete e palazzi in tutto il Mediterraneo. Fino al 1797 comparve su bandiere, monete e palazzi, e su una delle due colonne della Piazzetta."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    5,
+    8
+   ],
+   "t": "Il porto",
+   "h": [
+    "Nel disegno del porto ci sono due numeri nascosti.",
+    "Uno è su un contenitore, l'altro su una bancarella.",
+    "Carte 5 e 8."
+   ]
+  },
+  {
+   "done": [
+    13
+   ],
+   "t": "Il nascondiglio",
+   "h": [
+    "Rileggete il taccuino di Sofia (carta 11): cosa evitavano le guardie?",
+    "Combinate un oggetto rosso con un oggetto blu.",
+    "Cesta (5) + carne (8) = carta 13."
+   ]
+  },
+  {
+   "done": [
+    34
+   ],
+   "t": "La nave giusta",
+   "h": [
+    "Controllate alberi, vele e fanale.",
+    "Due alberi, strisce, nessun fanale verde.",
+    "È la nave 34."
+   ]
+  },
+  {
+   "done": [
+    52
+   ],
+   "t": "Becco sulla nave",
+   "h": [
+    "Cosa piace a Becco? Guardate negli zaini.",
+    "Combinate l'oggetto rosso degli zaini con Becco.",
+    "Panino (12) + Becco (40) = carta 52."
+   ]
+  },
+  {
+   "done": [
+    74
+   ],
+   "t": "Il simbolo di Marco",
+   "h": [
+    "Gli altri tre simboli sono già nominati.",
+    "Pensate a chi vi accompagna sempre.",
+    "Il leone alato: carta 74."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  11,
+  12,
+  5,
+  8,
+  "C5+8",
+  23,
+  34,
+  40,
+  "C12+40",
+  60,
+  61,
+  74
+ ]
+}

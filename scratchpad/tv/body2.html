@@ -1,0 +1,610 @@
+<div class="app" id="app">
+  <header class="top">
+    <div class="brand" id="brand">LEONI DI LAGUNA <small id="brandsub"></small></div>
+    <div class="feathers" id="feathers" aria-label="Piume rimaste"></div>
+    <div class="clock" id="clock" aria-label="Tempo di gioco">00:00</div>
+    <button class="tbtn leo" id="btnHint" type="button">Aiuto di Leo</button>
+    <button class="tbtn" id="btnDiary" type="button">Diario</button>
+    <button class="tbtn" id="btnMenu" type="button">Puntate</button>
+    <button class="tbtn fsbtn" id="btnFs" type="button">Schermo intero</button>
+  </header>
+  <main class="main">
+    <section class="table" aria-label="Il tavolo">
+      <h2>Le carte sul tavolo</h2>
+      <div class="cards" id="cards"></div>
+    </section>
+    <aside class="side">
+      <div class="leobox" id="leobox" aria-live="polite"><b class="who">Leo dice</b><span id="leotext">Pax tibi!</span></div>
+      <div class="entry">
+        <div class="display"><span>Prendi la carta n.</span><output id="num" aria-live="polite">_ _</output></div>
+        <div class="pad" id="pad">
+          <button class="key" type="button" data-k="1">1</button><button class="key" type="button" data-k="2">2</button><button class="key" type="button" data-k="3">3</button><button class="key" type="button" data-k="4">4</button><button class="key" type="button" data-k="5">5</button><button class="key" type="button" data-k="6">6</button><button class="key" type="button" data-k="7">7</button><button class="key" type="button" data-k="8">8</button><button class="key" type="button" data-k="9">9</button><button class="key" type="button" data-k="0">0</button><button class="key" type="button" data-k="del" aria-label="Cancella">⌫</button><button class="key ok" type="button" data-k="ok">OK</button>
+        </div>
+        <button class="combine" id="btnCombine" type="button">Combina un oggetto rosso + uno blu</button>
+        <p class="howto">Con il telecomando: frecce per muovervi, OK per scegliere, Indietro per chiudere. Potete anche digitare i numeri con i tasti del telecomando.</p>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<div class="ov" id="ovStart">
+  <div class="menu">
+    <div class="menuhead">
+      <h1>LEONI DI LAGUNA</h1>
+      <div class="sub">ESCAPE · LE PUNTATE</div>
+      <div class="tabs"><button class="tab" id="tab_k" type="button">Bambini</button><button class="tab on" id="tab_f" type="button">Famiglia</button><button class="tab" id="tab_a" type="button">Adulti</button><button class="tab gara" id="tab_g" type="button">Gara del mese</button></div>
+      <p class="mlead" id="mlead_k" hidden>Tutte le puntate in versione corta e facile, per i più piccoli (6–9 anni): testi brevi e tanti aiuti sulle carte.</p>
+      <p class="mlead" id="mlead_f">Viaggiate nel tempo con Nico, Sofia, Toni e il leoncino Leo, e scoprite la storia vera dei Veneti e di Venezia. Ogni puntata dura 20–45 minuti.</p>
+      <p class="mlead" id="mlead_g" hidden>Ogni mese una puntata nuova per adulti, uguale per tutti. Conta solo la prima partita: 100 punti per ogni piuma rimasta, più un bonus per la velocità (fino a 600 punti se finite in fretta, zero dopo un'ora). Alla fine scrivete il vostro nome e guardate la classifica!</p>
+      <p class="mlead" id="mlead_a" hidden>Tutte le puntate con più storia vera e indizi meno espliciti, per ragazzi grandi e adulti.</p>
+    </div>
+    <div class="eplist" id="eplist"></div>
+    <div class="row">
+      <button class="bigbtn" id="btnRank" type="button" hidden>Classifica del mese</button>
+      <button class="bigbtn alt" id="btnDiary2" type="button">Il Diario di Leo</button>
+      <button class="bigbtn alt" id="btnRules2" type="button">Come si gioca</button>
+      <button class="bigbtn alt" id="btnTv" type="button">Schermo intero e TV</button>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="ovEp" hidden>
+  <div class="sheet epsheet">
+    <p class="eyebrow" id="epNum"></p>
+    <h2 id="epTitle"></h2>
+    <p class="place" id="epPlace"></p>
+    <p id="epIntro"></p>
+    <p id="epState"></p>
+    <div class="row">
+      <button class="bigbtn" id="btnPlay" type="button">Gioca</button>
+      <button class="bigbtn alt" id="btnRestartEp" type="button" hidden>Ricomincia la puntata</button>
+      <button class="bigbtn alt" id="btnEpClose" type="button">Torna alle puntate</button>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="ovZoom" hidden>
+  <div class="zoom">
+    <div class="zcard" id="zcard"><div class="scale" id="zscale"></div></div>
+    <div class="zside">
+      <div class="banner" id="zbanner"></div>
+      <p id="znote"></p>
+      <div id="zbtns" style="display:flex;flex-direction:column;gap:.6rem"></div>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="ovHint" hidden>
+  <div class="sheet">
+    <h2>Gli aiuti di Leo</h2>
+    <p id="hstep"></p>
+    <div class="hintlist" id="hlist"></div>
+    <div class="row">
+      <button class="bigbtn" id="btnAsk" type="button">Chiedi un aiuto (costa 1 piuma)</button>
+      <button class="bigbtn alt" id="btnHintClose" type="button">Chiudi</button>
+    </div>
+  </div>
+</div>
+
+<div class="ov" id="ovDiary" hidden>
+  <div class="sheet diary">
+    <h2>Il Diario di Leo</h2>
+    <p id="dcount"></p>
+    <div id="dlist"></div>
+    <div class="row"><button class="bigbtn" id="btnDiaryClose" type="button">Chiudi il diario</button></div>
+  </div>
+</div>
+
+<div class="ov" id="ovRules" hidden>
+  <div class="sheet">
+    <h2>Come si gioca</h2>
+    <p>Si gioca tutti insieme: una persona tiene il telecomando o il telefono, tutti guardano lo schermo e ragionano.</p>
+    <h3>Numeri nascosti</h3>
+    <p>Nei disegni delle carte cercate i numeri nei cerchietti dorati. Scrivete quel numero e premete OK per prendere la carta.</p>
+    <h3>Combinare</h3>
+    <p>Gli oggetti rossi e blu si possono usare insieme. Premete «Combina» e scegliete un oggetto rosso e uno blu sul tavolo: il gioco somma i numeri per voi.</p>
+    <h3>Enigmi</h3>
+    <p>La soluzione di un enigma è sempre un numero, a volte di tre o quattro cifre: scrivetelo e premete OK. Per risolverli servono i fatti veri della storia, scritti sulle carte.</p>
+    <h3>Le piume</h3>
+    <ul>
+      <li>Ogni puntata comincia con 10 piume.</li>
+      <li>Carta che non esiste, risposta sbagliata o carta che non serve ancora: perdete 1 piuma.</li>
+      <li>Ogni aiuto di Leo costa 1 piuma.</li>
+      <li>Alla fine: 9–10 piume Leoni d'oro, 6–8 Leoni d'argento, 1–5 Leoni di bronzo.</li>
+    </ul>
+    <h3>Il Diario di Leo</h3>
+    <p>Durante il gioco scoprite le «tessere della storia»: fatti veri su Veneti, Romani e Venezia. Restano nel diario per sempre.</p>
+    <div class="row"><button class="bigbtn" id="btnRulesClose" type="button">Ho capito</button></div>
+  </div>
+</div>
+
+<div class="ov" id="ovTv" hidden>
+  <div class="sheet">
+    <h2>Schermo intero e TV</h2>
+    <p>Il gioco è fatto per essere guardato tutti insieme su un grande schermo. Scegliete il modo che fa per voi.</p>
+    <h3>1. Schermo intero</h3>
+    <p>Premete il pulsante qui sotto: spariscono le barre del browser. Se avete installato l'app sul telefono, è già a schermo intero.</p>
+    <div class="row"><button class="bigbtn fsbtn" id="btnFs2" type="button">Schermo intero</button></div>
+    <h3>2. Smart TV con browser</h3>
+    <ul>
+      <li>Aprite il browser della TV (Internet, Chrome, Silk…) e scrivete l'indirizzo: <b>geomstanislao.github.io/leoni-escape</b></li>
+      <li>Si gioca con il telecomando: frecce per muoversi, OK per scegliere, Indietro per chiudere. I numeri si possono scrivere con i tasti numerici.</li>
+    </ul>
+    <h3>3. Dal telefono alla TV (trasmissione dello schermo)</h3>
+    <ul>
+      <li><b>Android + Chromecast o Google TV:</b> aprite il gioco in Chrome, menu ⋮ → <i>Trasmetti…</i> → scegliete la TV. Oppure, dalle impostazioni rapide (tendina dall'alto): <i>Trasmetti schermo</i> / <i>Smart View</i> (Samsung).</li>
+      <li><b>iPhone o iPad:</b> Centro di Controllo → <i>Duplica schermo</i> → Apple TV o TV compatibile AirPlay.</li>
+      <li>Girate il telefono in orizzontale e premete «Schermo intero»: si gioca toccando il telefono e tutti guardano la TV.</li>
+    </ul>
+    <h3>4. Con un cavo</h3>
+    <p>Collegate un computer alla TV con un cavo HDMI, aprite il gioco e premete «Schermo intero» (o il tasto F11).</p>
+    <div class="row"><button class="bigbtn alt" id="btnTvClose" type="button">Chiudi</button></div>
+  </div>
+</div>
+
+<div class="ov" id="ovRank" hidden>
+  <div class="sheet">
+    <h2 id="rkTitle">Classifica</h2>
+    <p id="rkNote"></p>
+    <ol class="rank" id="rkList"></ol>
+    <div class="row"><button class="bigbtn alt" id="btnRankClose" type="button">Chiudi</button></div>
+  </div>
+</div>
+
+<div class="ov" id="ovWin" hidden>
+  <div class="start">
+    <div class="sub" id="winTitle"></div>
+    <div class="medal" id="medal"></div>
+    <p id="winstats"></p>
+    <div class="garabox" id="garaBox" hidden>
+      <div class="gpts" id="gPts"></div>
+      <p class="gnote" id="gNote"></p>
+      <div class="gform" id="gForm"><input id="gNick" type="text" maxlength="20" placeholder="Il vostro nome in classifica" autocomplete="nickname"><button class="bigbtn" id="btnSend" type="button">Invia punteggio</button></div>
+      <button class="bigbtn alt" id="btnRank2" type="button">Classifica</button>
+    </div>
+    <div class="row">
+      <button class="bigbtn" id="btnNext" type="button">Prossima puntata</button>
+      <button class="bigbtn alt" id="btnDiary3" type="button">Il Diario di Leo</button>
+      <button class="bigbtn alt" id="btnWinMenu" type="button">Tutte le puntate</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script type="application/json" id="game-data">__DATA__</script>
+<script>
+(function(){
+  var DATA = JSON.parse(document.getElementById('game-data').textContent);
+  var EPS = DATA.episodes;               /* [{id,title,place,intro,cards,obj,wrong,req,disc,keep,next,tess,final,hints,tessere}] */
+  var EPI = {}; EPS.forEach(function(e,i){EPI[e.id]=i;});
+  function grp(e){return EPS.filter(function(x){return x.level===e.level;});}
+  var LVN={k:'Bambini ',f:'Puntata ',a:'Adulti '};
+  var MESI=['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'];
+  function mname(m){var p=m.split('-');return MESI[+p[1]-1]+' '+p[0];}
+  function curMonth(){var d=new Date();return d.getFullYear()+'-'+(d.getMonth()<9?'0':'')+(d.getMonth()+1);}
+  function lab(e){return e.level==='g'?'Gara di '+mname(e.month):LVN[e.level]+(grp(e).indexOf(e)+1);}
+  function nextOf(e){var g=grp(e),j=g.indexOf(e);return j<g.length-1?g[j+1]:null;}
+  var menuLevel='f';
+  var KEY='leoni-escape-v2';
+  var G=null, E=null, S=null, typed='', combineSel=null, lastFocus=null, epPick=null, restartArmed=false;
+
+  function $(id){return document.getElementById(id);}
+  function fresh(){return {table:[],used:[],feathers:10,hints:{},start:0,elapsed:0,won:false,started:false};}
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(G));}catch(e){}}
+  function load(){
+    try{var v=localStorage.getItem(KEY);if(v)return JSON.parse(v);
+      var old=localStorage.getItem('leoni-escape-tv-v1');
+      if(old){var o=JSON.parse(old);return {cur:null,eps:{ep1:o},tess:{},best:{}};}
+    }catch(e){}
+    return null;
+  }
+  function epState(id){if(!G.eps[id])G.eps[id]=fresh();return G.eps[id];}
+  function seen(n){return S.table.indexOf(n)>=0||S.used.indexOf(n)>=0;}
+  function has(n){return Object.prototype.hasOwnProperty.call(E.cards,String(n));}
+
+  /* ---------- feathers & clock ---------- */
+  var FEATHER='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3C12 4 6 9 5 18l-1 3 2-1c9-1 14-7 14-17z" fill="#f4c64e" stroke="#3b2416" stroke-width="1.4" stroke-linejoin="round"></path><path d="M6 19C9 14 13 9 18 5" fill="none" stroke="#c9952e" stroke-width="1.2"></path></svg>';
+  function drawFeathers(){
+    var h='';for(var i=0;i<10;i++){h+=FEATHER.replace('<svg','<svg class="'+(S&&i<S.feathers?'':'lost')+'"');}
+    $('feathers').innerHTML=h;$('feathers').setAttribute('aria-label','Piume rimaste: '+(S?S.feathers:0));
+  }
+  function elapsed(){if(!S)return 0;return S.won?S.elapsed:(S.started?S.elapsed+(Date.now()-S.start):0);}
+  function fmt(ms){var s=Math.floor(ms/1000),m=Math.floor(s/60);s=s%60;return (m<10?'0':'')+m+':'+(s<10?'0':'')+s;}
+  setInterval(function(){if(S)$('clock').textContent=fmt(elapsed());},1000);
+  function pauseClock(){if(S&&S.started&&!S.won&&S.start){S.elapsed+=Date.now()-S.start;S.start=0;save();}}
+  function runClock(){if(S&&S.started&&!S.won&&!S.start){S.start=Date.now();}}
+
+  function say(t,bad){$('leotext').textContent=t;$('leobox').className='leobox'+(bad?' bad':'');}
+  function lose(t){
+    S.feathers=Math.max(0,S.feathers-1);save();drawFeathers();
+    var f=$('feathers');f.classList.remove('flash');void f.offsetWidth;f.classList.add('flash');
+    say(t+' Perdete 1 piuma (ne restano '+S.feathers+').',true);
+  }
+  var toastT=null;
+  function toast(t){var el=$('toast');el.textContent=t;el.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){el.hidden=true;},4200);}
+
+  /* ---------- table ---------- */
+  function cardHtml(n){var i=E.cards[String(n)];return i==null?'':DATA.pool[i].replace(/\u0001(\d+)\u0002/g,function(m,k){return DATA.svgs[+k];});}
+  function fitThumbs(){
+    var box=$('cards');if(!box||!S)return;
+    var n=Math.max(S.table.length,1),cs=getComputedStyle(box);
+    var g=parseFloat(cs.rowGap||cs.gridRowGap||'12')||12;
+    var W=box.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight)-2,H=box.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom)-2;
+    var best=0.1;
+    for(var cols=1;cols<=n;cols++){var rows=Math.ceil(n/cols);var s=Math.min((W-g*(cols-1))/(cols*238),(H-g*(rows-1))/(rows*333));if(s>best)best=s;}
+    box.style.setProperty('--s',Math.min(best,1.5).toFixed(3));
+  }
+  function drawTable(newN){
+    var box=$('cards');
+    if(!S||!S.table.length){box.innerHTML='<p class="empty">Nessuna carta sul tavolo.</p>';return;}
+    var h='';
+    S.table.forEach(function(n){
+      var o=E.obj[n];var lab='Carta '+n+(o?' – '+(o[0]==='r'?'oggetto rosso ':'oggetto blu ')+o[1]:'');
+      var cls='thumb'+(n===newN?' newc':'')+(combineSel&&o?' pickable':'')+(combineSel&&combineSel.indexOf(n)>=0?' sel':'');
+      h+='<button type="button" class="'+cls+'" data-n="'+n+'" aria-label="'+lab+'"><div class="scale">'+cardHtml(n)+'</div></button>';
+    });
+    box.innerHTML=h;fitThumbs();
+  }
+
+  /* ---------- tessere ---------- */
+  function unlock(n){
+    var k=E.tess[n];if(!k)return;
+    var id=E.id+':'+k;if(G.tess[id])return;
+    G.tess[id]=Date.now();save();
+    toast('Nuova tessera nel Diario di Leo: «'+E.tessere[k][0]+'»');
+  }
+
+  /* ---------- taking cards ---------- */
+  function take(n){
+    n=parseInt(n,10);
+    if(isNaN(n))return;
+    typed='';drawTyped();
+    if(S.table.indexOf(n)>=0){say('La carta '+n+' è già sul tavolo.');openZoom(n,{});return;}
+    if(S.used.indexOf(n)>=0){say('La carta '+n+' l\'avete già usata: non serve più.');return;}
+    if(!has(n)||n<1){lose('La carta '+n+' non esiste!');return;}
+    var req=E.req[n];
+    if(req&&!req.every(seen)){lose('La carta '+n+' non serve ancora: torna nel mazzo.');return;}
+    if(E.wrong.indexOf(n)>=0){lose('Risposta sbagliata.');openZoom(n,{wrong:true});return;}
+    S.table.push(n);
+    if(E.disc[n])E.disc[n].forEach(discard);
+    if(E.keep[n]){S.table.slice().forEach(function(c){if(E.keep[n].indexOf(c)<0)discard(c);});}
+    var o=E.obj[n];
+    say(o?'Avete trovato '+o[1]+' ('+(o[0]==='r'?'oggetto rosso':'oggetto blu')+', '+n+').':'Nuova carta: la '+n+'. Leggetela ad alta voce!');
+    unlock(n);
+    if(n===E.final){S.elapsed=elapsed();S.won=true;S.start=0;var b=G.best[E.id];if(b==null||S.feathers>b)G.best[E.id]=S.feathers;}
+    save();drawTable(n);openZoom(n,{fresh:true});
+  }
+  function discard(c){var i=S.table.indexOf(c);if(i>=0){S.table.splice(i,1);if(S.used.indexOf(c)<0)S.used.push(c);}}
+
+  /* ---------- zoom ---------- */
+  function fitZoom(){
+    var wide=window.innerWidth>900||window.innerWidth>window.innerHeight*1.4;
+    var h=window.innerHeight*(window.innerHeight<600?0.92:0.86),w=wide?window.innerWidth*0.5:window.innerWidth*0.9;
+    var s=Math.min(h/333,w/238);
+    $('zcard').style.width=(238*s)+'px';$('zcard').style.height=(333*s)+'px';
+    $('zscale').style.transform='scale('+s+')';
+  }
+  function openZoom(n,opt){
+    $('zscale').innerHTML=cardHtml(n);fitZoom();
+    var b=$('zbanner'),note=$('znote'),btns=$('zbtns');
+    var h='';
+    if(opt.wrong){b.className='banner bad';b.textContent='SBAGLIATO!';note.textContent='La carta torna nel mazzo. Ragionate ancora e riprovate.';}
+    else if(n===E.final&&S.won){b.className='banner good';b.textContent='VITTORIA!';note.textContent='Ce l\'avete fatta!';h+='<button type="button" class="bigbtn" data-act="win">Vedi il risultato</button>';}
+    else if(opt.fresh){b.className='banner good';b.textContent='CARTA '+n;note.textContent=E.obj[n]?'Gli oggetti rossi e blu si possono combinare.':'Leggete la carta ad alta voce.';}
+    else{b.className='banner';b.textContent='CARTA '+n;note.textContent='';}
+    if(!opt.wrong&&E.next[n]){E.next[n].forEach(function(c){if(!seen(c))h+='<button type="button" class="bigbtn" data-act="take" data-n="'+c+'">Prendi la carta '+c+'</button>';});}
+    h+='<button type="button" class="bigbtn alt" data-act="close">Torna al tavolo</button>';
+    btns.innerHTML=h;
+    show('ovZoom');
+  }
+
+  /* ---------- combine ---------- */
+  function setCombine(on){
+    combineSel=on?[]:null;
+    $('btnCombine').classList.toggle('on',!!on);
+    $('btnCombine').textContent=on?'Annulla combinazione':'Combina un oggetto rosso + uno blu';
+    if(on)say('Scegliete sul tavolo un oggetto rosso e un oggetto blu.');
+    drawTable();
+  }
+  function pickCombine(n){
+    var o=E.obj[n];
+    if(!o){say('Si possono combinare solo gli oggetti rossi e blu.');return;}
+    if(combineSel.indexOf(n)>=0){combineSel.splice(combineSel.indexOf(n),1);drawTable();focusCard(n);return;}
+    combineSel.push(n);
+    if(combineSel.length<2){say('Avete scelto '+o[1]+'. Ora scegliete l\'altro oggetto.');drawTable();focusCard(n);return;}
+    var a=combineSel[0],c=combineSel[1];
+    if(E.obj[a][0]===E.obj[c][0]){say('Servono un oggetto rosso e uno blu, non due dello stesso colore.');combineSel=[];drawTable();focusCard(n);return;}
+    setCombine(false);
+    var r=E.obj[a][0]==='r'?a:c,bl=r===a?c:a;
+    var pre='Rosso '+r+' + blu '+bl+' = '+(r+bl)+'. ';
+    take(r+bl);
+    $('leotext').textContent=pre+$('leotext').textContent;
+  }
+  function focusCard(n){var el=document.querySelector('.thumb[data-n="'+n+'"]');if(el)el.focus();}
+
+  /* ---------- hints ---------- */
+  function step(){for(var i=0;i<E.hints.length;i++){if(!E.hints[i].done.every(seen))return i;}return -1;}
+  function drawHints(){
+    var i=step();
+    if(i<0){$('hstep').textContent='Avete già finito questa puntata!';$('hlist').innerHTML='';$('btnAsk').disabled=true;return;}
+    var lv=S.hints[i]||0;
+    $('hstep').textContent='Dove siete: '+E.hints[i].t+'. Aiuti già usati qui: '+lv+' di 3.';
+    var labels=['Aiuto 1','Aiuto 2','Soluzione'],h='';
+    for(var k=0;k<lv;k++)h+='<div class="hint"><b>'+labels[k]+':</b> '+E.hints[i].h[k]+'</div>';
+    $('hlist').innerHTML=h||'<div class="hint">Nessun aiuto ancora. Provate prima a ragionare insieme!</div>';
+    $('btnAsk').disabled=lv>=3||S.won;
+    $('btnAsk').textContent=lv>=3?'Avete già la soluzione':'Chiedi '+(lv===2?'la soluzione':'un aiuto')+' (costa 1 piuma)';
+  }
+  function ask(){
+    var i=step();if(i<0)return;var lv=S.hints[i]||0;if(lv>=3)return;
+    S.hints[i]=lv+1;S.feathers=Math.max(0,S.feathers-1);save();drawFeathers();drawHints();
+    say('Leo vi ha dato un aiuto. Restano '+S.feathers+' piume.');
+  }
+
+  /* ---------- menu & diary ---------- */
+  function medalOf(f){return f>=9?"Leoni d'oro":f>=6?"Leoni d'argento":"Leoni di bronzo";}
+  function medalCls(f){return f>=9?'gold':f>=6?'silver':'bronze';}
+  function drawMenu(){
+    var h='';
+    $('btnRank').hidden=menuLevel!=='g';
+    ['k','f','a','g'].forEach(function(l){$('tab_'+l).classList.toggle('on',menuLevel===l);$('mlead_'+l).hidden=menuLevel!==l;});
+    EPS.forEach(function(e,i){
+      if(e.level!==menuLevel)return;
+      var st=G.eps[e.id],best=G.best[e.id];
+      var tag=best!=null?'<span class="tag '+medalCls(best)+'">'+medalOf(best)+'</span>':(st&&st.started&&!st.won?'<span class="tag go">In corso</span>':'<span class="tag new">Da giocare</span>');
+      var nt=Object.keys(e.tessere).length,got=Object.keys(e.tessere).filter(function(k){return G.tess[e.id+':'+k];}).length;
+      h+='<button type="button" class="epcard lv'+e.level+(/^a\d/.test(e.id)?' sp':'')+'" data-ep="'+e.id+'"><span class="epn">'+lab(e)+'</span><span class="ept">'+e.title+'</span><span class="epp">'+e.place+'</span><span class="epf">'+tag+'<span class="tcount">Tessere '+got+'/'+nt+'</span></span></button>';
+    });
+    $('eplist').innerHTML=h;
+  }
+  function openEp(id){
+    epPick=id;var e=EPS[EPI[id]],st=G.eps[id];restartArmed=false;
+    $('epNum').textContent=lab(e)+' di '+grp(e).length;
+    $('epTitle').textContent=e.title;$('epPlace').textContent=e.place;$('epIntro').textContent=e.intro;
+    var going=st&&st.started&&!st.won;
+    $('epState').textContent=going?'Partita in corso: '+st.feathers+' piume, '+st.table.length+' carte sul tavolo.':(st&&st.won?'Completata con '+medalOf(G.best[id])+'. Potete rigiocarla quando volete.':'');
+    $('btnPlay').textContent=going?'Continua la partita':'Gioca';
+    $('btnRestartEp').hidden=!going;$('btnRestartEp').textContent='Ricomincia la puntata';
+    show('ovEp');
+  }
+  function enter(id,restart){
+    pauseClock();
+    E=EPS[EPI[id]];G.cur=id;
+    if(restart||!G.eps[id]||G.eps[id].won){G.eps[id]=fresh();if(E.level==='g'){G.gtry=G.gtry||{};G.gtry[id]=(G.gtry[id]||0)+1;}}
+    S=G.eps[id];
+    $('brandsub').textContent=lab(E)+' · '+E.title;
+    typed='';combineSel=null;
+    drawFeathers();drawTable();drawTyped();$('clock').textContent=fmt(elapsed());
+    hideAll();
+    if(!S.started){S.started=true;S.start=Date.now();save();say('Pax tibi! Ecco la prima carta.');take(1);}
+    else{runClock();save();say('Bentornati! Continuate da dove eravate rimasti.');}
+  }
+  function drawDiary(){
+    var total=0,got=0,h='';
+    EPS.forEach(function(e,i){
+      h+='<h3>'+lab(e)+' · '+e.title+'</h3><div class="tiles">';
+      Object.keys(e.tessere).forEach(function(k){
+        total++;var on=G.tess[e.id+':'+k];if(on)got++;
+        h+=on?'<div class="tile"><b>'+e.tessere[k][0]+'</b><span>'+e.tessere[k][1]+'</span></div>'
+             :'<div class="tile locked"><b>?</b><span>Tessera da scoprire giocando questa puntata.</span></div>';
+      });
+      h+='</div>';
+    });
+    $('dcount').textContent='Avete scoperto '+got+' tessere della storia su '+total+'.';
+    $('dlist').innerHTML=h;
+  }
+  /* ---------- gara del mese ---------- */
+  var FBV='10.12.2',FBP=null;
+  function fb(){
+    if(!DATA.firebase)return Promise.reject(new Error('nocfg'));
+    if(FBP)return FBP;
+    var base='https://www.gstatic.com/firebasejs/'+FBV+'/';
+    FBP=Promise.all([import(base+'firebase-app.js'),import(base+'firebase-auth.js'),import(base+'firebase-firestore.js')]).then(function(m){
+      var app=m[0].initializeApp(DATA.firebase),auth=m[1].getAuth(app);
+      return m[1].signInAnonymously(auth).then(function(c){return {uid:c.user.uid,db:m[2].getFirestore(app),F:m[2]};});
+    });
+    FBP.catch(function(){FBP=null;});
+    return FBP;
+  }
+  function gPoints(st){var sec=Math.floor(st.elapsed/1000);return st.feathers*100+Math.floor(Math.max(0,3600-sec)/6);}
+  function garaWin(){
+    var box=$('garaBox');
+    if(E.level!=='g'){box.hidden=true;return;}
+    box.hidden=false;G.gres=G.gres||{};
+    var pts=gPoints(S),first=(G.gtry||{})[E.id]===1,cur=E.month===curMonth(),r=G.gres[E.id];
+    $('gPts').textContent=pts+' punti';
+    var form=$('gForm');
+    if(r&&r.sent){form.hidden=true;$('gNote').textContent='Punteggio già inviato: '+r.punti+' punti come «'+r.nick+'».';}
+    else if(!first){form.hidden=true;$('gNote').textContent='Per la classifica conta solo la prima partita: questa è una rigiocata.';}
+    else if(!cur){form.hidden=true;$('gNote').textContent='La gara di '+mname(E.month)+' è chiusa: questa partita non entra in classifica.';}
+    else if(!DATA.firebase){form.hidden=true;$('gNote').textContent='La classifica online non è ancora attiva.';}
+    else{form.hidden=false;G.gres[E.id]={punti:pts,piume:S.feathers,tempo:Math.floor(S.elapsed/1000),sent:false};save();
+      $('gNote').textContent='Scrivete il vostro nome (o quello della squadra) e inviate il punteggio.';
+      try{var nk=localStorage.getItem('leoni-nick');if(nk)$('gNick').value=nk;}catch(e){}}
+  }
+  function sendScore(){
+    var r=(G.gres||{})[E.id],nick=($('gNick').value||'').replace(/\s+/g,' ').trim().slice(0,20);
+    if(!r||r.sent)return;
+    if(!nick){$('gNote').textContent='Scrivete prima un nome.';$('gNick').focus();return;}
+    $('btnSend').disabled=true;$('gNote').textContent='Invio in corso…';
+    fb().then(function(f){
+      return f.F.setDoc(f.F.doc(f.db,'gara',E.month,'punteggi',f.uid),{nick:nick,punti:r.punti,piume:r.piume,tempo:r.tempo,quando:f.F.serverTimestamp()});
+    }).then(function(){
+      r.sent=true;r.nick=nick;save();try{localStorage.setItem('leoni-nick',nick);}catch(e){}
+      $('gForm').hidden=true;$('gNote').textContent='Fatto! Siete in classifica con '+r.punti+' punti.';
+    }).catch(function(err){
+      $('btnSend').disabled=false;
+      var m=String(err&&(err.code||err.message)||'');
+      $('gNote').textContent=/permission/.test(m)?'Da questo dispositivo avete già inviato un punteggio per questo mese.':'Invio non riuscito: controllate la connessione e riprovate.';
+    });
+  }
+  function showRank(month){
+    $('rkTitle').textContent='Classifica di '+mname(month);$('rkList').innerHTML='';
+    $('rkNote').textContent=DATA.firebase?'Caricamento…':'La classifica online non è ancora attiva.';
+    show('ovRank');
+    if(!DATA.firebase)return;
+    fb().then(function(f){
+      var F=f.F;return F.getDocs(F.query(F.collection(f.db,'gara',month,'punteggi'),F.orderBy('punti','desc'),F.limit(30))).then(function(q){return {q:q,uid:f.uid};});
+    }).then(function(o){
+      var h='',i=0;
+      o.q.forEach(function(d){var v=d.data();i++;
+        var li=document.createElement('li');if(d.id===o.uid)li.className='me';
+        var a=document.createElement('span');a.className='rn';a.textContent=v.nick;
+        var b=document.createElement('span');b.className='rp';b.textContent=v.punti+' punti · '+v.piume+' piume · '+fmt(v.tempo*1000);
+        li.appendChild(a);li.appendChild(b);$('rkList').appendChild(li);});
+      $('rkNote').textContent=i?'I migliori '+i+' di questo mese.':'Nessuno ha ancora completato la gara di questo mese: siate i primi!';
+    }).catch(function(){$('rkNote').textContent='Classifica non disponibile: controllate la connessione.';});
+  }
+  function showWin(){
+    hide('ovZoom');
+    var f=S.feathers,i=EPI[E.id];
+    $('winTitle').textContent=lab(E).toUpperCase()+' COMPLETATA: '+E.title.toUpperCase()+'!';
+    $('medal').textContent=medalOf(f).toUpperCase();
+    var nt=Object.keys(E.tessere).length,got=Object.keys(E.tessere).filter(function(k){return G.tess[E.id+':'+k];}).length;
+    $('winstats').textContent='Piume rimaste: '+f+' su 10 · Tempo: '+fmt(S.elapsed)+' · Tessere della storia: '+got+' su '+nt+'.';
+    $('btnNext').hidden=!nextOf(E);
+    garaWin();
+    show('ovWin');
+  }
+
+  /* ---------- overlays ---------- */
+  var OVS=['ovStart','ovEp','ovZoom','ovHint','ovDiary','ovRules','ovTv','ovRank','ovWin'];
+  function topOv(){for(var i=OVS.length-1;i>=0;i--){if(!$(OVS[i]).hidden)return $(OVS[i]);}return null;}
+  function show(id){
+    if(!topOv())lastFocus=document.activeElement;
+    $(id).hidden=false;
+    var f=$(id).querySelector('button:not([disabled]):not([hidden])');if(f)f.focus();
+  }
+  function hide(id){
+    $(id).hidden=true;
+    if(!topOv()){var f=(lastFocus&&document.body.contains(lastFocus))?lastFocus:document.querySelector('.key[data-k="1"]');if(f)f.focus();}
+  }
+  function hideAll(){OVS.forEach(function(id){$(id).hidden=true;});var f=document.querySelector('.key[data-k="1"]');if(f)f.focus();}
+  function goMenu(){pauseClock();if(E)menuLevel=E.level;drawMenu();OVS.forEach(function(id){$(id).hidden=true;});show('ovStart');}
+  function back(){
+    var o=topOv();
+    if(o){
+      if(o.id==='ovStart'){if(S)hide('ovStart'),runClock();return;}
+      if(o.id==='ovWin'){goMenu();return;}
+      hide(o.id);return;
+    }
+    if(combineSel){setCombine(false);say('Combinazione annullata.');}
+  }
+
+  /* ---------- typing ---------- */
+  function drawTyped(){$('num').textContent=typed?typed:'_ _';}
+  function key(k){
+    if(!S)return;
+    if(k==='del'){typed=typed.slice(0,-1);}
+    else if(k==='ok'){if(typed)take(typed);else say('Scrivete prima il numero di una carta.');return;}
+    else if(typed.length<4){typed=(typed+k).replace(/^0+/,'');}
+    drawTyped();
+  }
+
+  /* ---------- fullscreen ---------- */
+  var de=document.documentElement;
+  var reqFs=de.requestFullscreen||de.webkitRequestFullscreen;
+  function isFs(){return !!(document.fullscreenElement||document.webkitFullscreenElement);}
+  function toggleFs(){
+    if(isFs()){(document.exitFullscreen||document.webkitExitFullscreen).call(document);return;}
+    try{var p=reqFs.call(de);
+      if(p&&p.then)p.then(function(){try{if(screen.orientation&&screen.orientation.lock)screen.orientation.lock('landscape').catch(function(){});}catch(e){}}).catch(function(){toast('Questo browser non permette lo schermo intero.');});
+    }catch(e){toast('Questo browser non permette lo schermo intero.');}
+  }
+  var standalone=(window.matchMedia&&window.matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches)||navigator.standalone;
+  function fsLabel(){Array.prototype.forEach.call(document.querySelectorAll('.fsbtn'),function(b){b.hidden=!reqFs||standalone;b.textContent=isFs()?'Esci da schermo intero':'Schermo intero';});}
+  document.addEventListener('fullscreenchange',fsLabel);document.addEventListener('webkitfullscreenchange',fsLabel);
+  fsLabel();
+
+  /* ---------- events ---------- */
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('button');if(!b)return;
+    if(b.classList.contains('key')){key(b.getAttribute('data-k'));return;}
+    if(b.classList.contains('thumb')){var n=+b.getAttribute('data-n');if(combineSel)pickCombine(n);else openZoom(n,{});return;}
+    if(b.classList.contains('epcard')){openEp(b.getAttribute('data-ep'));return;}
+    var act=b.getAttribute('data-act');
+    if(act==='close'){hide('ovZoom');return;}
+    if(act==='take'){hide('ovZoom');take(b.getAttribute('data-n'));return;}
+    if(act==='win'){showWin();return;}
+    switch(b.id){
+      case 'btnCombine':if(!S)return;setCombine(!combineSel);if(combineSel){var t=document.querySelector('.thumb.pickable');if(t)t.focus();}break;
+      case 'btnHint':if(!S)return;drawHints();show('ovHint');break;
+      case 'btnAsk':ask();break;
+      case 'btnHintClose':hide('ovHint');break;
+      case 'btnDiary':case 'btnDiary2':case 'btnDiary3':drawDiary();show('ovDiary');break;
+      case 'btnDiaryClose':hide('ovDiary');break;
+      case 'btnMenu':case 'btnWinMenu':goMenu();break;
+      case 'btnRules2':show('ovRules');break;
+      case 'btnRulesClose':hide('ovRules');break;
+      case 'btnPlay':enter(epPick,false);break;
+      case 'btnRestartEp':
+        if(!restartArmed){restartArmed=true;b.textContent='Sicuri? Premete di nuovo';}
+        else enter(epPick,true);
+        break;
+      case 'btnEpClose':hide('ovEp');break;
+      case 'btnNext':var nx=nextOf(E);if(nx){goMenu();openEp(nx.id);}break;
+      case 'tab_k':case 'tab_f':case 'tab_a':case 'tab_g':menuLevel=b.id.slice(4);drawMenu();break;
+      case 'btnFs':case 'btnFs2':toggleFs();break;
+      case 'btnTv':show('ovTv');break;
+      case 'btnRank':var gm=EPS.filter(function(x){return x.level==='g';});showRank(gm.length?gm[gm.length-1].month:curMonth());break;
+      case 'btnRank2':showRank(E.month);break;
+      case 'btnRankClose':hide('ovRank');break;
+      case 'btnSend':sendScore();break;
+      case 'btnTvClose':hide('ovTv');break;
+    }
+  });
+
+  /* spatial navigation for TV remotes */
+  function focusables(){
+    var root=topOv()||$('app');
+    return Array.prototype.filter.call(root.querySelectorAll('button'),function(b){
+      if(b.disabled||b.hidden)return false;var r=b.getBoundingClientRect();return r.width>0&&r.height>0;});
+  }
+  function move(dir){
+    var list=focusables();if(!list.length)return;
+    var cur=document.activeElement;
+    if(list.indexOf(cur)<0){list[0].focus();return;}
+    var a=cur.getBoundingClientRect(),ax=a.left+a.width/2,ay=a.top+a.height/2,best=null,bs=1e9;
+    list.forEach(function(b){
+      if(b===cur)return;var r=b.getBoundingClientRect(),bx=r.left+r.width/2,by=r.top+r.height/2,dx=bx-ax,dy=by-ay;
+      var main=dir==='l'?-dx:dir==='r'?dx:dir==='u'?-dy:dy;
+      var cross=dir==='l'||dir==='r'?Math.abs(dy):Math.abs(dx);
+      if(main<=2)return;var sc=main+cross*2.2;if(sc<bs){bs=sc;best=b;}
+    });
+    if(best){best.focus();best.scrollIntoView({block:'nearest',inline:'nearest'});}
+  }
+  document.addEventListener('keydown',function(e){
+    var k=e.key,c=e.keyCode;
+    if(e.target&&e.target.tagName==='INPUT'){if(k==='Enter'){e.preventDefault();sendScore();}if(!/^Arrow(Up|Down)$/.test(k)&&k!=='Escape')return;}
+    if(k==='ArrowLeft'||c===37){e.preventDefault();move('l');return;}
+    if(k==='ArrowRight'||c===39){e.preventDefault();move('r');return;}
+    if(k==='ArrowUp'||c===38){e.preventDefault();move('u');return;}
+    if(k==='ArrowDown'||c===40){e.preventDefault();move('d');return;}
+    if(k==='Escape'||k==='GoBack'||k==='BrowserBack'||c===10009||c===461){e.preventDefault();back();return;}
+    var d=null;
+    if(/^[0-9]$/.test(k))d=k;else if(c>=48&&c<=57)d=String(c-48);else if(c>=96&&c<=105)d=String(c-96);
+    var o=topOv();
+    if(d!==null){
+      if(o&&(o.id==='ovStart'||o.id==='ovWin'||o.id==='ovEp'))return;
+      if(o)hide(o.id);
+      e.preventDefault();key(d);return;
+    }
+    if(k==='Backspace'||c===8){e.preventDefault();if(o)back();else key('del');return;}
+  });
+  window.addEventListener('resize',function(){fitThumbs();if(!$('ovZoom').hidden)fitZoom();});
+  document.addEventListener('visibilitychange',function(){if(document.hidden)pauseClock();else if(!topOv()||$('ovStart').hidden)runClock();});
+
+  /* ---------- boot ---------- */
+  function boot(data){
+    G=(data&&data.G)||load()||{cur:null,eps:{},tess:{},best:{}};
+    if(!G.eps)G.eps={};if(!G.tess)G.tess={};if(!G.best)G.best={};
+    if(G.cur&&EPI[G.cur]!=null){E=EPS[EPI[G.cur]];S=epState(G.cur);$('brandsub').textContent=lab(E)+' · '+E.title;if(S.start){S.elapsed+=0;}S.start=0;drawTable();}
+    drawFeathers();drawTyped();drawMenu();
+    var f=document.querySelector('.epcard');if(f)f.focus();
+  }
+  var hot=window.claude&&window.claude.hot;
+  if(hot&&hot.snapshot)hot.snapshot(function(){return {G:G};});
+  if(hot&&hot.ready)hot.ready(boot);else boot((hot&&hot.data)||{});
+})();
+</script>

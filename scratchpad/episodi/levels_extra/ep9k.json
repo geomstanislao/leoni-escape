@@ -1,0 +1,99 @@
+{
+ "base": "ep9",
+ "level": "k",
+ "title": "Lepanto",
+ "place": "Golfo di Lepanto, 7 ottobre 1571",
+ "intro": "Una grande flotta di navi amiche, con quelle di Venezia, parte per il mare. Aiutate Venier a contare le navi e liberate i rematori prigionieri! Versione facile, per i più piccoli.",
+ "text": {
+  "1": "Golfo di Lepanto, 7 ottobre 1571. Venezia, la Spagna e il Papa sono amici e hanno una grande flotta. Leo vi porta su una nave veneziana! Prendete le carte **2**, **3** e **4**.",
+  "2": "Tantissime navi sul mare! Davanti a tutte ce ne sono sei grandissime. Cercate nel disegno il cerchietto dorato con il numero: è una carta da prendere.",
+  "3": "«Remiamo tutti insieme, allo stesso ritmo! Su altre navi ci sono rematori prigionieri con le catene: speriamo di liberarli.»",
+  "11": "«Le navi della Lega erano 207: 105 di Venezia, 81 della Spagna, 12 del Papa e 9 di altri. Davanti a tutte, 6 grandi navi veneziane: le galeazze.»",
+  "5": "«Sono Sebastiano Venier, capitano dei Veneziani. Quante navi NON sono di Venezia? Aiutatemi a contare (carta **6**).»",
+  "6": "Le navi della Lega sono 207, quelle di Venezia 105 (carta 11). Fate 207 − 105. Aiuto: prima togliete 100, poi togliete 5. Il risultato è la carta da prendere.",
+  "102": "207 − 105 = 102 navi amiche! Venier manda avanti le grandi navi. Su una nave c'è un rematore con la catena: bisogna liberarlo! Cercate il numero nel disegno.",
+  "8": "Pesanti catene chiuse con un lucchetto. Serve una chiave. Chi ce l'ha? Becco!",
+  "29": "Clack! Le catene si aprono: i rematori sono liberi! Tantissimi prigionieri tornarono a casa. A Venezia suonarono le campane per giorni."
+ },
+ "tess": {
+  "2": "lega",
+  "11": "galeazze",
+  "29": "liberi"
+ },
+ "tessere": {
+  "lega": [
+   "La Lega Santa",
+   "Nel 1571 Venezia, la Spagna e il Papa fecero amicizia e misero insieme le loro navi."
+  ],
+  "galeazze": [
+   "Le galeazze",
+   "Le galeazze erano navi enormi con tanti cannoni, costruite a Venezia all'Arsenale."
+  ],
+  "liberi": [
+   "Rematori liberi",
+   "Tanti rematori prigionieri tornarono liberi e potevano rivedere le loro famiglie."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    5
+   ],
+   "t": "La flotta",
+   "h": [
+    "Nel disegno c'è un cerchietto dorato con un numero.",
+    "È sul vecchio ammiraglio con la barba bianca.",
+    "Carta 5."
+   ]
+  },
+  {
+   "done": [
+    102
+   ],
+   "t": "Le navi della Lega",
+   "h": [
+    "Leggete la carta 11 di Sofia: quante navi in tutto, quante di Venezia?",
+    "Fate 207 − 105: togliete prima 100, poi 5.",
+    "207 − 105 = 102: carta 102."
+   ]
+  },
+  {
+   "done": [
+    26
+   ],
+   "t": "Becco con la chiave",
+   "h": [
+    "Nel disegno della carta 102 c'è un numero nascosto sulle catene; Becco ha la chiave (carta 14).",
+    "Combinate il panino con Becco.",
+    "Panino (12) + Becco (14) = carta 26."
+   ]
+  },
+  {
+   "done": [
+    29
+   ],
+   "t": "Le catene",
+   "h": [
+    "Ora avete la chiave.",
+    "Combinate la chiave con le catene.",
+    "Chiave (21) + catene (8) = carta 29."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  11,
+  12,
+  5,
+  6,
+  102,
+  8,
+  14,
+  "C12+14",
+  21,
+  "C21+8"
+ ],
+ "final": 29
+}

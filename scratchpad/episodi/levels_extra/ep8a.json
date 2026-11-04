@@ -1,0 +1,126 @@
+{
+ "base": "ep8",
+ "level": "a",
+ "title": "In viaggio con Marco Polo",
+ "place": "Venezia e l'impero mongolo, 1271–1295",
+ "intro": "Nel 1271 i mercanti Niccolò e Matteo Polo ripartono per l'Oriente con il giovane Marco. Alla corte di Kublai Khan, Becco ha rubato un oggetto prezioso. Versione con più storia vera e indizi meno espliciti.",
+ "text": {
+  "1": "Venezia, anno 1271. Niccolò e Matteo Polo, mercanti, ripartono per l'Oriente con Marco, il figlio di Niccolò, che ha circa diciassette anni. Meta: la corte del Gran Khan. Leo: «Tenetevi forte!» Prendete le carte **2**, **3** e **4**.",
+  "2": "Khanbalik, la capitale di Kublai Khan, nipote di Gengis Khan e imperatore dei Mongoli: proprio nel 1271 ha dato alla sua dinastia il nome cinese di Yuan. È inverno e fa un gran freddo. Guardate bene il disegno!",
+  "3": "«Il Khan mi manda in missione per l'impero e mi ha affidato un paiza, la tavoletta d'oro che apre ogni porta. Becco me l'ha rubata, e senza di lei viaggiare è un guaio!»",
+  "11": "Appunti di Sofia: «Nel Milione Marco descrive la moneta di carta: fogli ricavati dalla corteccia del gelso e timbrati con il sigillo rosso del Khan. Ogni foglio porta scritto il proprio valore.»",
+  "5": "Kublai Khan accoglie i Polo. Marco scriverà che il suo denaro di carta valeva come l'oro e che nessuno poteva rifiutarlo. Al mercato il venditore di carbone vi aspetta: carta **30**.",
+  "30": "Il venditore di carbone chiede, per il suo cesto di pietre nere, la somma di tutti i fogli sul banco. Il totale è la carta da prendere.",
+  "40": "Il totale è 40. Il mercante vi dà un cesto di «pietre nere». Marco le descrive nel Milione come pietre che ardono come la legna e durano più a lungo: è il carbone, ancora poco usato in Italia. Prendete la carta **16**.",
+  "16": "Il carbone: in Cina si estraeva e si bruciava per scaldarsi. Marco ne parla con meraviglia: nel Duecento, in gran parte d'Europa, si bruciava soprattutto legna.",
+  "22": "Becco molla la tavoletta. Il paiza era una lastra di metallo con un'iscrizione del Khan: chi la mostrava poteva ottenere cavalli, cibo e alloggio nelle stazioni di posta dell'impero. Prendete la carta **50**.",
+  "50": "Marco torna a Venezia, ma anni dopo è prigioniero a Genova (secondo la tradizione, catturato a Curzola nel 1298). Qui detta i suoi ricordi a Rustichello da Pisa, che scrive in francese. Quanto durò il viaggio? Le date sono sul cartello.",
+  "25": "Il conto non torna: ricontate gli anni tra la partenza e il ritorno. Perdete 1 piuma e riprovate.",
+  "24": "Il viaggio durò 24 anni. Il libro descrisse all'Europa la Cina, l'India e il «Cipango», il Giappone, che Marco non vide mai ma di cui sentì parlare. Becco brontola: «Io volevo solo la tavoletta d'oro…»"
+ },
+ "tess": {
+  "2": "khan",
+  "11": "carta",
+  "16": "carbone",
+  "22": "paiza",
+  "24": "milione"
+ },
+ "tessere": {
+  "khan": [
+   "Kublai Khan",
+   "Nipote di Gengis Khan, Kublai divenne Gran Khan dei Mongoli nel 1260 e nel 1271 fondò la dinastia cinese Yuan, con capitale a Khanbalik, l'odierna Pechino. Marco Polo racconta di aver servito alla sua corte per circa diciassette anni, anche come inviato in province lontane."
+  ],
+  "carta": [
+   "La moneta di carta",
+   "Marco Polo è tra i primi europei a descrivere le banconote cinesi: fogli di corteccia di gelso, timbrati con il sigillo rosso dell'imperatore, accettati in tutto l'impero. In Europa si pagava ancora quasi solo con monete di metallo."
+  ],
+  "carbone": [
+   "Le pietre che ardono",
+   "Nel Milione Marco racconta di «pietre nere» scavate dai monti e usate come combustibile, più durature della legna. Era il carbone fossile, già diffuso in Cina e nel Duecento ancora poco usato in gran parte dell'Europa."
+  ],
+  "paiza": [
+   "Il paiza",
+   "Il paiza (in mongolo «gerege») era una tavoletta di metallo, d'oro, d'argento o di bronzo secondo il rango, che il Khan consegnava ai suoi inviati. Chi la portava poteva usare le stazioni di posta dell'impero e chiedere cavalli e provviste. Marco ne descrive vari tipi."
+  ],
+  "milione": [
+   "Il Milione",
+   "Marco Polo tornò a Venezia nel 1295, dopo ventiquattro anni. Il libro, dettato a Rustichello da Pisa verso il 1298 durante la prigionia a Genova, fu scritto in franco-italiano col titolo «Devisement dou monde»; fu poi chiamato Il Milione. Marco morì a Venezia nel 1324."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    5,
+    7
+   ],
+   "t": "La corte del Gran Khan",
+   "h": [
+    "Il disegno nasconde due numeri.",
+    "Cercate un personaggio importante e qualcosa che serve contro il freddo.",
+    "Carte 5 e 7."
+   ]
+  },
+  {
+   "done": [
+    40
+   ],
+   "t": "La carta moneta",
+   "h": [
+    "Il taccuino di Sofia spiega come erano fatti i fogli, ma il prezzo lo dice il banco del mercante.",
+    "Leggete il valore scritto su ciascun foglio e sommateli tutti.",
+    "Tre fogli da 10 e due da 5: 40."
+   ]
+  },
+  {
+   "done": [
+    23
+   ],
+   "t": "Il braciere",
+   "h": [
+    "Che cosa si ottiene dalle pietre nere?",
+    "Un braciere vuoto e qualcosa che brucia: provate la combinazione.",
+    "Pietre nere (16) + braciere (7) = carta 23."
+   ]
+  },
+  {
+   "done": [
+    22
+   ],
+   "t": "Becco e la tavoletta",
+   "h": [
+    "Che cosa vuole Becco più dell'oro?",
+    "Un oggetto rosso e un oggetto blu: cibo e ladro.",
+    "Panino (12) + Becco (10) = carta 22."
+   ]
+  },
+  {
+   "done": [
+    24
+   ],
+   "t": "Il libro di Marco",
+   "h": [
+    "Il cartello alla parete della cella riporta due date.",
+    "Quanti anni passano fra la prima e la seconda?",
+    "1295 − 1271 = 24: carta 24."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  11,
+  12,
+  5,
+  7,
+  30,
+  40,
+  16,
+  "C16+7",
+  10,
+  "C12+10",
+  50,
+  24
+ ],
+ "final": 24
+}

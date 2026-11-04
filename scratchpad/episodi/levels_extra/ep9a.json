@@ -1,0 +1,100 @@
+{
+ "base": "ep9",
+ "level": "a",
+ "title": "Lepanto",
+ "place": "Golfo di Lepanto, 7 ottobre 1571",
+ "intro": "Dopo l'attacco ottomano a Cipro, papa Pio V mette insieme Venezia e la Spagna nella Lega Santa. Una puntata di galee, numeri e diplomazia, con più storia vera e indizi meno espliciti.",
+ "text": {
+  "1": "Golfo di Lepanto, 7 ottobre 1571. Dopo l'attacco ottomano a Cipro, possedimento veneziano, papa Pio V ha riunito Venezia, la Spagna e lo Stato della Chiesa nella Lega Santa. Leo vi porta a bordo di una galeazza veneziana! Prendete le carte **2**, **3** e **4**.",
+  "2": "La flotta della Lega, riunita a Messina e al comando di Don Giovanni d'Austria. Davanti a tutte, sei galeazze: navi nate nell'Arsenale di Venezia. Guardate bene il disegno!",
+  "3": "«Remare in squadra è un'arte: basta un errore e i remi si incastrano. Sulle galee veneziane i rematori sono per lo più uomini liberi e pagati. Su molte navi ottomane, invece, i remi sono tenuti da prigionieri e schiavi.»",
+  "11": "Appunti di Sofia: «Secondo le fonti, la Lega schierava 207 galee: 105 di Venezia, 81 della Spagna e dei suoi domini, 12 del Papa e 9 di altri alleati. In testa alla flotta, 6 galeazze veneziane: più alte e pesanti delle galee, armate con molti cannoni.»",
+  "12": "Pane e formaggio. A bordo si mangiava soprattutto la galletta, pane biscottato che si conservava a lungo: questo è un lusso!",
+  "5": "«Sono Sebastiano Venier, capitano generale dei Veneziani, e ho circa settantacinque anni. Don Giovanni mi chiede su quante galee potrà contare oltre alle nostre. Fate il conto (carta **6**).»",
+  "6": "Venier vuole sapere quante galee la Lega schiera oltre a quelle veneziane. I dati sono nel taccuino di Sofia. Il risultato è la carta da prendere.",
+  "102": "Sono 102 le galee degli alleati. Venier dà ordini con la tromba e le galeazze avanzano. Su una nave ottomana ci sono rematori incatenati: bisogna liberarli! Guardate bene il disegno.",
+  "8": "Catene di ferro chiuse con un lucchetto. Sulle galee ottomane i rematori erano spesso schiavi o prigionieri, incatenati al banco. La chiave? Ce l'ha… indovinate chi!",
+  "29": "Clack! Le catene si aprono: i rematori sono liberi! I cristiani liberati dalle galee ottomane furono migliaia: le fonti parlano di 12.000-15.000. A Venezia si festeggiò per giorni, con le campane a festa."
+ },
+ "tess": {
+  "2": "lega",
+  "11": "galeazze",
+  "29": "liberi"
+ },
+ "tessere": {
+  "lega": [
+   "La Lega Santa",
+   "Proclamata il 25 maggio 1571 per iniziativa di papa Pio V, la Lega univa Venezia, la Spagna di Filippo II e lo Stato pontificio, dopo che nel 1570 gli Ottomani avevano attaccato Cipro. Comandante supremo era Don Giovanni d'Austria, fratellastro di Filippo II; i Veneziani erano guidati da Sebastiano Venier, che nel 1577 sarebbe diventato doge."
+  ],
+  "galeazze": [
+   "Le galeazze",
+   "Le galeazze erano navi a remi e a vela più larghe e pesanti delle galee, con cannoni a prua e sui fianchi, sviluppate a Venezia. A Lepanto erano sei, tutte veneziane. Furono costruite nell'Arsenale, uno dei maggiori complessi produttivi d'Europa."
+  ],
+  "liberi": [
+   "Una vittoria che costò cara",
+   "I cristiani liberati dalle galee ottomane furono, secondo le fonti, tra 12.000 e 15.000. La vittoria ebbe un forte valore simbolico in tutta Europa, ma Venezia, rimasta sola dopo il ritiro degli alleati, firmò nel 1573 una pace separata con gli Ottomani e cedette loro Cipro."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    5
+   ],
+   "t": "La flotta",
+   "h": [
+    "Il disegno nasconde un solo numero.",
+    "Cercate chi guida i Veneziani: un ammiraglio molto anziano.",
+    "Carta 5."
+   ]
+  },
+  {
+   "done": [
+    102
+   ],
+   "t": "Le galee della Lega",
+   "h": [
+    "Il taccuino di Sofia dà i contributi di ciascun alleato.",
+    "Venier vuole sapere solo quante galee non sono sue.",
+    "207 − 105 = 102: carta 102."
+   ]
+  },
+  {
+   "done": [
+    26
+   ],
+   "t": "Becco con la chiave",
+   "h": [
+    "Nel disegno della carta 102 c'è un numero nascosto sulle catene; Becco ha la chiave (carta 14).",
+    "Che cosa vuole Becco più di una chiave lucente?",
+    "Panino (12) + Becco (14) = carta 26."
+   ]
+  },
+  {
+   "done": [
+    29
+   ],
+   "t": "Le catene",
+   "h": [
+    "La chiave è caduta sul ponte.",
+    "Un oggetto rosso e un oggetto blu: chiave e lucchetto.",
+    "Chiave (21) + catene (8) = carta 29."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  11,
+  12,
+  5,
+  6,
+  102,
+  8,
+  14,
+  "C12+14",
+  21,
+  "C21+8"
+ ],
+ "final": 29
+}

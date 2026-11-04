@@ -1,0 +1,123 @@
+{
+ "base": "ep10",
+ "level": "k",
+ "title": "L'ultimo doge e Venezia oggi",
+ "place": "Venezia, 1797 e oggi",
+ "intro": "La Repubblica di Venezia finisce, ma la città vive ancora. Un ultimo viaggio nel tempo fino a oggi. Versione corta e facile, per i più piccoli.",
+ "text": {
+  "1": "Venezia, 12 maggio 1797. Arriva Napoleone e la Repubblica finisce. Becco ha rubato il corno, il cappello del doge! Prendete le carte **2**, **3** e **4**.",
+  "2": "Il Palazzo Ducale, dove per tanti anni hanno governato i dogi. Cercate nel disegno i due cerchietti dorati con un numero: sono le carte da prendere.",
+  "3": "«Sono il generale Napoleone. Da oggi la Repubblica di Venezia non esiste più!»",
+  "11": "«Il primo doge è stato eletto nel 697. La Repubblica è finita nel 1797.»",
+  "5": "«Sono Manin, l'ultimo doge. Becco mi ha preso il corno… Ditemi quanti anni è durata la nostra Repubblica (carta **6**).»",
+  "6": "Quanti anni sono passati dal 697 al 1797? Aiuto: da 697 a 1697 sono 1000 anni. Da 1697 a 1797 sono 100 anni. Sommateli: il numero è la carta da prendere.",
+  "1100": "1000 + 100 = 1100 anni! Nessuna repubblica è durata così tanto. Leo: «Ma Venezia non è finita: andiamo avanti nel tempo!» Prendete la carta **30**.",
+  "21": "Becco mangia il panino e il corno rotola via. Sofia lo porterà in un museo, così tutti potranno vederlo!",
+  "30": "Dopo Napoleone sono arrivati gli Austriaci. Nel 1866 Venezia è entrata a far parte dell'Italia. Leo: «Ultimo salto: fino a oggi!» Prendete la carta **40**.",
+  "40": "Venezia oggi: arriva l'acqua alta! Dal 2020 grandi porte gialle, il Mose, si alzano dal mare e proteggono la città. Cercate i due cerchietti dorati.",
+  "7": "Stivali di gomma: a Venezia, con l'acqua alta, servono sempre!",
+  "8": "L'acqua alta riempie le calli e le piazze. Con i piedi nudi non si passa!",
+  "15": "Con gli stivali attraversate l'acqua alta fino a San Marco. Leo: «Avete visto 3.000 anni di storia! Pax tibi, amici!» FINE… per ora!"
+ },
+ "tessere": {
+  "manin": [
+   "L'ultimo doge",
+   "Nel 1797 la Repubblica di Venezia è finita. L'ultimo doge si chiamava Ludovico Manin."
+  ],
+  "repubblica": [
+   "Mille anni di Repubblica",
+   "Venezia è stata una repubblica per 1100 anni: tantissimi!"
+  ],
+  "corno": [
+   "Il corno del doge",
+   "Il cappello del doge aveva una punta dietro, come un piccolo corno."
+  ],
+  "italia": [
+   "Venezia in Italia",
+   "Nel 1866 Venezia e il Veneto sono entrati nel Regno d'Italia."
+  ],
+  "mose": [
+   "Il Mose",
+   "Il Mose sono grandi porte gialle che si alzano dal mare e fermano l'acqua alta."
+  ],
+  "arrivederci": [
+   "Venezia oggi",
+   "Venezia è ancora viva ed è costruita sull'acqua. È patrimonio dell'umanità UNESCO."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    5,
+    9
+   ],
+   "t": "Il Palazzo Ducale",
+   "h": [
+    "Nel disegno ci sono due cerchietti dorati con un numero.",
+    "Uno è sul vecchio doge, l'altro su Becco in alto sulla colonna.",
+    "Prendete le carte 5 e 9."
+   ]
+  },
+  {
+   "done": [
+    1100
+   ],
+   "t": "Quanti anni?",
+   "h": [
+    "Il taccuino di Sofia (carta 11) dice quando è iniziata e quando è finita la Repubblica.",
+    "Fate 1000 + 100, come dice la carta 6.",
+    "1100 anni: carta 1100."
+   ]
+  },
+  {
+   "done": [
+    21
+   ],
+   "t": "Il corno",
+   "h": [
+    "Becco ha fame: cercate l'oggetto rosso e quello blu.",
+    "Premete «Combina»: il panino col corno di Becco.",
+    "Panino (12) + Becco (9) = carta 21."
+   ]
+  },
+  {
+   "done": [
+    40
+   ],
+   "t": "Avanti nel tempo",
+   "h": [
+    "Leo vi porta prima nel 1866.",
+    "Prendete la carta 30, poi la carta 40.",
+    "Carte 30 e 40."
+   ]
+  },
+  {
+   "done": [
+    15
+   ],
+   "t": "L'acqua alta",
+   "h": [
+    "Nel disegno di Venezia oggi ci sono due cerchietti dorati.",
+    "Combinate gli stivali con l'acqua alta.",
+    "Stivali (7) + acqua alta (8) = carta 15."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  11,
+  12,
+  5,
+  9,
+  6,
+  1100,
+  "C12+9",
+  30,
+  40,
+  7,
+  8,
+  "C7+8"
+ ]
+}

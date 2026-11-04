@@ -1,0 +1,231 @@
+# Adult episodes a1-a3 ("più storia vera"). Same format as spec2.py, plus adult=True.
+import json
+L, R, B, P, I, E, C, A, S, X = ('LUOGO','OGGETTO ROSSO','OGGETTO BLU','PERSONAGGIO','INDIZIO','ENIGMA',
+                                 'COMBINAZIONE','RISPOSTA','SBAGLIATO','SPECIALE')
+EP = {}
+
+# ------------------------------------------------------------------ ADULTI 1
+EP['a1'] = dict(adult=True,
+ title="Come si elegge un doge", place="Palazzo Ducale, aprile 1423",
+ intro="È morto il doge Tommaso Mocenigo. Il Maggior Consiglio deve eleggere il successore con il sistema più complicato d'Europa: un intreccio di sorteggi e votazioni pensato perché nessuna famiglia potesse comprarsi il doge.",
+ cards=[
+  dict(n=1,typ=X,title="INIZIO",next=[2,3,4],H=95,art="Leo greeting with a paw in the great council hall of the Doge's Palace, long benches, a big painted ceiling.",
+       text="Venezia, aprile 1423. Il doge Tommaso Mocenigo è morto e i nobili del Maggior Consiglio si riuniscono per eleggere il nuovo doge. Ma Becco ha rubato le «balote», le palline usate per sorteggi e votazioni: senza quelle l'elezione non può cominciare. Prendete le carte **2**, **3** e **4**."),
+  dict(n=2,typ=L,title="LA SALA DEL MAGGIOR CONSIGLIO",H=165,req=[1],hidden=[6,9],tess='maggior',
+       art="The huge hall of the Great Council: rows of nobles in red and black robes on long benches, a tribune at the end. In front a tall wooden ballot urn with a cloth cover, EMPTY — hidden number 6 on the urn; beside it a boy of about ten in a simple red tunic and cap — hidden number 9 on the boy. Exactly TWO gold circles: 6, 9.",
+       text="Qui si riuniscono tutti i nobili veneziani maggiori di 25 anni: più di mille uomini. Guardate bene il disegno."),
+  dict(n=3,typ=P,title="IL CANCELLIER GRANDE",req=[1],H=100,
+       art="The Grand Chancellor of Venice: a dignified older man in a long purple-red robe, holding a big register and a quill, serious.",
+       text="«Sono il Cancellier Grande, capo dei segretari della Repubblica. La regola dell'elezione è del 1268: dieci passaggi, cinque affidati alla sorte e cinque al voto. Così nessuno può sapere in anticipo chi sarà elettore, e i brogli diventano quasi impossibili.»"),
+  dict(n=4,typ=X,title="GLI ZAINI",req=[1],next=[11,12],art="Two open backpacks: an open notebook full of notes and a bread-and-cheese sandwich.",
+       text="Aprite gli zaini! Il taccuino di Sofia (carta **11**) e il panino di Toni (carta **12**)."),
+  dict(n=11,typ=I,title="IL TACCUINO DI SOFIA",req=[4],H=60,tess='procedura',
+       art="Notebook page with a vertical list of numbers connected by arrows, some marked with a small die and some with a small hand raised.",
+       text="1) A sorte, 30 nobili. 2) A sorte ne restano 9. 3) I 9 VOTANO ed eleggono 40. 4) A sorte ne restano 12. 5) I 12 VOTANO ed eleggono 25. 6) A sorte ne restano 9. 7) I 9 VOTANO ed eleggono 45. 8) A sorte ne restano 11. 9) Gli 11 VOTANO ed eleggono 41. 10) I 41 VOTANO il doge: servono almeno 25 voti."),
+  dict(n=12,typ=R,title="IL PANINO DI TONI",req=[4],art="A fat bread-and-cheese sandwich.",
+       text="Pane e formaggio. Le sedute del Maggior Consiglio duravano ore: un panino fa sempre comodo."),
+  dict(n=6,typ=B,title="L'URNA",req=[2],art="A tall wooden ballot urn (a cylinder on a stand, with an opening on top), empty, a cloth beside it.",
+       text="L'urna dei sorteggi è vuota. Dentro ci andrebbero le balote: tante di stoffa o di cera e poche dorate, che indicano chi è estratto."),
+  dict(n=9,typ=P,title="IL BALLOTTINO",req=[2],next=[14],H=100,
+       art="A boy of about ten in a red tunic and cap, standing proudly, pointing up to the ceiling beams.",
+       text="«Sono il ballottino: un ragazzino scelto fuori dal palazzo, che non conosce nessuno dei nobili. Sono io a pescare le balote dall'urna, così nessuno può barare. Il gabbiano con il sacchetto è lassù, sulle travi (carta **14**)!»"),
+  dict(n=14,typ=B,title="BECCO SULLE TRAVI",req=[9],art="Becco on a gilded ceiling beam holding a small cloth bag full of little balls, some golden, sniffing the air hungrily.",
+       text="«Palline d'oro! Sono mie!» Becco non scende… ma da stamattina non ha mangiato niente."),
+  dict(n=26,typ=C,strip="Combinazione: PANINO + BECCO",title="IL SACCHETTO",req=[12,14],next=[30],disc=[12,14],
+       art="Becco swooping on the sandwich, the bag of ballot balls falling into the ballot boy's hands.",
+       text="Becco si getta sul panino e il sacchetto cade dritto nelle mani del ballottino. Prendete la carta **30**."),
+  dict(n=30,typ=R,title="LE BALOTE",req=[26],art="A pile of small cloth ballot balls, most plain and a few golden.",
+       text="Le balote. Da questa parola viene l'inglese «ballot», che vuol dire scheda elettorale."),
+  dict(n=36,typ=C,strip="Combinazione: BALOTE + URNA",title="SI COMINCIA!",req=[30,6],next=[40],disc=[6,30,9],
+       art="The ballot boy drawing a golden ball from the urn, nobles watching in silence, the chancellor writing.",
+       text="Le balote tornano nell'urna e il ballottino comincia a estrarre. I passaggi sono tanti e il Cancellier Grande deve preparare il registro delle votazioni. Prendete la carta **40**."),
+  dict(n=40,typ=E,title="IL REGISTRO DEI VOTANTI",req=[36],H=110,
+       art="A big open register on a desk with ten empty lines numbered 1 to 10 in Roman numerals, a quill and an inkpot, the chancellor pointing at it.",
+       text="«Devo preparare un posto a sedere per ogni nobile che VOTA, in ognuno dei passaggi.» Usate il taccuino di Sofia (carta 11): sommate i gruppi che votano. Il totale è la carta da prendere."),
+  dict(n=151,typ=S,strip="Risposta a: IL REGISTRO DEI VOTANTI",title="SBAGLIATO!",req=[40],art="The chancellor shaking his head over the register.",
+       text="Avete sommato i gruppi ELETTI, non quelli che votano. Perdete 1 piuma e riprovate."),
+  dict(n=82,typ=A,strip="Risposta a: IL REGISTRO DEI VOTANTI",title="FRANCESCO FOSCARI",req=[40],disc=[40],next=[50],H=95,tess='sevipiace',
+       art="A middle-aged doge with a dark beard, in a golden robe, being presented to the crowd from a balcony; people below.",
+       text="9 + 12 + 9 + 11 + 41 = 82 votanti. Il 15 aprile 1423 i 41 eleggono Francesco Foscari. Per la prima volta il nuovo doge non viene presentato al popolo con la formula «Questo è il vostro doge, se vi piace», ma solo «Questo è il vostro doge». Prendete la carta **50**."),
+  dict(n=50,typ=E,title="QUANTO DURÒ?",req=[82],H=105,
+       art="A long timeline ribbon from the winged lion to a broken doge's cap, with the labels '1268' at the start and '1797' at the end.",
+       text="Il sistema introdotto nel 1268 fu usato, con poche e piccole modifiche, fino alla caduta della Repubblica, nel 1797. Per quanti anni? Il numero è la carta da prendere."),
+  dict(n=529,typ=A,strip="Risposta a: QUANTO DURÒ?",title="VITTORIA!",req=[50],final=True,tess='durata',H=100,
+       art="The kids, Leo and the ballot boy cheering in the council hall, the chancellor smiling, Becco licking crumbs on a beam.",
+       text="529 anni! Il sistema veneziano è ancora studiato da matematici ed economisti come esempio di elezione difficile da manipolare. Becco brontola: «Io volevo solo le palline d'oro…»"),
+ ],
+ hints=[
+  dict(done=[6,9],t="La sala del Maggior Consiglio",h=["Nel disegno ci sono due numeri nascosti.","Uno è sull'urna, l'altro sul ragazzino.","Carte 6 e 9."]),
+  dict(done=[26],t="Becco sulle travi",h=["Il ballottino vi dice dov'è Becco: carta 14.","Becco ha fame: combinate il panino con Becco.","Panino (12) + Becco (14) = carta 26."]),
+  dict(done=[36],t="Le balote",h=["Le balote vanno rimesse da qualche parte.","Combinate le balote con l'urna.","Balote (30) + urna (6) = carta 36."]),
+  dict(done=[82],t="Il registro dei votanti",h=["Nel taccuino di Sofia (carta 11) cercate i passaggi con la parola VOTANO.","Votano i 9, i 12, i 9, gli 11 e i 41.","9 + 12 + 9 + 11 + 41 = 82: carta 82."]),
+  dict(done=[529],t="Quanto durò?",h=["Il sistema nasce nel 1268 e finisce con la Repubblica.","Fate 1797 meno 1268.","529: carta 529."]),
+ ],
+ tessere={
+  'maggior':("Il Maggior Consiglio","Era l'assemblea di tutti i nobili veneziani adulti: nel Quattrocento più di mille membri. Dal 1297 (la «Serrata») ne fecero parte solo le famiglie già presenti, iscritte poi nel Libro d'oro. Eleggeva quasi tutte le cariche, doge compreso."),
+  'procedura':("Dieci passaggi per un doge","Dal 1268 il doge veniva eletto in dieci passaggi, alternando sorteggi e votazioni: 30, 9, 40, 12, 25, 9, 45, 11, 41. Alla fine i 41 elettori sceglievano il doge con almeno 25 voti. La sorte rendeva imprevedibile chi avrebbe votato, e quindi inutile corromperlo in anticipo."),
+  'sevipiace':("«Se vi piace»","Per secoli il nuovo doge fu presentato al popolo con la formula «Questo è il vostro doge, se vi piace». Con Francesco Foscari, eletto nel 1423, quel «se vi piace» sparì: il popolo non aveva più nemmeno un consenso simbolico. Foscari regnò 34 anni, il dogato più lungo della storia veneziana."),
+  'ballottino':("Il ballottino","A estrarre le balote dall'urna era un ragazzino, il «ballottino», preso da fuori e quindi estraneo alle famiglie nobili. Seguiva poi il doge eletto nelle cerimonie. Dalla parola «balota» deriva l'inglese «ballot»."),
+  'durata':("Un sistema di cinque secoli","La procedura del 1268 restò in uso, con piccoli ritocchi, fino al 1797: 529 anni. Oggi matematici ed economisti la studiano come uno dei primi esempi di regole elettorali pensate contro i brogli."),
+ })
+# the ballot boy unlocks the 'ballottino' tessera
+for c in EP['a1']['cards']:
+    if c['n']==9: c['tess']='ballottino'
+
+# ------------------------------------------------------------------ ADULTI 2
+EP['a2'] = dict(adult=True,
+ title="Il ponte di Rialto", place="Rialto, dal 1181 al 1591",
+ intro="Rialto è il cuore commerciale di Venezia, e il suo ponte ha una storia lunga quattro secoli: barche, legno, un incendio, un crollo e infine la pietra. Il Senato deve scegliere il progetto definitivo, ma Becco ha rubato il disegno vincente.",
+ cards=[
+  dict(n=1,typ=X,title="INIZIO",next=[2,3,4],H=95,art="Leo greeting with a paw on a busy market quay along the Grand Canal, a wooden bridge with a raised middle section behind.",
+       text="Venezia, 1587. Da secoli l'unico passaggio a piedi sul Canal Grande è il ponte di legno di Rialto, vecchio e malandato. Il Senato ha deciso di rifarlo in pietra e sta per scegliere il progetto. Ma Becco ha rubato il disegno! Prendete le carte **2**, **3** e **4**."),
+  dict(n=2,typ=L,title="RIALTO, IL PONTE DI LEGNO",H=165,req=[1],hidden=[5,8],tess='mercato',
+       art="The old wooden Rialto bridge over the Grand Canal: two inclined wooden ramps lined with small shops, and a central section that can be raised (drawbridge) with ropes. Market stalls with spices and cloth on the quay. A shopkeeper standing in front of his little shop on the bridge — hidden number 5 on the shopkeeper; the raised central drawbridge section — hidden number 8 on that section. Exactly TWO gold circles: 5, 8.",
+       text="Rialto: banchi, mercanti, spezie, stoffe e cambiavalute da tutto il Mediterraneo. Guardate bene il disegno."),
+  dict(n=3,typ=P,title="ANTONIO DA PONTE",req=[1],H=95,
+       art="An old Venetian architect-engineer with a white beard, a black cap and robe, holding a compass and a rolled drawing, determined.",
+       text="«Sono Antonio da Ponte, proto alle fabbriche della Repubblica. Grandi architetti come Sansovino, Palladio e Vignola hanno proposto ponti a più arcate, ma qui servono le barche e lo spazio. Il mio progetto ha un solo arco di pietra. Peccato che il disegno sia sparito…»"),
+  dict(n=4,typ=X,title="GLI ZAINI",req=[1],next=[11,12],art="Two open backpacks: an open notebook full of notes and a bread-and-cheese sandwich.",
+       text="Aprite gli zaini! Il taccuino di Sofia (carta **11**) e il panino di Toni (carta **12**)."),
+  dict(n=11,typ=I,title="IL TACCUINO DI SOFIA",req=[4],H=60,tess='storia',
+       art="Notebook page with a small timeline drawing: boats, a wooden bridge, flames, a broken bridge, a stone arch.",
+       text="«Storia del ponte. 1181: un ponte di barche. 1255: un ponte di legno con la parte centrale mobile, per far passare le navi alte. 1310: incendiato dai congiurati di Bajamonte Tiepolo in fuga. 1444: crolla sotto la folla che guarda un corteo di barche. Poi viene ricostruito, sempre in legno, con le botteghe ai lati.»"),
+  dict(n=12,typ=R,title="IL PANINO DI TONI",req=[4],art="A fat bread-and-cheese sandwich.",
+       text="Pane e formaggio, comprati al mercato di Rialto. Becco lo guarda già."),
+  dict(n=5,typ=P,title="IL BOTTEGAIO",req=[2],next=[7],H=100,
+       art="A Venetian shopkeeper with an apron in front of a tiny wooden shop on the bridge, holding three small framed paintings.",
+       text="«Gli affitti delle nostre botteghe pagano la manutenzione del ponte. Un pittore mi ha lasciato tre quadri della sua storia, ma sono tutti in disordine (carta **7**). Se li rimettete in ordine di data vi dico dov'è finito il gabbiano.»"),
+  dict(n=7,typ=E,title="I TRE QUADRI",req=[5],H=150,
+       art="Three framed paintings side by side, each with a white label with ONE digit under it (answers, NOT gold): LEFT painting: a wooden bridge collapsing with a crowd and boats in a parade below → 1. MIDDLE painting: a wooden bridge with its central section raised and a tall ship passing under → 2. RIGHT painting: a wooden bridge on fire at night with men running away → 6.",
+       text="Mettete i tre quadri in ordine di data, dal più antico al più recente, aiutandovi con il taccuino di Sofia (carta 11). Le cifre nell'ordine giusto formano la carta da prendere."),
+  dict(n=261,typ=A,strip="Risposta a: I TRE QUADRI",title="GIUSTO!",req=[7],disc=[5,7],H=120,hidden=[14],
+       art="The shopkeeper pointing up at the roof of the Fondaco dei Tedeschi (a big palace with arches on the canal); Becco on the roof with a rolled drawing in his beak — hidden number 14 on Becco.",
+       text="1255, 1310, 1444: parte mobile, incendio, crollo. «Bravi! Il gabbiano è sul tetto del Fondaco dei Tedeschi, il palazzo dei mercanti tedeschi.» Guardate bene il disegno."),
+  dict(n=8,typ=B,title="LA PARTE MOBILE",req=[2],art="The central drawbridge section of the old wooden bridge raised by ropes and pulleys, a tall ship's mast passing.",
+       text="La parte centrale si alza con le corde per far passare le navi alte. Lenta, delicata e sempre da riparare."),
+  dict(n=14,typ=B,title="BECCO SUL FONDACO",req=[261],art="Becco on a palace roof with a rolled architectural drawing tied with a red ribbon, sniffing the air hungrily.",
+       text="«Un rotolo di carta! Ci farò il nido.» Becco però ha anche una gran fame."),
+  dict(n=26,typ=C,strip="Combinazione: PANINO + BECCO",title="IL DISEGNO",req=[12,14],next=[33],disc=[12,14,261],
+       art="Becco gulping the sandwich, the rolled drawing falling into Nico's arms.",
+       text="Becco divora il panino e il rotolo cade tra le braccia di Nico. Prendete la carta **33**."),
+  dict(n=33,typ=R,title="IL PROGETTO",req=[26],art="An unrolled architectural drawing of a single stone arch bridge with two rows of shops and a central portico.",
+       text="Il progetto di Antonio da Ponte: un unico arco di pietra lungo circa 28 metri, con due file di botteghe e un portico al centro."),
+  dict(n=41,typ=C,strip="Combinazione: PROGETTO + PARTE MOBILE",title="UN SOLO ARCO",req=[33,8],next=[50],disc=[8,33,2],tess='pietra',
+       art="The new white stone Rialto bridge with a single arch, shops on the ramps, a tall ship passing underneath; Antonio da Ponte proud, a sceptical man in black on the side.",
+       text="Con un arco così alto non serve più la parte mobile: le navi passano sotto. Il ponte viene costruito tra il 1588 e il 1591. L'architetto Vincenzo Scamozzi giura che crollerà… Prendete la carta **50**."),
+  dict(n=50,typ=E,title="L'UNICO PONTE",req=[41],H=110,
+       art="A map of the Grand Canal as a big S, with only one bridge drawn at Rialto and a dotted second bridge near the end labelled 'Accademia'.",
+       text="Scamozzi si sbagliava: il ponte è ancora lì. E per secoli è rimasto l'unico ponte sul Canal Grande, fino al ponte dell'Accademia, costruito nel 1854. Per quanti anni, dal 1591, Rialto è stato l'unico ponte? È la carta da prendere."),
+  dict(n=263,typ=A,strip="Risposta a: L'UNICO PONTE",title="VITTORIA!",req=[50],final=True,tess='unico',H=100,
+       art="The kids, Leo and Antonio da Ponte on top of the stone Rialto bridge at sunset, gondolas below, Becco sulking on a lamp.",
+       text="1854 − 1591 = 263 anni! Ancora oggi milioni di persone attraversano il ponte di Antonio da Ponte. Becco brontola: «Il mio nido di carta…»"),
+ ],
+ hints=[
+  dict(done=[5,8],t="Il ponte di legno",h=["Nel disegno ci sono due numeri nascosti.","Uno è sul bottegaio, l'altro sulla parte centrale alzata.","Carte 5 e 8."]),
+  dict(done=[261],t="I tre quadri",h=["Leggete il taccuino di Sofia (carta 11).","Prima la parte mobile (1255), poi l'incendio (1310), poi il crollo (1444).","Cifre 2, 6, 1: carta 261."]),
+  dict(done=[26],t="Becco sul Fondaco",h=["Nel disegno della carta 261 c'è un numero nascosto.","Combinate il panino con Becco.","Panino (12) + Becco (14) = carta 26."]),
+  dict(done=[41],t="Il progetto",h=["Il nuovo ponte deve sostituire una parte del vecchio.","Combinate il progetto con la parte mobile.","Progetto (33) + parte mobile (8) = carta 41."]),
+  dict(done=[263],t="L'unico ponte",h=["Dal 1591 al 1854.","Fate 1854 meno 1591.","263: carta 263."]),
+ ],
+ tessere={
+  'mercato':("Il mercato di Rialto","Rialto era il centro degli affari della Repubblica: banchi dei cambiavalute, assicuratori, mercanti di spezie, sete e stoffe. Accanto sorgeva il Fondaco dei Tedeschi, dove i mercanti tedeschi abitavano e vendevano sotto il controllo dello Stato."),
+  'storia':("Quattro ponti prima della pietra","Nel 1181 il Canal Grande si attraversava su un ponte di barche. Dal 1255 ci fu un ponte di legno con la parte centrale mobile. Nel 1310 fu incendiato dai congiurati di Bajamonte Tiepolo in fuga; nel 1444 crollò sotto la folla che guardava un corteo di barche."),
+  'pietra':("Antonio da Ponte","Tra molti progetti, anche di Sansovino, Palladio e Vignola, il Senato scelse quello di Antonio da Ponte: un solo arco di pietra, costruito tra il 1588 e il 1591. Vincenzo Scamozzi predisse che sarebbe crollato; è in piedi da oltre quattro secoli."),
+  'unico':("L'unico ponte","Fino al 1854, quando fu costruito il ponte dell'Accademia, Rialto fu l'unico ponte sul Canal Grande. Per passare da una riva all'altra, altrimenti, si usavano i «traghetti» con le gondole, che esistono ancora oggi."),
+ })
+
+# ------------------------------------------------------------------ ADULTI 3
+EP['a3'] = dict(adult=True,
+ title="La peste e il Redentore", place="Venezia, 1576–1577",
+ intro="Tra il 1575 e il 1577 la peste uccide a Venezia circa 50.000 persone, un terzo degli abitanti. La città si difende con i lazzaretti e la quarantena, e il Senato fa un voto: una nuova chiesa, se l'epidemia finirà.",
+ cards=[
+  dict(n=1,typ=X,title="INIZIO",next=[2,3,4],H=95,art="Leo greeting with a paw on a lagoon island with long brick warehouses and a moored ship, calm and serious mood.",
+       text="Venezia, 1576. In città c'è la peste. Leo: «Tranquilli, noi veniamo dal futuro e non possiamo ammalarci. Ma Becco ha rubato il registro dei Provveditori alla Sanità, e senza registro nessuno sa chi ha finito la quarantena!» Prendete le carte **2**, **3** e **4**."),
+  dict(n=2,typ=L,title="IL LAZZARETTO NUOVO",H=165,req=[1],hidden=[5,8],tess='lazzaretti',
+       art="The island of the Lazzaretto Nuovo: a very long brick warehouse with a tiled roof (the Tezon Grande), bales of cloth spread out to air in the sun, a brick wall around, a ship moored at the jetty. A sailor waving from the ship's deck — hidden number 5 on the sailor; Becco on the warehouse roof holding a big register book — hidden number 8 on Becco. Exactly TWO gold circles: 5, 8.",
+       text="Il Lazzaretto Nuovo, nella laguna nord. Qui restano isolate le persone e le merci che arrivano da luoghi sospetti. Guardate bene il disegno."),
+  dict(n=3,typ=P,title="IL PROVVEDITORE ALLA SANITÀ",req=[1],H=95,
+       art="A Venetian health magistrate in a black robe and cap, holding a sprig of herbs and a written order, worried but calm.",
+       text="«Sono uno dei Provveditori alla Sanità, la magistratura che difende Venezia dalle epidemie. Ogni nave che arriva viene controllata, e chi viene da luoghi sospetti resta qui in contumacia. Nel registro scriviamo chi entra e quando può uscire.»"),
+  dict(n=4,typ=X,title="GLI ZAINI",req=[1],next=[11,12],art="Two open backpacks: an open notebook full of notes and a bread-and-cheese sandwich.",
+       text="Aprite gli zaini! Il taccuino di Sofia (carta **11**) e il panino di Toni (carta **12**)."),
+  dict(n=11,typ=I,title="IL TACCUINO DI SOFIA",req=[4],H=70,tess='quarantena',
+       art="Notebook page with a sketch of two islands labelled 'Vecchio' and 'Nuovo', and the word QUARANTA underlined.",
+       text="«Lazzaretto Vecchio (1423): si curano i malati. Lazzaretto Nuovo (1468): si isolano le persone e le merci sospette, per quaranta giorni. Da qui la parola “quarantena”. Le stoffe vengono aperte e messe all'aria nel grande magazzino, il Tezon Grande.»"),
+  dict(n=12,typ=R,title="IL PANINO DI TONI",req=[4],art="A fat bread-and-cheese sandwich.",
+       text="Pane e formaggio. Al lazzaretto il cibo arrivava in barca e veniva passato senza toccarsi."),
+  dict(n=5,typ=P,title="IL MARINAIO",req=[2],next=[7],H=100,
+       art="A young sailor with a red cap and a striped shirt, sitting on a coil of rope on the ship's deck, counting days on his fingers, a little calendar scratched on the mast.",
+       text="«Sono arrivato da Costantinopoli il 5 maggio. Il mio primo giorno di quarantena è stato il 6 maggio. Mi dicono che potrò tornare a casa il quarantesimo giorno, ma senza registro non so quando cade. Aiutatemi a contare (carta **7**).»"),
+  dict(n=7,typ=E,title="QUARANTA GIORNI",req=[5],H=135,
+       art="Two small calendar pages side by side: 'MAGGIO' with 31 numbered days in a grid, the 6 circled in red; 'GIUGNO' with 30 numbered days in a grid, nothing circled. Plain dark numbers, no gold circles.",
+       text="Il primo giorno di quarantena è il 6 maggio. Maggio ha 31 giorni. In quale giorno di giugno cade il quarantesimo giorno? Il numero del giorno è la carta da prendere."),
+  dict(n=13,typ=S,strip="Risposta a: QUARANTA GIORNI",title="SBAGLIATO!",req=[7],art="The sailor counting on his fingers and shaking his head.",
+       text="Un giorno di troppo poco! Ricordate che il 6 maggio è già il primo giorno. Perdete 1 piuma e riprovate."),
+  dict(n=15,typ=S,strip="Risposta a: QUARANTA GIORNI",title="SBAGLIATO!",req=[7],art="The sailor counting on his fingers and shaking his head.",
+       text="Un giorno di troppo! Il 6 maggio è il primo giorno, non il giorno zero. Perdete 1 piuma e riprovate."),
+  dict(n=14,typ=A,strip="Risposta a: QUARANTA GIORNI",title="IL 14 GIUGNO",req=[7],disc=[5,7],H=110,
+       art="The sailor happy, packing his bag; the health magistrate pointing to Becco on the warehouse roof with the register.",
+       text="Dal 6 al 31 maggio sono 26 giorni; altri 14 a giugno fanno 40. Il 14 giugno il marinaio sarà libero! Il Provveditore: «Ora però ridateci il registro: il gabbiano è sul tetto del Tezon Grande.»"),
+  dict(n=8,typ=B,title="BECCO SUL TEZON",req=[2],art="Becco on a long tiled warehouse roof clutching a big leather register book, sniffing the air hungrily.",
+       text="«Un librone! Ci dormirò sopra.» Becco però non mangia da due giorni…"),
+  dict(n=20,typ=C,strip="Combinazione: PANINO + BECCO",title="IL REGISTRO",req=[12,8,14],next=[30],disc=[8,12,14],
+       art="Becco gulping the sandwich, the register book sliding down the roof into the magistrate's hands.",
+       text="Becco si getta sul panino e il registro scivola giù dal tetto. Il Provveditore lo apre: ci sono notizie dalla città. Prendete la carta **30**."),
+  dict(n=30,typ=I,title="IL REGISTRO",req=[20],H=100,tess='voto',
+       art="An open register with handwritten columns and a small drawing of a church with a dome sketched in the margin.",
+       text="«Settembre 1576: il Senato fa voto di costruire una chiesa al Redentore se la peste finirà. Il progetto è di Andrea Palladio, sull'isola della Giudecca. Ogni anno il doge e la città andranno in processione fino alla chiesa.» Andate alla Giudecca: carta **40**."),
+  dict(n=40,typ=L,title="LA GIUDECCA",req=[30],H=150,hidden=[23,9],tess='palladio',
+       art="View across the wide Giudecca canal: on the far side a white church with a dome and classical front under construction with scaffolding; on the near quay a row of moored boats — hidden number 23 on the boats; the wide water of the canal between — hidden number 9 in the water. Exactly TWO gold circles: 23, 9.",
+       text="Dall'altra parte del largo canale della Giudecca sta nascendo la chiesa del Redentore di Palladio. Per la processione serve un modo di attraversare a piedi. Guardate bene il disegno."),
+  dict(n=23,typ=R,title="LE BARCHE",req=[40],art="A row of flat wooden boats moored side by side.",
+       text="Tante barche, tutte uguali, messe una accanto all'altra…"),
+  dict(n=9,typ=B,title="IL CANALE DELLA GIUDECCA",req=[40],art="The wide Giudecca canal with small waves, the white church far on the other side.",
+       text="Il canale della Giudecca è largo e profondo: qui un ponte fisso non si può costruire."),
+  dict(n=32,typ=C,strip="Combinazione: BARCHE + CANALE",title="IL PONTE DI BARCHE",req=[23,9],next=[50],disc=[23,9,40],tess='festa',
+       art="A long bridge made of boats tied side by side across the Giudecca canal, people walking on it in procession towards the white church.",
+       text="Le barche legate una all'altra formano un ponte provvisorio: la processione attraversa il canale a piedi! Nel luglio 1577 la peste è dichiarata finita, e da allora la festa del Redentore si celebra ogni anno. Prendete la carta **50**."),
+  dict(n=50,typ=E,title="LA TERZA DOMENICA",req=[32],H=130,
+       art="A calendar page 'LUGLIO 2027' with a grid of days Monday to Sunday: the 1st on Thursday, 31 days, the Sunday column tinted. Plain dark numbers, no gold circles. Fireworks drawn small in a corner.",
+       text="Ancora oggi il ponte di barche si costruisce per la festa del Redentore, che cade la terza domenica di luglio, con i fuochi d'artificio la sera prima. Guardate il calendario di luglio 2027: in che giorno cade la festa? È la carta da prendere."),
+  dict(n=25,typ=S,strip="Risposta a: LA TERZA DOMENICA",title="SBAGLIATO!",req=[50],art="Leo shaking his head with a calendar.",
+       text="Quella è la quarta domenica! Contate di nuovo dall'inizio del mese. Perdete 1 piuma e riprovate."),
+  dict(n=18,typ=A,strip="Risposta a: LA TERZA DOMENICA",title="VITTORIA!",req=[50],final=True,tess='oggi',H=110,
+       art="Night view of fireworks over the Giudecca canal and the white Redentore church, boats full of people, the kids and Leo watching from a boat, Becco eating watermelon on the bow.",
+       text="Domenica 18 luglio 2027! Il sabato sera i Veneziani cenano in barca e guardano i fuochi sul bacino di San Marco, come da più di quattro secoli. Becco brontola: «Almeno qui si mangia bene.»"),
+ ],
+ hints=[
+  dict(done=[5,8],t="Il Lazzaretto Nuovo",h=["Nel disegno ci sono due numeri nascosti.","Uno è sul marinaio, l'altro su Becco sul tetto.","Carte 5 e 8."]),
+  dict(done=[14],t="Quaranta giorni",h=["Dal 6 al 31 maggio, contando entrambi, sono 26 giorni.","Mancano 40 − 26 = 14 giorni, tutti a giugno.","Il 14 giugno: carta 14."]),
+  dict(done=[20],t="Becco sul Tezon",h=["Prima aiutate il marinaio (carta 7).","Poi combinate il panino con Becco.","Panino (12) + Becco (8) = carta 20."]),
+  dict(done=[32],t="Attraversare il canale",h=["Nel disegno della Giudecca (carta 40) ci sono due numeri nascosti.","Combinate le barche con il canale.","Barche (23) + canale (9) = carta 32."]),
+  dict(done=[18],t="La terza domenica",h=["Nel luglio 2027 il primo giorno è un giovedì.","Le domeniche sono il 4, l'11 e il 18.","La terza è il 18: carta 18."]),
+ ],
+ tessere={
+  'lazzaretti':("I lazzaretti","Venezia fu tra le prime città al mondo a creare ospedali stabili per le epidemie: il Lazzaretto Vecchio nel 1423 per curare i malati, il Lazzaretto Nuovo nel 1468 per isolare persone e merci sospette. Durante la peste del 1575–77 il Lazzaretto Vecchio arrivò a ospitare migliaia di malati."),
+  'quarantena':("La quarantena","Chi arrivava da luoghi sospetti restava isolato per quaranta giorni: da «quaranta» viene la parola quarantena. Le merci, soprattutto stoffe e pelli, venivano aperte e messe all'aria nel Tezon Grande del Lazzaretto Nuovo."),
+  'voto':("La peste del 1575–1577","L'epidemia uccise a Venezia tra 50.000 e 60.000 persone, circa un terzo della popolazione. Nel 1576 il Senato fece voto di costruire una chiesa dedicata al Redentore se la peste fosse finita."),
+  'palladio':("La chiesa di Palladio","La chiesa del Redentore, sull'isola della Giudecca, fu progettata da Andrea Palladio e iniziata nel 1577. Palladio morì nel 1580 e i lavori furono completati da Antonio da Ponte, lo stesso del ponte di Rialto, rispettando il progetto."),
+  'festa':("Il ponte votivo","Per la festa del Redentore si costruisce un ponte di barche (oggi su pontoni) lungo circa 330 metri tra le Zattere e la Giudecca, così che la processione possa raggiungere la chiesa a piedi."),
+  'oggi':("La festa del Redentore oggi","La festa si celebra la terza domenica di luglio. Il sabato sera migliaia di Veneziani cenano in barca nel bacino di San Marco e guardano i fuochi d'artificio; la domenica si attraversa il ponte votivo per la messa al Redentore."),
+ })
+
+if __name__=='__main__':
+    for k,e in EP.items():
+        ns=[c['n'] for c in e['cards']]
+        assert len(ns)==len(set(ns)),(k,'dup',sorted(n for n in ns if ns.count(n)>1))
+        S=set(ns); fin=[c['n'] for c in e['cards'] if c.get('final')]; assert len(fin)==1,(k,fin)
+        for c in e['cards']:
+            for f in ('req','next','disc','keep'):
+                for m in c.get(f,[]): assert m in S,(k,c['n'],f,m)
+        red=[c['n'] for c in e['cards'] if c['typ']=='OGGETTO ROSSO']; blue=[c['n'] for c in e['cards'] if c['typ']=='OGGETTO BLU']
+        combos={c['n'] for c in e['cards'] if c['typ']=='COMBINAZIONE'}
+        for r in red:
+            for b in blue:
+                if r+b in S and r+b not in combos: print('COLLISION',k,r,b,r+b)
+        for h in e['hints']:
+            for m in h['done']: assert m in S,(k,'hint',m)
+        tk=set(e['tessere']); used={c['tess'] for c in e['cards'] if c.get('tess')}
+        assert tk==used,(k,tk^used)
+        print(k,len(ns),'red',red,'blue',blue,'combos',sorted(combos),'final',fin)
+    json.dump(EP,open('spec3.json','w'),ensure_ascii=False,indent=1)

@@ -1,0 +1,106 @@
+{
+ "base": "ep7",
+ "level": "a",
+ "title": "Lo sposalizio del mare",
+ "place": "Venezia, festa della Sensa, 1730 circa",
+ "intro": "Ogni anno, nel giorno dell'Ascensione, la Serenissima rinnova il suo legame con il mare: il doge sale sul Bucintoro e getta in acqua un anello d'oro. Ma l'anello è sparito… Versione con più storia vera e indizi meno espliciti.",
+ "text": {
+  "1": "Venezia, verso il 1730. È il giorno dell'Ascensione, la «Sensa»: dal 1000 la Repubblica festeggia il suo dominio sul mare. Il doge salirà sul Bucintoro, la galea di Stato, per gettare l'anello d'oro. Ma Becco l'ha rubato! Prendete le carte **2**, **3** e **4**.",
+  "2": "Il bacino di San Marco durante la Sensa: il Bucintoro, lungo circa 35 metri, è circondato da gondole, barche e bissone. Per due settimane, in piazza, si tiene anche la grande fiera. Guardate bene il disegno!",
+  "3": "«Ogni anno, dal Bucintoro, getto l'anello in acqua e pronuncio la formula: ‘Ti sposiamo, o mare, in segno di vero e perpetuo dominio’. Senza anello la cerimonia non ha valore!»",
+  "11": "Appunti di Sofia: «Il ferro di prua della gondola ha sei denti avanti e uno dietro. Secondo la tradizione i primi sono i sestieri; il dente dietro è la Giudecca; l'arco in alto richiama il corno ducale.»",
+  "5": "«Becco? Sul campanile di San Marco! Vi porto in gondola, ma prima mostratemi che conoscete il mio ferro (carta **14**): quanti sono i suoi denti rivolti in avanti?»",
+  "14": "Studiate il ferro di prua. Quanti denti guardano in avanti? Il numero è la carta da prendere.",
+  "6": "Esatto: sei, uno per sestiere. Il gondoliere vi porta verso San Marco. Sulla riva c'è un forno che profuma di biscotti: prendete la carta **20**.",
+  "20": "I baicoli, sottili biscotti ovali secchi: il nome ricorda un piccolo pesce dell'Adriatico. Si conservavano a lungo e per questo i marinai li imbarcavano nei viaggi.",
+  "8": "«Questo anello è mio! Brilla come un pesce d'oro!» Becco non lo molla… a meno che il suo stomaco non prenda il sopravvento.",
+  "30": "Leo ride: «Il mare è sposato lo stesso!» In quale anno, il giorno dell'Ascensione, il doge Pietro II Orseolo partì con la flotta per la Dalmazia, dando origine alla festa? Scrivetelo in cifre: è la carta da prendere.",
+  "1000": "Anno 1000. Da allora, per quasi otto secoli, il doge ha «sposato» il mare. Becco brontola: «Almeno i baicoli erano buoni.»"
+ },
+ "tess": {
+  "2": "bucintoro",
+  "11": "sestieri",
+  "30": "sensa",
+  "1000": "oggi"
+ },
+ "tessere": {
+  "bucintoro": [
+   "Il Bucintoro",
+   "L'ultimo Bucintoro, varato nel 1729, misurava circa 35 metri e aveva 168 rematori, gli arsenalotti. Era la galea di Stato su cui il doge usciva nelle grandi cerimonie. Nel 1798, caduta la Repubblica, i francesi lo spogliarono delle dorature."
+  ],
+  "sestieri": [
+   "I sestieri",
+   "Dal Medioevo Venezia è divisa in sei sestieri: Cannaregio, Castello, San Marco, Dorsoduro, San Polo e Santa Croce. Secondo la tradizione i sei denti del ferro della gondola rappresentano i sestieri, e il dente rivolto all'indietro l'isola della Giudecca."
+  ],
+  "sensa": [
+   "La Sensa",
+   "Nell'anno 1000 il doge Pietro II Orseolo salpò il giorno dell'Ascensione per liberare le coste dalmate dai pirati narentani. Da quella spedizione nacque la cerimonia annuale dello «sposalizio del mare», accompagnata da una fiera di quindici giorni in piazza San Marco."
+  ],
+  "oggi": [
+   "Il matrimonio con il mare",
+   "Una leggenda lega l'anello al 1177, quando papa Alessandro III, dopo la pace di Venezia tra la Chiesa e l'imperatore Federico Barbarossa, ne avrebbe donato uno al doge. La cerimonia si svolse fino al 1797; oggi la Festa della Sensa è rievocata ogni anno con corteo di barche."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    5,
+    8
+   ],
+   "t": "Il bacino di San Marco",
+   "h": [
+    "Nel disegno compaiono due cerchietti dorati.",
+    "Uno è su un uomo in barca, l'altro su un animale in alto.",
+    "Il gondoliere (5) e Becco (8)."
+   ]
+  },
+  {
+   "done": [
+    6
+   ],
+   "t": "Il ferro della gondola",
+   "h": [
+    "Rileggete gli appunti di Sofia (carta 11).",
+    "Quali denti rappresentano i sestieri?",
+    "Sono 6: carta 6."
+   ]
+  },
+  {
+   "done": [
+    28
+   ],
+   "t": "Becco sul campanile",
+   "h": [
+    "Cosa può far lasciare la presa a Becco?",
+    "Provate a combinare un cibo con Becco.",
+    "Baicoli (20) + Becco (8) = carta 28."
+   ]
+  },
+  {
+   "done": [
+    1000
+   ],
+   "t": "La festa della Sensa",
+   "h": [
+    "Leggete bene la carta 30 e il cartello nel disegno.",
+    "È un anno tondo: «anno mille».",
+    "Scritto in cifre: 1000, carta 1000."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  11,
+  5,
+  14,
+  6,
+  20,
+  8,
+  "C20+8",
+  30,
+  1000
+ ],
+ "final": 1000
+}

@@ -1,0 +1,108 @@
+{
+ "base": "ep6",
+ "level": "a",
+ "title": "Le navi dell'Arsenale",
+ "place": "L'Arsenale di Venezia, luglio 1574",
+ "intro": "Nel luglio 1574 Enrico III, tornato dalla Polonia, è ospite della Repubblica. Il re vuole vedere all'opera l'Arsenale, il più grande complesso produttivo d'Europa. Versione con più storia vera e indizi meno espliciti.",
+ "text": {
+  "1": "Venezia, luglio 1574. Enrico III, da poco re di Francia dopo il regno in Polonia, visita la Repubblica e chiede di vedere l'Arsenale, il cantiere di Stato dove nascono le galee. Becco ha scompigliato tutto il lavoro! Prendete le carte **2**, **3** e **4**.",
+  "2": "L'ingresso di terra dell'Arsenale, cinto da alte mura merlate: dentro lavorano gli arsenalotti, operai specializzati e fedeli alla Repubblica. Guardate bene il disegno!",
+  "3": "«Tre anni fa le vostre galee hanno combattuto a Lepanto. Si dice che qui una nave si faccia nel tempo di un banchetto: voglio vederlo con i miei occhi!»",
+  "11": "Appunti di Sofia: «Le galee scorrevano lungo un canale di capannone in capannone. In ognuno squadre diverse montavano pezzi già pronti e di misure uguali. Una delle prime produzioni in serie della storia.»",
+  "6": "«Sono il proto, il capo dei maestri d'ascia. Becco ha scambiato i cartelli dei capannoni e le squadre non sanno più dove andare. Rimettete in ordine il lavoro (carta **7**).»",
+  "7": "Osservate in che stato si trova la nave in ciascun capannone e ricostruite l'ordine di lavorazione. Le tre cifre, dalla prima all'ultima fase, formano la carta da prendere.",
+  "528": "Una nave nasce dallo scheletro, poi viene alberata e infine armata: 5, 2, 8! Le squadre ripartono. Ma lo scafo nuovo lascia entrare l'acqua tra le assi. Guardate bene il disegno.",
+  "9": "Pece nera e bollente, mescolata a sego e stoppa, per calafatare gli scafi. Dante la vide ribollire qui: «Quale nell'arzanà de' Viniziani / bolle l'inverno la tenace pece» (Inferno, XXI).",
+  "40": "Uno scafo nuovo di zecca. I calafati stanno per riempire con stoppa e pece le fessure tra le assi, dove entra l'acqua.",
+  "49": "I calafati spennellano la pece calda nelle giunture: ora lo scafo è stagno. La galea è quasi pronta… ma Becco si è piazzato sui remi. Prendete la carta **60**.",
+  "60": "«I remi ve li lascio se mi dite quanti uomini servono per vogare!» Contate i banchi su un fianco della galea: su ogni banco siedono tre rematori, ciascuno con il proprio remo.",
+  "75": "Avete contato i rematori di un fianco solo: la galea girerebbe in tondo! Perdete 1 piuma e riprovate.",
+  "150": "150 rematori, 25 × 2 × 3. La galea scivola fuori dall'Arsenale e il re resta senza parole. Becco brontola: «Uffa, siete troppo bravi!»"
+ },
+ "tess": {
+  "2": "arsenale",
+  "11": "catena",
+  "49": "pece",
+  "150": "galea"
+ },
+ "tessere": {
+  "arsenale": [
+   "L'Arsenale",
+   "Secondo la tradizione fu fondato nel 1104 e ampliato più volte, fino a diventare il più grande complesso produttivo d'Europa prima della rivoluzione industriale. Nel Cinquecento vi lavoravano migliaia di operai specializzati, gli «arsenalotti»."
+  ],
+  "catena": [
+   "La produzione in serie",
+   "I pezzi delle galee (scafi, alberi, remi) venivano preparati in anticipo con misure uguali e montati lungo un canale, di capannone in capannone. Era una vera catena di montaggio, ben prima di Henry Ford."
+  ],
+  "pece": [
+   "Dante e la pece",
+   "Dante Alighieri ricorda l'Arsenale nel canto XXI dell'Inferno, paragonando la pece bollente dei dannati a quella dei calafati veneziani. La pece, con stoppa e sego, rendeva stagno lo scafo."
+  ],
+  "galea": [
+   "Enrico III a Venezia",
+   "Di ritorno dalla Polonia, nel luglio 1574 Enrico III fu accolto a Venezia con grandi feste. Secondo la tradizione, all'Arsenale una galea fu costruita e armata nel tempo di un banchetto. Tre anni prima, a Lepanto, le galee e le galeazze veneziane avevano sconfitto la flotta ottomana."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    6,
+    9
+   ],
+   "t": "La porta dell'Arsenale",
+   "h": [
+    "Il disegno nasconde due cerchietti dorati.",
+    "Uno è su una persona, l'altro su ciò che bolle sul fuoco.",
+    "Il proto (6) e la pece (9)."
+   ]
+  },
+  {
+   "done": [
+    528
+   ],
+   "t": "La catena di montaggio",
+   "h": [
+    "Rileggete gli appunti di Sofia (carta 11).",
+    "Mettete le tre navi in ordine di avanzamento.",
+    "Scheletro 5, alberi 2, nave armata 8: carta 528."
+   ]
+  },
+  {
+   "done": [
+    49
+   ],
+   "t": "Lo scafo che fa acqua",
+   "h": [
+    "Cercate un numero sullo scafo nuovo (carta 528).",
+    "Serve qualcosa per sigillare le giunture.",
+    "Pece (9) + scafo (40) = carta 49."
+   ]
+  },
+  {
+   "done": [
+    150
+   ],
+   "t": "Becco sui remi",
+   "h": [
+    "Contate i banchi di un fianco e moltiplicate per i rematori di ogni banco.",
+    "Ricordate che la galea ha due fianchi.",
+    "25 × 3 × 2 = 150: carta 150."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  11,
+  6,
+  9,
+  7,
+  528,
+  40,
+  "C9+40",
+  60,
+  150
+ ],
+ "final": 150
+}

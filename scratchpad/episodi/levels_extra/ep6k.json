@@ -1,0 +1,107 @@
+{
+ "base": "ep6",
+ "level": "k",
+ "title": "Le navi dell'Arsenale",
+ "place": "L'Arsenale di Venezia, tanto tempo fa",
+ "intro": "Il re di Francia visita l'Arsenale e vuole vedere come si costruisce una nave. Ma Becco ha fatto un pasticcio! Versione facile, per i più piccoli.",
+ "text": {
+  "1": "Venezia, tanto tempo fa. Il re di Francia visita l'Arsenale, il cantiere dove si costruiscono le navi. Becco ha fatto un pasticcio! Prendete le carte **2**, **3** e **4**.",
+  "2": "L'ingresso dell'Arsenale, con due grandi leoni di pietra. Cercate i due cerchietti dorati con un numero: sono le carte da prendere.",
+  "3": "«Mi hanno detto che qui si costruisce una nave in pochissimo tempo. Voglio vederlo con i miei occhi!»",
+  "11": "«All'Arsenale la nave andava da un capannone all'altro lungo un canale. In ogni capannone si aggiungeva un pezzo: come una catena!»",
+  "6": "«Sono il proto, il capo dei costruttori. Becco ha mescolato i cartelli dei capannoni e gli operai non sanno più cosa fare! Rimettete in ordine il lavoro (carta **7**).»",
+  "7": "Guardate le tre navi. Prima lo scheletro di legno, poi la nave con gli alberi, alla fine la nave con remi e vele. Scrivete le tre cifre in quest'ordine: è la carta da prendere.",
+  "528": "Scafo, alberi, remi e vele: 5, 2, 8! Gli operai ripartono veloci. Ma lo scafo nuovo lascia entrare l'acqua! Cercate il numero nascosto sullo scafo, nel disegno.",
+  "9": "Pece nera e bollente. Serve a chiudere i buchi tra le assi delle navi.",
+  "49": "Spennellate la pece calda tra le assi: ora l'acqua non entra più! Ma Becco si è seduto sui remi. Prendete la carta **60**.",
+  "60": "«I remi ve li lascio se mi dite quanti rematori servono!» Un lato ha 25 banchi con 3 uomini ciascuno: 25 × 3 = 75. I lati sono due: quanto fa 75 + 75? È la carta da prendere.",
+  "75": "Avete contato un lato solo! Ci sono due lati. Perdete 1 piuma e riprovate.",
+  "150": "75 + 75 = 150 rematori! La galea esce dall'Arsenale e il re di Francia resta a bocca aperta. Becco brontola: «Uffa, siete troppo bravi!»"
+ },
+ "tess": {
+  "2": "arsenale",
+  "11": "catena",
+  "49": "pece",
+  "150": "galea"
+ },
+ "tessere": {
+  "arsenale": [
+   "L'Arsenale",
+   "L'Arsenale era il grande cantiere di Venezia, con mura alte. All'ingresso ci sono due leoni di pietra."
+  ],
+  "catena": [
+   "La catena di montaggio",
+   "La nave passava da un capannone all'altro e in ognuno si aggiungeva un pezzo. Così si costruiva in fretta."
+  ],
+  "pece": [
+   "La pece",
+   "La pece bollente chiudeva i buchi delle navi. Anche il poeta Dante l'ha vista all'Arsenale."
+  ],
+  "galea": [
+   "La galea",
+   "La galea era una nave lunga e veloce, con remi e vele. Il re di Francia ne vide costruire una in pochissimo tempo."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    6,
+    9
+   ],
+   "t": "La porta dell'Arsenale",
+   "h": [
+    "Nel disegno ci sono due cerchietti dorati.",
+    "Uno è sul maestro con il grembiule, l'altro sul pentolone nero.",
+    "Carte 6 e 9."
+   ]
+  },
+  {
+   "done": [
+    528
+   ],
+   "t": "I tre capannoni",
+   "h": [
+    "Guardate le tre navi: quale è solo uno scheletro?",
+    "Ordine: scheletro (5), nave con gli alberi (2), nave finita (8).",
+    "Scrivete 5, 2, 8: carta 528."
+   ]
+  },
+  {
+   "done": [
+    49
+   ],
+   "t": "Lo scafo che fa acqua",
+   "h": [
+    "Cercate il numero nascosto sullo scafo nuovo (carta 528).",
+    "Combinate la pece con lo scafo.",
+    "Pece (9) + scafo (40) = carta 49."
+   ]
+  },
+  {
+   "done": [
+    150
+   ],
+   "t": "Becco sui remi",
+   "h": [
+    "Per ogni lato: 25 × 3 = 75 rematori.",
+    "I lati sono due: 75 + 75.",
+    "75 + 75 = 150: carta 150."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  11,
+  6,
+  9,
+  7,
+  528,
+  40,
+  "C9+40",
+  60,
+  150
+ ],
+ "final": 150
+}

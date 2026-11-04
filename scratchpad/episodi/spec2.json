@@ -1,0 +1,1365 @@
+{
+ "ep6": {
+  "title": "Le navi dell'Arsenale",
+  "place": "L'Arsenale di Venezia, anno 1574",
+  "intro": "Il re di Francia visita l'Arsenale e vuole vedere quanto in fretta i Veneziani costruiscono una nave. Ma Becco ha combinato un pasticcio!",
+  "cards": [
+   {
+    "n": 1,
+    "typ": "SPECIALE",
+    "title": "INIZIO",
+    "next": [
+     2,
+     3,
+     4
+    ],
+    "art": "Leo greeting with a paw in front of a big brick shipyard gate flanked by stone lions, on a canal.",
+    "text": "Venezia, anno 1574. Il re di Francia Enrico III visita l'Arsenale, il cantiere dove nascono le navi di Venezia. Becco ha mescolato tutto il lavoro! Prendete le carte **2**, **3** e **4**."
+   },
+   {
+    "n": 2,
+    "typ": "LUOGO",
+    "title": "LA PORTA DELL'ARSENALE",
+    "H": 175,
+    "req": [
+     1
+    ],
+    "hidden": [
+     6,
+     9
+    ],
+    "tess": "arsenale",
+    "art": "The land gate of the Venetian Arsenal: a stone arch in a high brick wall with two big marble lions sitting at the sides; inside, sheds along a canal with ship hulls. In front a sturdy master shipwright with a leather apron and a ruler — hidden number 6 on him; on the right a big cauldron of black bubbling pitch on a fire — hidden number 9 on the cauldron. Exactly TWO gold circles: 6, 9.",
+    "text": "L'ingresso dell'Arsenale, sorvegliato da grandi leoni di pietra. Guardate bene il disegno!"
+   },
+   {
+    "n": 3,
+    "typ": "PERSONAGGIO",
+    "title": "IL RE DI FRANCIA",
+    "req": [
+     1
+    ],
+    "art": "A young king with a small pointed beard, a black velvet cap with a feather, a white ruff collar and a fur-trimmed cloak, curious.",
+    "text": "«Mi hanno detto che qui si costruisce una nave intera in pochissimo tempo. Voglio vederlo con i miei occhi!»"
+   },
+   {
+    "n": 4,
+    "typ": "SPECIALE",
+    "title": "GLI ZAINI",
+    "req": [
+     1
+    ],
+    "next": [
+     11,
+     12
+    ],
+    "art": "Two open backpacks: an open notebook with a ship sketch and a bread-and-cheese sandwich.",
+    "text": "Aprite gli zaini! Il taccuino di Sofia (carta **11**) e il panino di Toni (carta **12**)."
+   },
+   {
+    "n": 11,
+    "typ": "INDIZIO",
+    "title": "IL TACCUINO DI SOFIA",
+    "req": [
+     4
+    ],
+    "H": 105,
+    "tess": "catena",
+    "art": "Notebook page: a sketch of a canal with three sheds in a row and a ship moving from one to the next, with arrows.",
+    "text": "«All'Arsenale la nave passava da un capannone all'altro lungo un canale. In ognuno si aggiungeva un pezzo: come una catena di montaggio!»"
+   },
+   {
+    "n": 12,
+    "typ": "OGGETTO ROSSO",
+    "title": "IL PANINO DI TONI",
+    "req": [
+     4
+    ],
+    "art": "A fat bread-and-cheese sandwich.",
+    "text": "Pane e formaggio. Becco lo adora… ma oggi forse non servirà."
+   },
+   {
+    "n": 6,
+    "typ": "PERSONAGGIO",
+    "title": "IL PROTO",
+    "req": [
+     2
+    ],
+    "next": [
+     7
+    ],
+    "art": "The master shipwright (proto): a strong man with a grey beard, leather apron, holding a long wooden ruler, frowning.",
+    "text": "«Sono il proto, il capo dei maestri d'ascia. Becco ha mescolato i cartelli dei capannoni e gli operai non sanno più cosa fare! Rimettete in ordine il lavoro (carta **7**).»"
+   },
+   {
+    "n": 7,
+    "typ": "ENIGMA",
+    "title": "LA CATENA DI MONTAGGIO",
+    "req": [
+     6
+    ],
+    "H": 165,
+    "art": "Three wooden sheds side by side along a canal, each with a white board with ONE digit under it (answers, NOT gold): LEFT shed: a ship with masts being raised by ropes, no oars yet → 2. MIDDLE shed: a finished ship with oars and sails, flags flying → 8. RIGHT shed: only the bare wooden skeleton of a hull (ribs) → 5. Becco laughing on a roof.",
+    "text": "Prima si costruisce lo scafo, poi si alzano gli alberi, alla fine si montano remi e vele. Scrivete le cifre dei tre capannoni nell'ordine giusto: è la carta da prendere."
+   },
+   {
+    "n": 528,
+    "typ": "RISPOSTA",
+    "strip": "Risposta a: LA CATENA DI MONTAGGIO",
+    "title": "AL LAVORO!",
+    "req": [
+     7
+    ],
+    "disc": [
+     6,
+     7
+    ],
+    "H": 130,
+    "hidden": [
+     40
+    ],
+    "art": "Workers busy along the canal, a hull moving from shed to shed; a new bare hull floating near the kids — hidden number 40 on that hull.",
+    "text": "Scafo, alberi, remi e vele: 5, 2, 8! Gli operai ripartono a gran velocità. Ma lo scafo nuovo lascia entrare l'acqua: va reso impermeabile. Guardate bene il disegno."
+   },
+   {
+    "n": 9,
+    "typ": "OGGETTO ROSSO",
+    "title": "LA PECE",
+    "req": [
+     2
+    ],
+    "art": "A cauldron of thick black boiling pitch on a fire, a worker stirring with a long stick, steam.",
+    "text": "Pece nera e bollente. Il poeta Dante la vide bollire all'Arsenale e la mise nel suo Inferno!"
+   },
+   {
+    "n": 40,
+    "typ": "OGGETTO BLU",
+    "title": "LO SCAFO",
+    "req": [
+     528
+    ],
+    "art": "A new wooden ship hull floating in the canal with water seeping through gaps between planks.",
+    "text": "Uno scafo nuovo di zecca… ma tra le assi entra l'acqua!"
+   },
+   {
+    "n": 49,
+    "typ": "COMBINAZIONE",
+    "strip": "Combinazione: PECE + SCAFO",
+    "title": "IMPERMEABILE!",
+    "req": [
+     9,
+     40
+    ],
+    "next": [
+     60
+    ],
+    "disc": [
+     2,
+     9,
+     40,
+     528
+    ],
+    "tess": "pece",
+    "art": "Workers brushing hot black pitch on the hull seams, the kids helping with brushes, the king clapping.",
+    "text": "Spennellate la pece calda tra le assi: ora lo scafo non fa entrare una goccia! La galea è quasi pronta… ma Becco si è seduto sui remi. Prendete la carta **60**."
+   },
+   {
+    "n": 60,
+    "typ": "ENIGMA",
+    "title": "BECCO SUI REMI",
+    "req": [
+     49
+    ],
+    "H": 150,
+    "art": "A long galley seen from above with rows of wooden benches on both sides (draw 25 benches per side as tidy lines); Becco sitting on a pile of oars with a cheeky grin.",
+    "text": "«I remi ve li lascio se mi dite quanti rematori servono!» Questa galea ha 25 banchi per lato e su ogni banco remano 3 uomini. Il totale è la carta da prendere."
+   },
+   {
+    "n": 75,
+    "typ": "SBAGLIATO",
+    "strip": "Risposta a: BECCO SUI REMI",
+    "title": "SBAGLIATO!",
+    "req": [
+     60
+    ],
+    "art": "Half a galley with rowers only on one side, tilting.",
+    "text": "Avete contato un lato solo! La galea così girerebbe in tondo. Perdete 1 piuma e riprovate."
+   },
+   {
+    "n": 150,
+    "typ": "RISPOSTA",
+    "strip": "Risposta a: BECCO SUI REMI",
+    "title": "VITTORIA!",
+    "req": [
+     60
+    ],
+    "final": true,
+    "tess": "galea",
+    "art": "The finished galley leaving the Arsenal with 150 oars moving, flags with the winged lion, the king of France amazed, kids and Leo cheering, Becco sulking.",
+    "text": "25 × 2 × 3 = 150 rematori! La galea esce dall'Arsenale e il re di Francia resta a bocca aperta. Becco brontola: «Uffa, siete troppo bravi!»"
+   }
+  ],
+  "hints": [
+   {
+    "done": [
+     6,
+     9
+    ],
+    "t": "La porta dell'Arsenale",
+    "h": [
+     "Nel disegno ci sono due numeri nascosti.",
+     "Uno è sul maestro con il grembiule, l'altro sul pentolone nero.",
+     "Carte 6 e 9."
+    ]
+   },
+   {
+    "done": [
+     528
+    ],
+    "t": "La catena di montaggio",
+    "h": [
+     "Leggete il taccuino di Sofia (carta 11).",
+     "Prima lo scafo (5), poi gli alberi (2), infine remi e vele (8).",
+     "Carta 528."
+    ]
+   },
+   {
+    "done": [
+     49
+    ],
+    "t": "Lo scafo che fa acqua",
+    "h": [
+     "Cercate il numero nascosto sullo scafo nuovo (carta 528).",
+     "Combinate la pece con lo scafo.",
+     "Pece (9) + scafo (40) = carta 49."
+    ]
+   },
+   {
+    "done": [
+     150
+    ],
+    "t": "Becco sui remi",
+    "h": [
+     "Prima contate i rematori di un lato: 25 banchi × 3.",
+     "Poi ricordate che i lati sono due.",
+     "75 × 2 = 150: carta 150."
+    ]
+   }
+  ],
+  "tessere": {
+   "arsenale": [
+    "L'Arsenale",
+    "Fondato nel 1104, era il grande cantiere di Venezia, chiuso da mura alte. All'ingresso ci sono leoni di pietra portati dalla Grecia."
+   ],
+   "catena": [
+    "La catena di montaggio",
+    "Le navi si spostavano lungo un canale da un capannone all'altro e in ognuno si aggiungevano pezzi già pronti. Così Venezia costruiva navi velocissime."
+   ],
+   "pece": [
+    "La pece e Dante",
+    "La pece bollente serviva a rendere impermeabili le navi. Dante Alighieri la vide all'Arsenale e la descrisse nell'Inferno."
+   ],
+   "galea": [
+    "La galea",
+    "La galea era una nave lunga e veloce spinta da remi e vele. Nel 1574 il re di Francia Enrico III visitò l'Arsenale e vide costruire una nave in pochissimo tempo."
+   ]
+  }
+ },
+ "ep7": {
+  "title": "Lo sposalizio del mare",
+  "place": "Venezia, festa della Sensa, verso il 1730",
+  "intro": "Nel giorno della Sensa il doge «sposa» il mare gettando un anello d'oro dal Bucintoro. Ma l'anello è sparito…",
+  "cards": [
+   {
+    "n": 1,
+    "typ": "SPECIALE",
+    "title": "INIZIO",
+    "next": [
+     2,
+     3,
+     4
+    ],
+    "art": "Leo greeting with a paw in front of a golden ceremonial galley decorated with red cloth on the water.",
+    "text": "Venezia, verso il 1730. È il giorno dell'Ascensione, la «Sensa»: il doge salirà sul Bucintoro per sposare il mare con un anello d'oro. Ma Becco l'ha rubato! Prendete le carte **2**, **3** e **4**."
+   },
+   {
+    "n": 2,
+    "typ": "LUOGO",
+    "title": "IL BACINO DI SAN MARCO",
+    "H": 175,
+    "req": [
+     1
+    ],
+    "hidden": [
+     5,
+     8
+    ],
+    "tess": "bucintoro",
+    "art": "The basin of St Mark: the golden Bucintoro galley with red canopy, many gondolas around, the bell tower of St Mark in the background. A gondolier standing on a black gondola — hidden number 5 on the gondolier; Becco on top of the bell tower holding a small golden ring — hidden number 8 on Becco. Exactly TWO gold circles: 5, 8.",
+    "text": "Il bacino di San Marco è pieno di barche in festa. Guardate bene il disegno!"
+   },
+   {
+    "n": 3,
+    "typ": "PERSONAGGIO",
+    "title": "IL DOGE",
+    "req": [
+     1
+    ],
+    "art": "The doge in a golden robe and the horn-shaped cap (corno ducale), worried, showing his empty hand.",
+    "text": "«Ogni anno getto in mare un anello d'oro e dico: ‘Ti sposiamo, o mare, in segno di vero e perpetuo dominio’. Senza anello niente festa!»"
+   },
+   {
+    "n": 4,
+    "typ": "SPECIALE",
+    "title": "GLI ZAINI",
+    "req": [
+     1
+    ],
+    "next": [
+     7,
+     11
+    ],
+    "art": "Two open backpacks: an orange oar keychain and an open notebook.",
+    "text": "Aprite gli zaini! Il remo di Nico (carta **7**) e il taccuino di Sofia (carta **11**)."
+   },
+   {
+    "n": 7,
+    "typ": "OGGETTO ROSSO",
+    "title": "IL REMO DI NICO",
+    "req": [
+     4
+    ],
+    "art": "Nico's orange oar keychain glowing gold.",
+    "text": "Il portachiavi magico di Nico: quando serve diventa un remo vero."
+   },
+   {
+    "n": 11,
+    "typ": "INDIZIO",
+    "title": "IL TACCUINO DI SOFIA",
+    "req": [
+     4
+    ],
+    "H": 110,
+    "tess": "sestieri",
+    "art": "Notebook page with a sketch of the metal prow decoration of a gondola (the 'ferro') with teeth, and a tiny map of Venice divided in parts.",
+    "text": "«Si dice che i denti del ferro sulla prua della gondola siano i sestieri, i quartieri di Venezia: Cannaregio, Castello, San Marco, Dorsoduro, San Polo e Santa Croce.»"
+   },
+   {
+    "n": 5,
+    "typ": "PERSONAGGIO",
+    "title": "IL GONDOLIERE",
+    "req": [
+     2
+    ],
+    "next": [
+     14
+    ],
+    "art": "A Venetian gondolier with a straw hat with ribbon and a striped shirt, standing on the stern of a black gondola holding his oar.",
+    "text": "«Becco? È sul campanile di San Marco! Vi porto io in gondola, ma solo se sapete quanti sono i denti davanti del mio ferro. Guardate bene (carta **14**).»"
+   },
+   {
+    "n": 14,
+    "typ": "ENIGMA",
+    "title": "IL FERRO DELLA GONDOLA",
+    "req": [
+     5
+    ],
+    "H": 150,
+    "art": "Close-up of a gondola's metal prow ornament (ferro) drawn big and clear: an S-shaped blade with exactly SIX equal teeth pointing forward and ONE extra tooth pointing backward.",
+    "text": "Contate solo i denti che guardano in avanti: sono i sestieri di Venezia. Il dente dietro, dicono, è l'isola della Giudecca. Quanti sono i denti davanti? Il numero è la carta da prendere."
+   },
+   {
+    "n": 6,
+    "typ": "RISPOSTA",
+    "strip": "Risposta a: IL FERRO DELLA GONDOLA",
+    "title": "SI SALE IN GONDOLA!",
+    "req": [
+     14
+    ],
+    "disc": [
+     5,
+     14
+    ],
+    "next": [
+     20
+    ],
+    "art": "The kids in a black gondola, the gondolier rowing standing at the back, a little bakery shop on the quay.",
+    "text": "Sei, come i sestieri! Il gondoliere vi porta verso San Marco. Sulla riva c'è un forno che profuma di biscotti: prendete la carta **20**."
+   },
+   {
+    "n": 20,
+    "typ": "OGGETTO ROSSO",
+    "title": "I BAICOLI",
+    "req": [
+     6
+    ],
+    "art": "A small paper bag of thin oval Venetian biscuits (baicoli).",
+    "text": "I baicoli, biscotti veneziani secchi e leggeri. I marinai li portavano in viaggio perché duravano tanto."
+   },
+   {
+    "n": 8,
+    "typ": "OGGETTO BLU",
+    "title": "BECCO SUL CAMPANILE",
+    "req": [
+     2
+    ],
+    "art": "Becco on the top of a tall red-brick bell tower holding a golden ring in his beak, the golden angel of the tower beside him.",
+    "text": "«Questo anello è mio! Brilla come un pesce d'oro!» Becco non lo molla… a meno che non gli venga una gran fame."
+   },
+   {
+    "n": 28,
+    "typ": "COMBINAZIONE",
+    "strip": "Combinazione: BAICOLI + BECCO",
+    "title": "PLIN!",
+    "req": [
+     20,
+     8
+    ],
+    "next": [
+     30
+    ],
+    "disc": [
+     8,
+     20,
+     6
+    ],
+    "art": "Becco grabbing the biscuits, the ring falling from the bell tower in an arc towards the lagoon water, the kids running.",
+    "text": "Becco afferra i baicoli e… l'anello gli scivola dal becco! Cade giù dal campanile, rimbalza e finisce in acqua vicino al Bucintoro. Prendete la carta **30**."
+   },
+   {
+    "n": 30,
+    "typ": "ENIGMA",
+    "title": "LA FESTA DELLA SENSA",
+    "req": [
+     28
+    ],
+    "H": 150,
+    "tess": "sensa",
+    "art": "The doge on the golden Bucintoro laughing, ripples in the water where the ring fell, Leo flying; a small banner in the sky with the words 'ANNO MILLE' written in letters (no digits).",
+    "text": "Leo ride: «Il mare è sposato lo stesso!» La festa ricorda una vittoria del doge Pietro II Orseolo nel giorno dell'Ascensione dell'anno mille. Scrivete quell'anno in cifre: è la carta da prendere."
+   },
+   {
+    "n": 1000,
+    "typ": "RISPOSTA",
+    "strip": "Risposta a: LA FESTA DELLA SENSA",
+    "title": "VITTORIA!",
+    "req": [
+     30
+    ],
+    "final": true,
+    "tess": "oggi",
+    "art": "Fireworks over the basin of St Mark, gondolas and the Bucintoro, the kids, Leo and the doge celebrating, Becco eating biscuits on a mooring pole.",
+    "text": "Anno 1000! Da allora, per secoli, il doge ha sposato il mare ogni anno. Becco brontola: «Almeno i baicoli erano buoni.»"
+   }
+  ],
+  "hints": [
+   {
+    "done": [
+     5,
+     8
+    ],
+    "t": "Il bacino di San Marco",
+    "h": [
+     "Nel disegno ci sono due numeri nascosti.",
+     "Uno è sul gondoliere, l'altro su Becco in cima al campanile.",
+     "Carte 5 e 8."
+    ]
+   },
+   {
+    "done": [
+     6
+    ],
+    "t": "Il ferro della gondola",
+    "h": [
+     "Leggete il taccuino di Sofia (carta 11).",
+     "Contate solo i denti che guardano in avanti.",
+     "Sono 6: carta 6."
+    ]
+   },
+   {
+    "done": [
+     28
+    ],
+    "t": "Becco sul campanile",
+    "h": [
+     "Becco molla l'anello solo se ha fame.",
+     "Combinate i baicoli con Becco.",
+     "Baicoli (20) + Becco (8) = carta 28."
+    ]
+   },
+   {
+    "done": [
+     1000
+    ],
+    "t": "La festa della Sensa",
+    "h": [
+     "La festa ricorda una vittoria dell'anno mille.",
+     "Mille in cifre si scrive con un 1 e tre zeri.",
+     "Carta 1000."
+    ]
+   }
+  ],
+  "tessere": {
+   "bucintoro": [
+    "Il Bucintoro",
+    "Era la nave d'oro del doge, coperta di stoffa rossa. L'ultimo Bucintoro fu distrutto dai soldati francesi nel 1798."
+   ],
+   "sestieri": [
+    "I sestieri",
+    "Venezia è divisa in sei quartieri, i sestieri: Cannaregio, Castello, San Marco, Dorsoduro, San Polo e Santa Croce."
+   ],
+   "sensa": [
+    "La festa della Sensa",
+    "Nel giorno dell'Ascensione il doge gettava in mare un anello d'oro per «sposarlo». La festa ricorda la vittoria del doge Pietro II Orseolo nell'anno 1000."
+   ],
+   "oggi": [
+    "Il matrimonio con il mare",
+    "Una leggenda dice che nel 1177 il papa Alessandro III diede al doge un anello per sposare il mare. La festa della Sensa si celebra ancora oggi a Venezia."
+   ]
+  }
+ },
+ "ep8": {
+  "title": "In viaggio con Marco Polo",
+  "place": "Venezia e la Cina, 1271–1295",
+  "intro": "Il giovane Marco parte con il padre e lo zio verso la Cina, alla corte del Gran Khan. Becco lo segue fin laggiù…",
+  "cards": [
+   {
+    "n": 1,
+    "typ": "SPECIALE",
+    "title": "INIZIO",
+    "next": [
+     2,
+     3,
+     4
+    ],
+    "art": "Leo greeting with a paw on a Venetian quay, a ship ready to sail, a teenage boy waving.",
+    "text": "Venezia, anno 1271. Il giovane Marco Polo parte con il padre Niccolò e lo zio Matteo verso il Catai, cioè la Cina. Leo: «Tenetevi forte, saltiamo fino alla corte del Gran Khan!» Prendete le carte **2**, **3** e **4**."
+   },
+   {
+    "n": 2,
+    "typ": "LUOGO",
+    "title": "LA CORTE DEL GRAN KHAN",
+    "H": 175,
+    "req": [
+     1
+    ],
+    "hidden": [
+     5,
+     7
+    ],
+    "tess": "khan",
+    "art": "A splendid Mongol-Chinese palace hall with red columns and golden roofs; an emperor on a throne — hidden number 5 on the emperor; a cold courtyard with snow outside the door and an empty bronze brazier — hidden number 7 on the brazier. Becco flying with a golden tablet. Exactly TWO gold circles: 5, 7.",
+    "text": "La reggia di Kublai Khan, imperatore dei Mongoli e della Cina. È inverno e fa un gran freddo. Guardate bene il disegno!"
+   },
+   {
+    "n": 3,
+    "typ": "PERSONAGGIO",
+    "title": "MARCO POLO",
+    "req": [
+     1
+    ],
+    "art": "Marco Polo as a young man (about 20), Venetian tunic and cap, a travel bag, holding a notebook, cheerful.",
+    "text": "«Il Gran Khan mi ha dato una tavoletta d'oro: chi la vede deve aiutarmi in tutto l'impero. Ma Becco me l'ha rubata!»"
+   },
+   {
+    "n": 4,
+    "typ": "SPECIALE",
+    "title": "GLI ZAINI",
+    "req": [
+     1
+    ],
+    "next": [
+     11,
+     12
+    ],
+    "art": "Two open backpacks: an open notebook and a bread-and-cheese sandwich.",
+    "text": "Aprite gli zaini! Il taccuino di Sofia (carta **11**) e il panino di Toni (carta **12**)."
+   },
+   {
+    "n": 11,
+    "typ": "INDIZIO",
+    "title": "IL TACCUINO DI SOFIA",
+    "req": [
+     4
+    ],
+    "H": 105,
+    "tess": "carta",
+    "art": "Notebook page with a sketch of a rectangular paper banknote with a red square seal.",
+    "text": "«In Cina Marco vide una cosa incredibile: invece delle monete si pagava con fogli di carta stampati dal Khan!»"
+   },
+   {
+    "n": 12,
+    "typ": "OGGETTO ROSSO",
+    "title": "IL PANINO DI TONI",
+    "req": [
+     4
+    ],
+    "art": "A fat bread-and-cheese sandwich.",
+    "text": "Pane e formaggio, arrivati fin dall'Italia. Becco ne sente il profumo da lontano…"
+   },
+   {
+    "n": 5,
+    "typ": "PERSONAGGIO",
+    "title": "KUBLAI KHAN",
+    "req": [
+     2
+    ],
+    "next": [
+     30
+    ],
+    "art": "Kublai Khan: a stout emperor with a thin moustache and beard, rich silk robe with dragons, a fur hat, smiling.",
+    "text": "«Benvenuti, amici di Marco! Qui si paga con la carta. Se vi serve qualcosa dal mercato, pagatelo con i miei fogli (carta **30**).»"
+   },
+   {
+    "n": 30,
+    "typ": "ENIGMA",
+    "title": "LA CARTA MONETA",
+    "req": [
+     5
+    ],
+    "H": 150,
+    "art": "A market stall selling black stones (coal) in a basket; on the counter paper banknotes laid out clearly: THREE banknotes each marked with a big '10' and TWO banknotes each marked with a big '5', each with a red seal. Easy to count.",
+    "text": "Il mercante: «Le pietre nere costano quanto tutti questi fogli messi insieme.» Sommate i numeri dei fogli: il totale è la carta da prendere."
+   },
+   {
+    "n": 40,
+    "typ": "RISPOSTA",
+    "strip": "Risposta a: LA CARTA MONETA",
+    "title": "LE PIETRE NERE",
+    "req": [
+     30
+    ],
+    "next": [
+     16
+    ],
+    "disc": [
+     5,
+     30
+    ],
+    "art": "The merchant handing the kids a basket of black stones, Marco amazed.",
+    "text": "10 + 10 + 10 + 5 + 5 = 40! Il mercante vi dà un cesto di pietre nere. Marco: «In Italia non le conosciamo: dicono che bruciano meglio della legna!» Prendete la carta **16**."
+   },
+   {
+    "n": 16,
+    "typ": "OGGETTO ROSSO",
+    "title": "LE PIETRE NERE",
+    "req": [
+     40
+    ],
+    "tess": "carbone",
+    "art": "A basket of shiny black stones (coal).",
+    "text": "Pietre nere che bruciano: è il carbone! Marco lo descrisse come una meraviglia."
+   },
+   {
+    "n": 7,
+    "typ": "OGGETTO BLU",
+    "title": "IL BRACIERE",
+    "req": [
+     2
+    ],
+    "art": "An empty bronze brazier on three legs in a snowy courtyard, everyone shivering.",
+    "text": "Un braciere vuoto. Brrr, che freddo! Ci vorrebbe qualcosa che brucia a lungo."
+   },
+   {
+    "n": 23,
+    "typ": "COMBINAZIONE",
+    "strip": "Combinazione: PIETRE NERE + BRACIERE",
+    "title": "CHE CALDO!",
+    "req": [
+     16,
+     7
+    ],
+    "next": [
+     10
+    ],
+    "disc": [
+     7,
+     16,
+     40
+    ],
+    "art": "Everyone warming their hands around the glowing brazier; in the light Becco is revealed on a roof beam holding a golden tablet.",
+    "text": "Le pietre nere si accendono e scaldano tutti. Alla luce del fuoco ecco Becco, con la tavoletta d'oro di Marco! Prendete la carta **10**."
+   },
+   {
+    "n": 10,
+    "typ": "OGGETTO BLU",
+    "title": "BECCO E LA TAVOLETTA",
+    "req": [
+     23
+    ],
+    "art": "Becco on a roof beam clutching a golden rectangular tablet with engraved signs, sniffing the air hungrily.",
+    "text": "«È d'oro, è mia!» Ma dopo il lungo viaggio Becco ha una fame da lupo…"
+   },
+   {
+    "n": 22,
+    "typ": "COMBINAZIONE",
+    "strip": "Combinazione: PANINO + BECCO",
+    "title": "LA TAVOLETTA D'ORO",
+    "req": [
+     12,
+     10
+    ],
+    "next": [
+     50
+    ],
+    "disc": [
+     10,
+     12,
+     23
+    ],
+    "tess": "paiza",
+    "art": "Becco gobbling the sandwich, the golden tablet falling into Marco's hands.",
+    "text": "Becco divora il panino e lascia cadere la tavoletta. Marco è salvo: con quella può viaggiare in tutto l'impero! Prendete la carta **50**."
+   },
+   {
+    "n": 50,
+    "typ": "ENIGMA",
+    "title": "IL LIBRO DI MARCO",
+    "req": [
+     22
+    ],
+    "H": 140,
+    "art": "A prison cell with a small window: Marco, older, dictating to another man who writes in a big book; a sign on the wall with '1271' and '1295' written.",
+    "text": "Tornato a Venezia, Marco finì prigioniero a Genova e raccontò il viaggio a Rustichello da Pisa, che lo scrisse nel «Milione». Partito nel 1271, tornò nel 1295. Quanti anni durò il viaggio? È la carta da prendere."
+   },
+   {
+    "n": 25,
+    "typ": "SBAGLIATO",
+    "strip": "Risposta a: IL LIBRO DI MARCO",
+    "title": "SBAGLIATO!",
+    "req": [
+     50
+    ],
+    "art": "Marco counting on his fingers and shaking his head.",
+    "text": "Ricontate: dal 1271 al 1295… Perdete 1 piuma e riprovate."
+   },
+   {
+    "n": 24,
+    "typ": "RISPOSTA",
+    "strip": "Risposta a: IL LIBRO DI MARCO",
+    "title": "VITTORIA!",
+    "req": [
+     50
+    ],
+    "final": true,
+    "tess": "milione",
+    "art": "Marco Polo, older, holding the finished book 'Il Milione', the kids and Leo cheering in a Venetian room with a world map, Becco sulking on the window sill.",
+    "text": "1295 − 1271 = 24 anni di viaggio! Il libro di Marco fece sognare l'Europa per secoli. Becco brontola: «Io volevo solo la tavoletta d'oro…»"
+   }
+  ],
+  "hints": [
+   {
+    "done": [
+     5,
+     7
+    ],
+    "t": "La corte del Gran Khan",
+    "h": [
+     "Nel disegno ci sono due numeri nascosti.",
+     "Uno è sull'imperatore, l'altro sul braciere.",
+     "Carte 5 e 7."
+    ]
+   },
+   {
+    "done": [
+     40
+    ],
+    "t": "La carta moneta",
+    "h": [
+     "Leggete il taccuino di Sofia (carta 11).",
+     "Sommate i fogli: tre da 10 e due da 5.",
+     "30 + 10 = 40: carta 40."
+    ]
+   },
+   {
+    "done": [
+     23
+    ],
+    "t": "Il braciere",
+    "h": [
+     "Fa freddo e il braciere è vuoto.",
+     "Combinate le pietre nere con il braciere.",
+     "Pietre nere (16) + braciere (7) = carta 23."
+    ]
+   },
+   {
+    "done": [
+     22
+    ],
+    "t": "Becco e la tavoletta",
+    "h": [
+     "Becco ha tanta fame.",
+     "Combinate il panino con Becco.",
+     "Panino (12) + Becco (10) = carta 22."
+    ]
+   },
+   {
+    "done": [
+     24
+    ],
+    "t": "Il libro di Marco",
+    "h": [
+     "Il viaggio inizia nel 1271 e finisce nel 1295.",
+     "Fate 1295 meno 1271.",
+     "24 anni: carta 24."
+    ]
+   }
+  ],
+  "tessere": {
+   "khan": [
+    "Kublai Khan",
+    "Era l'imperatore dei Mongoli e della Cina. Marco Polo visse circa 17 anni nel suo impero e fece missioni per lui."
+   ],
+   "carta": [
+    "I soldi di carta",
+    "In Cina si pagava con fogli di carta stampati dall'imperatore. In Europa nessuno li conosceva ancora!"
+   ],
+   "carbone": [
+    "Le pietre che bruciano",
+    "Marco Polo raccontò di pietre nere che bruciavano come legna: era il carbone, usato in Cina per scaldarsi."
+   ],
+   "paiza": [
+    "La tavoletta d'oro",
+    "Il Khan dava ai suoi inviati tavolette d'oro o d'argento: chi le mostrava doveva essere aiutato in tutto l'impero."
+   ],
+   "milione": [
+    "Il Milione",
+    "Marco Polo partì nel 1271 e tornò a Venezia nel 1295. Prigioniero a Genova, raccontò il viaggio a Rustichello da Pisa: nacque il libro «Il Milione»."
+   ]
+  }
+ },
+ "ep9": {
+  "title": "Lepanto",
+  "place": "Golfo di Lepanto, 7 ottobre 1571",
+  "intro": "La grande flotta della Lega Santa, con le galee di Venezia, va incontro alla flotta ottomana. Una puntata di navi, segnali e lavoro di squadra.",
+  "cards": [
+   {
+    "n": 1,
+    "typ": "SPECIALE",
+    "title": "INIZIO",
+    "next": [
+     2,
+     3,
+     4
+    ],
+    "art": "Leo greeting with a paw on the deck of a big Venetian galley, many ships on the sea behind.",
+    "text": "Golfo di Lepanto, 7 ottobre 1571. Venezia, la Spagna e il Papa si sono alleati nella Lega Santa e la loro flotta va incontro a quella ottomana. Leo vi porta su una galeazza veneziana! Prendete le carte **2**, **3** e **4**."
+   },
+   {
+    "n": 2,
+    "typ": "LUOGO",
+    "title": "LA FLOTTA",
+    "H": 175,
+    "req": [
+     1
+    ],
+    "hidden": [
+     5
+    ],
+    "tess": "lega",
+    "art": "View from a ship's deck of a huge fleet of galleys on a calm blue sea, with six much bigger ships (galleasses) in front of all the others; on the deck an old admiral with a long white beard — hidden number 5 on the admiral. Exactly ONE gold circle (5). No fighting, no smoke.",
+    "text": "Centinaia di navi all'orizzonte! Davanti a tutte, sei navi enormi. Guardate bene il disegno!"
+   },
+   {
+    "n": 3,
+    "typ": "PERSONAGGIO",
+    "title": "I REMATORI",
+    "req": [
+     1
+    ],
+    "art": "Rowers on a galley bench pulling a long oar together, sweating, one gives a thumbs up to the kids.",
+    "text": "«Remiamo tutti insieme, allo stesso ritmo! Sulle navi nemiche invece ci sono tanti cristiani incatenati ai remi: speriamo di liberarli.»"
+   },
+   {
+    "n": 4,
+    "typ": "SPECIALE",
+    "title": "GLI ZAINI",
+    "req": [
+     1
+    ],
+    "next": [
+     11,
+     12
+    ],
+    "art": "Two open backpacks: an open notebook and a bread-and-cheese sandwich.",
+    "text": "Aprite gli zaini! Il taccuino di Sofia (carta **11**) e il panino di Toni (carta **12**)."
+   },
+   {
+    "n": 11,
+    "typ": "INDIZIO",
+    "title": "IL TACCUINO DI SOFIA",
+    "req": [
+     4
+    ],
+    "H": 110,
+    "tess": "galeazze",
+    "art": "Notebook page with a sketch of a big galleass with many cannons and the number of ships written as a list: 105, 81, 12, 9.",
+    "text": "«Le galee della Lega erano 207: 105 di Venezia, 81 della Spagna, 12 del Papa e 9 di altri. Davanti a tutte c'erano 6 galeazze veneziane, enormi e piene di cannoni.»"
+   },
+   {
+    "n": 12,
+    "typ": "OGGETTO ROSSO",
+    "title": "IL PANINO DI TONI",
+    "req": [
+     4
+    ],
+    "art": "A fat bread-and-cheese sandwich.",
+    "text": "Pane e formaggio. Sulle navi si mangiavano soprattutto gallette secche: questo è un lusso!"
+   },
+   {
+    "n": 5,
+    "typ": "PERSONAGGIO",
+    "title": "SEBASTIANO VENIER",
+    "req": [
+     2
+    ],
+    "next": [
+     6
+    ],
+    "art": "Sebastiano Venier: a very old admiral with a long white beard, armour breastplate, a red cloak, pointing at a list.",
+    "text": "«Sono Sebastiano Venier, capitano dei Veneziani. Devo sapere quante galee NON sono veneziane, per dividere i compiti. Fate il conto (carta **6**).»"
+   },
+   {
+    "n": 6,
+    "typ": "ENIGMA",
+    "title": "LE GALEE DELLA LEGA",
+    "req": [
+     5
+    ],
+    "H": 140,
+    "art": "A big parchment with a simple bar chart of ship counts: tall bar '207 TOTALE', bar '105 VENEZIA' with a winged lion flag; Venier and Sofia looking at it.",
+    "text": "Usate il taccuino di Sofia (carta 11): da tutte le galee della Lega togliete quelle di Venezia. Il risultato è la carta da prendere."
+   },
+   {
+    "n": 102,
+    "typ": "RISPOSTA",
+    "strip": "Risposta a: LE GALEE DELLA LEGA",
+    "title": "GIUSTO!",
+    "req": [
+     6
+    ],
+    "disc": [
+     5,
+     6
+    ],
+    "H": 140,
+    "hidden": [
+     8
+    ],
+    "art": "Venier giving orders with a speaking trumpet, the six galleasses moving forward; on a nearby enemy galley a heavy chain holding rowers at their oars — hidden number 8 on the chain.",
+    "text": "207 − 105 = 102 galee alleate! Venier manda avanti le galeazze. Su una nave nemica ci sono rematori incatenati: bisogna liberarli! Guardate bene il disegno."
+   },
+   {
+    "n": 8,
+    "typ": "OGGETTO BLU",
+    "title": "LE CATENE",
+    "req": [
+     102
+    ],
+    "art": "Rowers with heavy iron chains on their ankles, locked with a big padlock, looking hopeful.",
+    "text": "Pesanti catene di ferro chiuse con un lucchetto. La chiave? Ce l'ha… indovinate chi!"
+   },
+   {
+    "n": 14,
+    "typ": "OGGETTO BLU",
+    "title": "BECCO CON LA CHIAVE",
+    "req": [
+     102
+    ],
+    "art": "Becco on a mast holding a big iron key, sniffing the air hungrily.",
+    "text": "«Una chiave! Brilla, è mia!» Becco però non mangia da giorni…"
+   },
+   {
+    "n": 26,
+    "typ": "COMBINAZIONE",
+    "strip": "Combinazione: PANINO + BECCO",
+    "title": "LA CHIAVE",
+    "req": [
+     12,
+     14
+    ],
+    "next": [
+     21
+    ],
+    "disc": [
+     12,
+     14
+    ],
+    "art": "Becco grabbing the sandwich, the key falling onto the deck at Nico's feet.",
+    "text": "Becco si getta sul panino e la chiave cade sul ponte! Prendete la carta **21**."
+   },
+   {
+    "n": 21,
+    "typ": "OGGETTO ROSSO",
+    "title": "LA CHIAVE",
+    "req": [
+     26
+    ],
+    "art": "A big iron key on the wooden deck.",
+    "text": "Una grossa chiave di ferro. Apre le catene dei rematori!"
+   },
+   {
+    "n": 29,
+    "typ": "COMBINAZIONE",
+    "strip": "Combinazione: CHIAVE + CATENE",
+    "title": "VITTORIA!",
+    "req": [
+     21,
+     8
+    ],
+    "final": true,
+    "tess": "liberi",
+    "art": "Freed rowers raising their arms with broken chains, the kids and Leo cheering, sunset over the sea, a church bell drawing in a corner (no fighting).",
+    "text": "Clack! Le catene si aprono: i rematori sono liberi! Quel giorno la Lega Santa vinse e circa 15.000 prigionieri cristiani tornarono liberi. A Venezia suonarono le campane per giorni."
+   }
+  ],
+  "hints": [
+   {
+    "done": [
+     5
+    ],
+    "t": "La flotta",
+    "h": [
+     "Nel disegno c'è un numero nascosto.",
+     "È sul vecchio ammiraglio con la barba bianca.",
+     "Carta 5."
+    ]
+   },
+   {
+    "done": [
+     102
+    ],
+    "t": "Le galee della Lega",
+    "h": [
+     "Leggete il taccuino di Sofia (carta 11).",
+     "Il totale è 207, quelle di Venezia sono 105.",
+     "207 − 105 = 102: carta 102."
+    ]
+   },
+   {
+    "done": [
+     26
+    ],
+    "t": "Becco con la chiave",
+    "h": [
+     "Nel disegno della carta 102 c'è un numero nascosto; Becco ha la chiave (carta 14).",
+     "Combinate il panino con Becco.",
+     "Panino (12) + Becco (14) = carta 26."
+    ]
+   },
+   {
+    "done": [
+     29
+    ],
+    "t": "Le catene",
+    "h": [
+     "Ora avete la chiave.",
+     "Combinate la chiave con le catene.",
+     "Chiave (21) + catene (8) = carta 29."
+    ]
+   }
+  ],
+  "tessere": {
+   "lega": [
+    "La Lega Santa",
+    "Nel 1571 Venezia, la Spagna e il Papa si allearono contro l'Impero ottomano. Il 7 ottobre le flotte si affrontarono vicino a Lepanto, in Grecia."
+   ],
+   "galeazze": [
+    "Le galeazze",
+    "Erano galee giganti costruite all'Arsenale, con tanti cannoni. A Lepanto le 6 galeazze veneziane andarono davanti a tutta la flotta."
+   ],
+   "liberi": [
+    "Rematori liberi",
+    "Dopo la battaglia di Lepanto circa 15.000 cristiani che remavano incatenati sulle navi ottomane tornarono liberi."
+   ]
+  }
+ },
+ "ep10": {
+  "title": "L'ultimo Doge e Venezia oggi",
+  "place": "Venezia, dal 1797 a oggi",
+  "intro": "La Repubblica di Venezia finisce, ma la città vive ancora. Un ultimo viaggio nel tempo fino ai giorni nostri, e un saluto speciale da Leo.",
+  "cards": [
+   {
+    "n": 1,
+    "typ": "SPECIALE",
+    "title": "INIZIO",
+    "next": [
+     2,
+     3,
+     4
+    ],
+    "art": "Leo greeting with a paw, a bit sad, in front of the Doge's Palace.",
+    "text": "Venezia, 12 maggio 1797. Napoleone è alle porte e il Maggior Consiglio vota la fine della Repubblica. Becco ha rubato il corno, il cappello del doge! Prendete le carte **2**, **3** e **4**."
+   },
+   {
+    "n": 2,
+    "typ": "LUOGO",
+    "title": "IL PALAZZO DUCALE",
+    "H": 175,
+    "req": [
+     1
+    ],
+    "hidden": [
+     5,
+     9
+    ],
+    "tess": "manin",
+    "art": "The courtyard of the Doge's Palace with its arches and the giants' staircase; an old doge without his cap, sad — hidden number 5 on the doge; Becco on a column capital wearing the horn-shaped doge cap — hidden number 9 on Becco. Exactly TWO gold circles: 5, 9.",
+    "text": "Il Palazzo Ducale, dove per secoli hanno governato i dogi. Guardate bene il disegno!"
+   },
+   {
+    "n": 3,
+    "typ": "PERSONAGGIO",
+    "title": "NAPOLEONE",
+    "req": [
+     1
+    ],
+    "art": "Napoleon Bonaparte as a young general: bicorne hat, blue uniform with gold, hand inside his coat, stern.",
+    "text": "«Io sono il generale Bonaparte. Da oggi la Repubblica di Venezia non esiste più!»"
+   },
+   {
+    "n": 4,
+    "typ": "SPECIALE",
+    "title": "GLI ZAINI",
+    "req": [
+     1
+    ],
+    "next": [
+     11,
+     12
+    ],
+    "art": "Two open backpacks: an open notebook and a bread-and-cheese sandwich.",
+    "text": "Aprite gli zaini! Il taccuino di Sofia (carta **11**) e il panino di Toni (carta **12**)."
+   },
+   {
+    "n": 11,
+    "typ": "INDIZIO",
+    "title": "IL TACCUINO DI SOFIA",
+    "req": [
+     4
+    ],
+    "H": 110,
+    "art": "Notebook page with a timeline: '697 primo doge' at the start and '1797 fine' at the end, a long arrow between.",
+    "text": "«Secondo la tradizione il primo doge fu eletto nel 697 e la Repubblica finì nel 1797.»"
+   },
+   {
+    "n": 12,
+    "typ": "OGGETTO ROSSO",
+    "title": "IL PANINO DI TONI",
+    "req": [
+     4
+    ],
+    "art": "A fat bread-and-cheese sandwich.",
+    "text": "Pane e formaggio, per l'ultima avventura. Becco lo sa benissimo…"
+   },
+   {
+    "n": 5,
+    "typ": "PERSONAGGIO",
+    "title": "L'ULTIMO DOGE",
+    "req": [
+     2
+    ],
+    "next": [
+     6
+    ],
+    "art": "Ludovico Manin, the last doge: an old man in a red robe, without his cap, holding a white cloth (the cap's inner bonnet), tearful.",
+    "text": "«Sono Ludovico Manin, l'ultimo doge. Becco mi ha preso il corno… Ditemi almeno quanti anni è durata la nostra Repubblica (carta **6**).»"
+   },
+   {
+    "n": 6,
+    "typ": "ENIGMA",
+    "title": "QUANTI ANNI?",
+    "req": [
+     5
+    ],
+    "H": 120,
+    "art": "A long scroll unrolled with the winged lion at the start and the word FINE at the end, a sad doge cap drawn at the end.",
+    "text": "Usate il taccuino di Sofia (carta 11): dal primo doge alla fine della Repubblica, quanti anni sono passati? Il numero è la carta da prendere."
+   },
+   {
+    "n": 1100,
+    "typ": "RISPOSTA",
+    "strip": "Risposta a: QUANTI ANNI?",
+    "title": "MILLECENTO ANNI!",
+    "req": [
+     6
+    ],
+    "disc": [
+     5,
+     6
+    ],
+    "next": [
+     30
+    ],
+    "tess": "repubblica",
+    "art": "The old doge smiling a little through tears, Leo hugging him with his wing.",
+    "text": "1797 − 697 = 1100 anni! Nessuna repubblica è durata così a lungo. Leo: «Venezia però non è finita: andiamo avanti nel tempo!» Prendete la carta **30**."
+   },
+   {
+    "n": 9,
+    "typ": "OGGETTO BLU",
+    "title": "BECCO COL CORNO",
+    "req": [
+     2
+    ],
+    "art": "Becco wearing the doge's horn cap, too big for him, falling over his eyes.",
+    "text": "«Sono il doge Becco Primo!» Il corno gli cade sugli occhi… e gli brontola la pancia."
+   },
+   {
+    "n": 21,
+    "typ": "COMBINAZIONE",
+    "strip": "Combinazione: PANINO + BECCO",
+    "title": "IL CORNO RITROVATO",
+    "req": [
+     12,
+     9
+    ],
+    "disc": [
+     9,
+     12
+    ],
+    "tess": "corno",
+    "art": "Becco munching the sandwich, the doge's cap rolling to the kids.",
+    "text": "Becco si mangia il panino e il corno rotola via. Sofia lo porterà a un museo, dove tutti potranno vederlo!"
+   },
+   {
+    "n": 30,
+    "typ": "LUOGO",
+    "title": "VENEZIA, 1866",
+    "req": [
+     1100
+    ],
+    "H": 165,
+    "next": [
+     40
+    ],
+    "tess": "italia",
+    "art": "Venetians celebrating in St Mark's square with Italian tricolour flags, people voting with ballot papers.",
+    "text": "Dopo Napoleone arrivarono gli Austriaci. Nel 1866 Venezia e il Veneto entrarono a far parte del Regno d'Italia. Leo: «Ultimo salto: fino a oggi!» Prendete la carta **40**."
+   },
+   {
+    "n": 40,
+    "typ": "LUOGO",
+    "title": "VENEZIA OGGI",
+    "req": [
+     30
+    ],
+    "H": 175,
+    "hidden": [
+     7,
+     8
+    ],
+    "tess": "mose",
+    "art": "Modern Venice during high water: people in rubber boots walking on raised wooden walkways in St Mark's square; a pair of tall yellow rubber boots on a step — hidden number 7 on the boots; a flooded alley with water up to the ankles — hidden number 8 in the water. Far away in the sea, yellow gate barriers rising from the water (MOSE). Exactly TWO gold circles: 7, 8.",
+    "text": "Venezia oggi: arriva l'acqua alta! Per fortuna dal 2020 le paratoie del Mose si alzano dal mare e proteggono la città. Guardate bene il disegno."
+   },
+   {
+    "n": 7,
+    "typ": "OGGETTO ROSSO",
+    "title": "GLI STIVALI",
+    "req": [
+     40
+    ],
+    "art": "A pair of tall yellow rubber boots.",
+    "text": "Stivali di gomma: a Venezia, con l'acqua alta, sono indispensabili!"
+   },
+   {
+    "n": 8,
+    "typ": "OGGETTO BLU",
+    "title": "L'ACQUA ALTA",
+    "req": [
+     40
+    ],
+    "art": "A Venetian alley flooded with calm water, a cat sitting on a step.",
+    "text": "L'acqua alta allaga le calli e le piazze più basse. Con i piedi nudi non si passa!"
+   },
+   {
+    "n": 15,
+    "typ": "COMBINAZIONE",
+    "strip": "Combinazione: STIVALI + ACQUA ALTA",
+    "title": "VITTORIA!",
+    "req": [
+     7,
+     8
+    ],
+    "final": true,
+    "tess": "arrivederci",
+    "art": "The kids in yellow boots splashing happily in St Mark's square, Leo flying above with a glowing halo, Becco perched on a gondola pole waving goodbye, the winged lion on a flag.",
+    "text": "Con gli stivali attraversate l'acqua alta fino a San Marco. Leo vi saluta: «Avete visto 3.000 anni di storia: dai Veneti antichi a oggi. Pax tibi, amici!» FINE… per ora!"
+   }
+  ],
+  "hints": [
+   {
+    "done": [
+     5,
+     9
+    ],
+    "t": "Il Palazzo Ducale",
+    "h": [
+     "Nel disegno ci sono due numeri nascosti.",
+     "Uno è sul vecchio doge, l'altro su Becco in cima alla colonna.",
+     "Carte 5 e 9."
+    ]
+   },
+   {
+    "done": [
+     1100
+    ],
+    "t": "Quanti anni?",
+    "h": [
+     "Leggete il taccuino di Sofia (carta 11).",
+     "Fate 1797 meno 697.",
+     "1100 anni: carta 1100."
+    ]
+   },
+   {
+    "done": [
+     40
+    ],
+    "t": "Avanti nel tempo",
+    "h": [
+     "Leo vi porta prima nel 1866.",
+     "Prendete la carta 30, poi la 40.",
+     "Carte 30 e 40."
+    ]
+   },
+   {
+    "done": [
+     15
+    ],
+    "t": "L'acqua alta",
+    "h": [
+     "Nel disegno di Venezia oggi ci sono due numeri nascosti.",
+     "Combinate gli stivali con l'acqua alta.",
+     "Stivali (7) + acqua alta (8) = carta 15."
+    ]
+   }
+  ],
+  "tessere": {
+   "manin": [
+    "L'ultimo doge",
+    "Il 12 maggio 1797, con l'esercito di Napoleone vicino, il Maggior Consiglio votò la fine della Repubblica. L'ultimo doge fu Ludovico Manin."
+   ],
+   "repubblica": [
+    "Mille anni di Repubblica",
+    "Dal primo doge della tradizione (697) alla fine (1797) passarono 1100 anni: la Repubblica di Venezia è una delle più lunghe della storia."
+   ],
+   "corno": [
+    "Il corno ducale",
+    "Il cappello del doge aveva una punta all'indietro, come un piccolo corno. Era il simbolo del suo potere."
+   ],
+   "italia": [
+    "Venezia in Italia",
+    "Dopo i Francesi Venezia passò agli Austriaci. Nel 1866 il Veneto entrò nel Regno d'Italia."
+   ],
+   "mose": [
+    "Il Mose",
+    "Contro l'acqua alta, dal 2020 Venezia è protetta dal Mose: grandi paratoie che si alzano dal mare alle bocche di porto della laguna."
+   ],
+   "arrivederci": [
+    "Venezia oggi",
+    "Venezia è ancora una città viva, costruita sull'acqua e su milioni di pali di legno. È patrimonio dell'umanità UNESCO."
+   ]
+  }
+ }
+}

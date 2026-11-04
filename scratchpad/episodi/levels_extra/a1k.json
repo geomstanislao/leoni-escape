@@ -1,0 +1,122 @@
+{
+ "base": "a1",
+ "level": "k",
+ "title": "Come si elegge un doge",
+ "place": "Palazzo Ducale, 1423",
+ "intro": "È morto il doge e i nobili devono sceglierne un altro, con un gioco di sorteggi e di voti. Ma Becco ha rubato le palline! Versione corta e facile, per i più piccoli.",
+ "text": {
+  "1": "Venezia, 1423. Il doge è morto e i nobili devono sceglierne uno nuovo, con sorteggi e voti. Ma Becco ha rubato le palline per votare, le «balote»! Prendete le carte **2**, **3** e **4**.",
+  "2": "La grande sala dove si riuniscono i nobili di Venezia: più di mille! Cercate nel disegno i due cerchietti dorati con un numero.",
+  "3": "«Sono il Cancellier Grande, il capo dei segretari. Il doge si sceglie con tanti sorteggi e tanti voti, così nessuno può barare.»",
+  "11": "Il doge si sceglie in 10 passi. DADO = a sorte. MANO ALZATA = si vota. Votano, in ordine: 9 nobili, poi 12, poi 9, poi 11, alla fine 41.",
+  "12": "Pane e formaggio. Un panino fa sempre comodo!",
+  "6": "L'urna per i sorteggi è vuota. Le palline vanno dentro all'urna.",
+  "9": "«Sono il ballottino, un ragazzino che pesca le palline dall'urna, così nessuno può barare. Il gabbiano ha il sacchetto lassù, sulle travi (carta **14**)!»",
+  "14": "«Palline d'oro! Sono mie!» Becco non scende… ma ha tanta fame.",
+  "26": "Becco si getta sul panino e il sacchetto cade nelle mani del ballottino. Prendete la carta **30**.",
+  "30": "Le balote! Da questa parola viene l'inglese «ballot», che vuol dire scheda per votare.",
+  "36": "Le palline tornano nell'urna e il ballottino comincia a pescare. Il Cancellier Grande prepara il registro. Prendete la carta **40**.",
+  "40": "«Devo preparare un posto per ogni nobile che VOTA.» Leggete il taccuino (carta 11). Aiuto: 9 + 12 + 9 + 11 = 41. Poi fate 41 + 41. Il totale è la carta da prendere.",
+  "151": "Avete sommato i gruppi sbagliati. Sommate solo quelli che VOTANO. Perdete 1 piuma e riprovate.",
+  "82": "41 + 41 = 82 votanti. Alla fine i 41 scelgono Francesco Foscari: è il nuovo doge! Prendete la carta **50**.",
+  "50": "Questo modo di scegliere il doge è nato nel 1268 ed è durato fino al 1797. Quanti anni? Aiuto: da 1268 a 1768 sono 500 anni; da 1768 a 1797 sono 29 anni. Sommateli: il numero è la carta da prendere.",
+  "529": "500 + 29 = 529 anni! Un modo così bravo di votare è durato più di cinquecento anni. Becco brontola: «Io volevo solo le palline d'oro…»"
+ },
+ "tessere": {
+  "maggior": [
+   "Il Maggior Consiglio",
+   "Era la grande riunione di tutti i nobili di Venezia: più di mille persone. Sceglievano il doge e molti altri capi."
+  ],
+  "procedura": [
+   "Tanti passi per un doge",
+   "Per scegliere il doge si usavano dieci passi, con sorteggi e voti, così nessuno poteva sapere prima chi avrebbe votato."
+  ],
+  "sevipiace": [
+   "Il doge Foscari",
+   "Nel 1423 fu eletto Francesco Foscari. È stato doge per 34 anni, più di tutti gli altri."
+  ],
+  "ballottino": [
+   "Il ballottino",
+   "Un ragazzino pescava le palline dall'urna. Da «balota» viene l'inglese «ballot»."
+  ],
+  "durata": [
+   "Un sistema lunghissimo",
+   "Il modo di eleggere il doge è durato 529 anni, fino al 1797."
+  ]
+ },
+ "hints": [
+  {
+   "done": [
+    6,
+    9
+   ],
+   "t": "La sala del Maggior Consiglio",
+   "h": [
+    "Nel disegno ci sono due cerchietti dorati con un numero.",
+    "Uno è sull'urna, l'altro sul ragazzino.",
+    "Prendete le carte 6 e 9."
+   ]
+  },
+  {
+   "done": [
+    26
+   ],
+   "t": "Becco sulle travi",
+   "h": [
+    "Il ballottino vi dice dov'è Becco: carta 14.",
+    "Becco ha fame: combinate il panino con Becco.",
+    "Panino (12) + Becco (14) = carta 26."
+   ]
+  },
+  {
+   "done": [
+    36
+   ],
+   "t": "Le balote",
+   "h": [
+    "Le palline devono tornare da qualche parte.",
+    "Combinate le balote con l'urna.",
+    "Balote (30) + urna (6) = carta 36."
+   ]
+  },
+  {
+   "done": [
+    82
+   ],
+   "t": "Il registro dei votanti",
+   "h": [
+    "Nel taccuino (carta 11) contate solo chi VOTA.",
+    "La carta 40 vi dà un aiuto: 9 + 12 + 9 + 11 = 41.",
+    "41 + 41 = 82: carta 82."
+   ]
+  },
+  {
+   "done": [
+    529
+   ],
+   "t": "Quanto durò?",
+   "h": [
+    "Leggete bene la carta 50: ci sono due numeri da sommare.",
+    "500 + 29.",
+    "529: carta 529."
+   ]
+  }
+ ],
+ "test_path": [
+  2,
+  3,
+  4,
+  11,
+  12,
+  6,
+  9,
+  14,
+  "C12+14",
+  30,
+  "C30+6",
+  40,
+  82,
+  50,
+  529
+ ]
+}
