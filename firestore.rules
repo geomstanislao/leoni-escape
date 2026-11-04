@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /gara/{mese}/punteggi/{uid} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && request.auth.uid == uid
+        && mese.matches('^20[0-9]{2}-[01][0-9]$')
+        && request.resource.data.keys().hasOnly(['nick', 'punti', 'piume', 'tempo', 'quando'])
+        && request.resource.data.nick is string
+        && request.resource.data.nick.size() > 0
+        && request.resource.data.nick.size() <= 20
+        && request.resource.data.piume is int
+        && request.resource.data.piume >= 1
+        && request.resource.data.piume <= 10
+        && request.resource.data.tempo is int
+        && request.resource.data.tempo >= 60
+        && request.resource.data.punti is int
+        && request.resource.data.punti >= 0
+        && request.resource.data.punti <= request.resource.data.piume * 100 + 600
+        && request.resource.data.quando == request.time;
+      allow update, delete: if false;
+    }
+  }
+}
