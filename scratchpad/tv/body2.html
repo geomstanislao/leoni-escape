@@ -351,6 +351,7 @@
     ['k','f','a','g'].forEach(function(l){$('tab_'+l).classList.toggle('on',menuLevel===l);$('mlead_'+l).hidden=menuLevel!==l;});
     EPS.forEach(function(e,i){
       if(e.level!==menuLevel)return;
+      if(e.level==='g'&&e.month>curMonth())return;
       var st=G.eps[e.id],best=G.best[e.id];
       var tag=best!=null?'<span class="tag '+medalCls(best)+'">'+medalOf(best)+'</span>':(st&&st.started&&!st.won?'<span class="tag go">In corso</span>':'<span class="tag new">Da giocare</span>');
       var nt=Object.keys(e.tessere).length,got=Object.keys(e.tessere).filter(function(k){return G.tess[e.id+':'+k];}).length;
@@ -547,7 +548,7 @@
       case 'tab_k':case 'tab_f':case 'tab_a':case 'tab_g':menuLevel=b.id.slice(4);drawMenu();break;
       case 'btnFs':case 'btnFs2':toggleFs();break;
       case 'btnTv':show('ovTv');break;
-      case 'btnRank':var gm=EPS.filter(function(x){return x.level==='g';});showRank(gm.length?gm[gm.length-1].month:curMonth());break;
+      case 'btnRank':showRank(curMonth());break;
       case 'btnRank2':showRank(E.month);break;
       case 'btnRankClose':hide('ovRank');break;
       case 'btnSend':sendScore();break;
