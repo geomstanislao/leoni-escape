@@ -4,7 +4,7 @@ L, R, B, P, I, E, C, A, S, X = ('LUOGO','OGGETTO ROSSO','OGGETTO BLU','PERSONAGG
                                  'COMBINAZIONE','RISPOSTA','SBAGLIATO','SPECIALE')
 EP = {}
 
-EP['g2611'] = dict(level='g', month='2026-11',
+EP['g2611'] = dict(level='g', month='2026-11', map=['laguna','murano'],
  title="I segreti di Murano", place="Murano, verso il 1460",
  intro="Gara di novembre 2026. Angelo Barovier ha inventato il «cristallo», il primo vetro davvero trasparente, ma Becco ha messo sottosopra la sua fornace. Conta solo la prima partita: piume e tempo fanno i punti.",
  cards=[

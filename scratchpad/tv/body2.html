@@ -5,6 +5,7 @@
     <div class="clock" id="clock" aria-label="Tempo di gioco">00:00</div>
     <button class="tbtn leo" id="btnHint" type="button">Aiuto di Leo</button>
     <button class="tbtn" id="btnDiary" type="button">Diario</button>
+    <button class="tbtn" id="btnMap" type="button">Mappa</button>
     <button class="tbtn" id="btnMenu" type="button">Puntate</button>
     <button class="tbtn fsbtn" id="btnFs" type="button">Schermo intero</button>
   </header>
@@ -42,6 +43,7 @@
     <div class="row">
       <button class="bigbtn" id="btnRank" type="button" hidden>Classifica del mese</button>
       <button class="bigbtn alt" id="btnDiary2" type="button">Il Diario di Leo</button>
+      <button class="bigbtn alt" id="btnMaps" type="button">Mappe</button>
       <button class="bigbtn alt" id="btnRules2" type="button">Come si gioca</button>
       <button class="bigbtn alt" id="btnTv" type="button">Schermo intero e TV</button>
     </div>
@@ -139,6 +141,24 @@
     <h3>4. Con un cavo</h3>
     <p>Collegate un computer alla TV con un cavo HDMI, aprite il gioco e premete «Schermo intero» (o il tasto F11).</p>
     <div class="row"><button class="bigbtn alt" id="btnTvClose" type="button">Chiudi</button></div>
+  </div>
+</div>
+
+<div class="ov" id="ovMaps" hidden>
+  <div class="sheet mapsheet">
+    <div id="mapList">
+      <h2>Le mappe di Leo</h2>
+      <p>Ogni mappa si sblocca completando una puntata che si svolge in quei luoghi, a qualsiasi livello.</p>
+      <div class="maptiles" id="mapTiles"></div>
+    </div>
+    <div id="mapView" hidden>
+      <h2 id="mvTitle"></h2>
+      <div class="mapbox" id="mvSvg"></div>
+      <p class="mvhere" id="mvHere"></p>
+      <p id="mvIntro"></p>
+      <ol class="mvtime" id="mvTime"></ol>
+    </div>
+    <div class="row"><button class="bigbtn alt" id="btnMapBack" type="button">Tutte le mappe</button><button class="bigbtn alt" id="btnMapsClose" type="button">Chiudi</button></div>
   </div>
 </div>
 
@@ -395,6 +415,36 @@
     $('dcount').textContent='Avete scoperto '+got+' tessere della storia su '+total+'.';
     $('dlist').innerHTML=h;
   }
+  /* ---------- mappe ---------- */
+  var MAPS=DATA.maps||[];
+  var EPMAP={ep1:['veneti','este'],ep2:['veneti','padova'],ep3:['laguna','altino'],ep4:['laguna','malamocco'],ep5:['mar','alessandria'],ep6:['laguna','arsenale'],ep7:['laguna','venezia'],ep8:['mar','acri'],ep9:['mar','lepanto'],ep10:['terra','venezia'],a1:['laguna','venezia'],a2:['laguna','rialto'],a3:['laguna','lazzaretto']};
+  function baseId(id){var m=/^(ep\d+|a\d)[kfa]?$/.exec(id);return m?m[1]:id;}
+  function epMap(e){if(!e)return null;if(e.map)return e.map;return EPMAP[baseId(e.id)]||null;}
+  function mapOpen(mid){return EPS.some(function(e){var m=epMap(e);return m&&m[0]===mid&&G.best[e.id]!=null;});}
+  function drawMaps(){
+    $('mapList').hidden=false;$('mapView').hidden=true;$('btnMapBack').hidden=true;
+    var box=$('mapTiles');box.innerHTML='';
+    MAPS.forEach(function(m){
+      var ok=mapOpen(m.id),b=document.createElement('button');b.type='button';b.className='maptile'+(ok?'':' locked');
+      var t=document.createElement('b');t.textContent=ok?m.title:'Mappa da scoprire';
+      var p=document.createElement('span');
+      if(ok)p.textContent=m.intro.slice(0,90)+'…';
+      else{var eps=EPS.filter(function(e){var x=epMap(e);return x&&x[0]===m.id&&e.level==='f';}).map(function(e){return e.title;});p.textContent='Completate '+(eps.length?'«'+eps.slice(0,2).join('» o «')+'»':'una puntata')+' per sbloccarla.';}
+      b.appendChild(t);b.appendChild(p);
+      if(ok)b.addEventListener('click',function(){openMap(m.id,null);});
+      box.appendChild(b);
+    });
+  }
+  function openMap(mid,key){
+    var m=MAPS.filter(function(x){return x.id===mid;})[0];if(!m)return;
+    $('mapList').hidden=true;$('mapView').hidden=false;$('btnMapBack').hidden=false;
+    $('mvTitle').textContent=m.title;$('mvSvg').innerHTML=m.svg;$('mvIntro').textContent=m.intro;
+    var ol=$('mvTime');ol.innerHTML='';
+    m.time.forEach(function(r){var li=document.createElement('li'),y=document.createElement('b');y.textContent=r[0];li.appendChild(y);li.appendChild(document.createTextNode(' '+r[1]));ol.appendChild(li);});
+    var here='';
+    if(key){Array.prototype.forEach.call($('mvSvg').querySelectorAll('.pl'),function(g){if((' '+g.getAttribute('data-k')+' ').indexOf(' '+key+' ')>=0){g.classList.add('here');here=g.textContent.trim();}});}
+    $('mvHere').textContent=here?'Siete qui: '+here.replace(/\s+/g,' ')+'.':'';$('mvHere').hidden=!here;
+  }
   /* ---------- gara del mese ---------- */
   var FBV='10.12.2',FBP=null;
   function fb(){
@@ -470,7 +520,7 @@
   }
 
   /* ---------- overlays ---------- */
-  var OVS=['ovStart','ovEp','ovZoom','ovHint','ovDiary','ovRules','ovTv','ovRank','ovWin'];
+  var OVS=['ovStart','ovEp','ovZoom','ovHint','ovDiary','ovRules','ovTv','ovRank','ovMaps','ovWin'];
   function topOv(){for(var i=OVS.length-1;i>=0;i--){if(!$(OVS[i]).hidden)return $(OVS[i]);}return null;}
   function show(id){
     if(!topOv())lastFocus=document.activeElement;
@@ -548,6 +598,10 @@
       case 'tab_k':case 'tab_f':case 'tab_a':case 'tab_g':menuLevel=b.id.slice(4);drawMenu();break;
       case 'btnFs':case 'btnFs2':toggleFs();break;
       case 'btnTv':show('ovTv');break;
+      case 'btnMaps':drawMaps();show('ovMaps');break;
+      case 'btnMap':var mm=epMap(E);if(mm){openMap(mm[0],mm[1]);show('ovMaps');}else{drawMaps();show('ovMaps');}break;
+      case 'btnMapBack':drawMaps();break;
+      case 'btnMapsClose':hide('ovMaps');break;
       case 'btnRank':showRank(curMonth());break;
       case 'btnRank2':showRank(E.month);break;
       case 'btnRankClose':hide('ovRank');break;

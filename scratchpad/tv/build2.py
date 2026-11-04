@@ -64,7 +64,7 @@ import glob as _g
 spec4=json.load(open(SD+'episodi/spec4.json')) if os.path.exists(SD+'episodi/spec4.json') else {}
 for k in sorted(spec4):
     if not os.path.exists(SD+'episodi/%s_cards.json'%k): continue
-    e=from_spec(k,spec4); e.pop('adult',None); e['level']='g'; e['month']=spec4[k]['month']; base.append(e)
+    e=from_spec(k,spec4); e.pop('adult',None); e['level']='g'; e['month']=spec4[k]['month']; e['map']=spec4[k].get('map') or ['laguna','venezia']; base.append(e)
 BY={e['id']:e for e in base}
 import copy
 LV=json.load(open(SD+'episodi/levels.json'))
@@ -129,8 +129,13 @@ for e in eps:
         if h not in PI: PI[h]=len(pool); pool.append(h)
         m[k]=PI[h]
     e['cards']=m
+MAPS=[]
+if os.path.exists(SD+'maps/maps.json'):
+    INFO=json.load(open(SD+'maps/info.json'))
+    for m in json.load(open(SD+'maps/maps.json')):
+        m.update(intro=INFO[m['id']]['intro'],time=INFO[m['id']]['time']); MAPS.append(m)
 FBC=json.load(open(SD+'gara/firebase.json')) if os.path.exists(SD+'gara/firebase.json') else None
-data=json.dumps({'episodes':eps,'pool':pool,'svgs':spool,'firebase':FBC},ensure_ascii=False).replace('</','<\\/').replace('<!--','<\\!--')
+data=json.dumps({'episodes':eps,'pool':pool,'svgs':spool,'firebase':FBC,'maps':MAPS},ensure_ascii=False).replace('</','<\\/').replace('<!--','<\\!--')
 t=open(TV+'template.html').read()
 css=open(TV+'extra.css').read()
 head=t[:t.index('<div class="app"')].replace('</style>',css+'</style>',1)
