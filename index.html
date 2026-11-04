@@ -189,6 +189,23 @@ button:focus-visible,button.kfocus{outline:.22rem solid var(--gold);outline-offs
 @keyframes pop{from{transform:translate(-50%,1rem);opacity:0}}
 @media (max-height:600px){.epcard{padding:.5rem .7rem}.ept{font-size:1.3rem}.epp{font-size:.8rem}.eplist{grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:.5rem}}
 @media (max-width:640px){.eplist{grid-template-columns:1fr 1fr;gap:.45rem}.epcard{padding:.45rem .6rem;gap:.12rem}.epn{font-size:.65rem}.ept{font-size:1.05rem}.epp{display:none}.epf{margin-top:.1rem;gap:.3rem}.tag,.tcount{font-size:.66rem}.mlead{font-size:.85rem}}
+/* keypad like a phone: 1 2 3 / 4 5 6 / 7 8 9 / del 0 OK — on every screen */
+@media (max-aspect-ratio:1/1),(max-height:600px){
+  .pad{grid-template-columns:repeat(3,1fr)}
+  .key[data-k="del"]{order:1;grid-column:auto}.key[data-k="0"]{order:2}.key.ok{order:3;grid-column:auto}
+}
+@media (max-aspect-ratio:1/1){
+  .table h2{display:none}
+  .side{display:grid;grid-template-columns:1fr 1.15fr;grid-template-areas:"leo pad" "disp pad" "comb pad";grid-template-rows:1fr auto auto;gap:.4rem}
+  .entry{display:contents}
+  .leobox{grid-area:leo;font-size:.85rem;line-height:1.25;overflow:hidden}
+  .display{grid-area:disp;flex-direction:column;align-items:flex-start;padding:.2rem .6rem}
+  .display span{font-size:.75rem}.display output{font-size:1.8rem;align-self:flex-end}
+  .pad{grid-area:pad;gap:.3rem;background:var(--panel);border:.15rem solid #4a3424;border-radius:.8rem;padding:.35rem}
+  .key{font-size:1.35rem;padding:.3rem 0}
+  .combine{grid-area:comb;font-size:.8rem;padding:.35rem .3rem}
+}
+@media (max-height:600px){.side{flex-basis:clamp(13rem,28vw,20rem)}.table h2{display:none}}
 </style>
 
 </head>
